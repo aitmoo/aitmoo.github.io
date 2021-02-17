@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云淡风轻 || 用python实现超星学习通自动签到</title>
+    <meta name="author" content="Ne-21">
+    <meta name="description" content="放弃不难，但坚持一定很酷。 ">
+    <meta name="keywords" content="云淡风轻, hexo, various, python, html, 小刀娱乐网, 编程, 自学 ">
+    <link rel="icon" href="/https://imgs.521daigua.cn/blog/tx.jpeg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">云淡风轻</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>首页</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="about" theme="filled" />
+            </span>
+            <span>关于</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="archives" theme="filled" />
+            </span>
+            <span>归档</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="categories" theme="filled" />
+            </span>
+            <span>分类</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>标签</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>云淡风轻</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">首页</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="about" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">关于</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="archives" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">归档</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="categories" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">分类</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">标签</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>用python实现超星学习通自动签到 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/6/9
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/python" style=color:#ffa2c4>
+                    python
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h1 id="依赖库"><a href="#依赖库" class="headerlink" title="依赖库"></a>依赖库</h1><ul>
+<li>requests</li>
+<li>pillow</li>
+<li>lxml</li>
+</ul>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p>1.测试环境为python3.7+,自行安装python3<br>2.安装所需第三方模块，依次执行<code>pip install requests</code>、<code>pip install pillow</code>、<code>pip install lxml</code><br>3.Python 和需要模块都装好了直接在目录 cmd 运行所需脚本。</p>
+<h1 id="脚本代码"><a href="#脚本代码" class="headerlink" title="脚本代码"></a>脚本代码</h1><pre><code>import requests,time,json,re,base64
+from io import BytesIO
+requests.packages.urllib3.disable_warnings()
+from PIL import Image,ImageDraw,ImageChops
+from lxml import etree
+from urllib.parse import urlparse, parse_qs
+
+username = &quot;&quot;   #登录账号
+password = &quot;&quot;   #登录密码
+sckey = &quot;&quot;      #Server酱推送提醒key
+
+s = requests.Session()
+s.headers.update(&#123;&#39;User-Agent&#39;:&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36&#39;&#125;)
+activates = []
+
+def sign(aid, uid):
+    global activates
+    url = &quot;https://mobilelearn.chaoxing.com/pptSign/stuSignajax?activeId=&quot; + aid + &quot;&amp;uid=&quot; + uid + &quot;&amp;clientip=&amp;latitude=-1&amp;longitude=-1&amp;appType=15&amp;fid=0&quot;
+    res = s.get(url,verify=False)
+    if (res.text == &quot;success&quot;):
+        print(&quot; 签到成功！&quot;)
+        if sckey != &quot;&quot;:
+            data = &#123;
+                &quot;text&quot; : &quot;签到成功&quot;,
+                &quot;desp&quot; : &quot;aid&quot; + str(aid)
+                &#125;
+            sckeyurl = &quot;http://sc.ftqq.com/&quot;+str(sckey)+&quot;.send&quot;
+            web = s.post(sckeyurl, data=data, verify=False)
+        activates.append(aid)
+    elif(res.text == &quot;您已签到过了&quot;):
+        print(res.text)
+        activates.append(aid)
+    else:
+        if sckey != &quot;&quot;:
+            data = &#123;
+                &quot;text&quot; : &quot;签到失败&quot;,
+                &quot;desp&quot; : &quot;aid&quot; + str(aid)
+                &#125;
+            sckeyurl = &quot;http://sc.ftqq.com/&quot;+str(sckey)+&quot;.send&quot;
+            web = s.post(sckeyurl, data=data, verify=False)
+        print(&quot;签到失败&quot;)
+
+
+
+def login():
+    global uid,username,password
+    if(username == &quot;&quot; or password == &quot;&quot;):
+        username = input(&quot;登录账号：&quot;)
+        password = input(&quot;登录密码：&quot;)
+    #旧接口，已失效
+    #url=&quot;http://i.chaoxing.com/vlogin?passWord=&quot;+str(password)+&quot;&amp;userName=&quot;+str(username)
+    url = f&#39;https://passport2-api.chaoxing.com/v11/loginregister?uname=&#39;+str(username)+&#39;&amp;code=&#39;+str(password)
+    res= s.get(url)
+    if(&quot;验证通过&quot; in str(res.text)):
+        print(&#39;Login success!&#39;)
+        for key, value in res.cookies.items():
+            if key==&quot;_uid&quot;:
+                uid=value
+        return s
+    else:
+        print(username,password)
+        print(&#39;账号密码有误，请重试。&#39;)
+        username = &quot;&quot;
+        password = &quot;&quot;
+        login()
+
+
+
+
+def getuserdata():
+    web = s.get(&#39;http://mooc1-1.chaoxing.com/visit/courses&#39;)
+    h1 = etree.HTML(web.text)
+    name = h1.xpath(&#39;//h3[@class = &quot;clearfix&quot;]/a/text()&#39;)
+    print(&quot;-----------课程名称-----------&quot;)
+    print(name)
+    print(&quot;------------------------------&quot;)
+    global count
+    try:
+        count
+    except NameError:
+        count_exist = False
+    else:
+        count_exist = True
+    if(count_exist):
+        pass
+    else:
+        if(len(name) == 1):
+            count = 0
+        else:
+            #count = 0
+            count = int(input(&quot;请用数字选择要签到的课程(从0开始)：&quot;))
+    geturl = h1.xpath(&#39;//div[@class = &quot;Mcon1img httpsClass&quot;]/a/@href&#39;)
+    i = 0
+    courseurl = []
+    for temp in range(0,len(geturl)):
+        if(&quot;/mycourse/studentcourse&quot; in geturl[i]):
+            courseurl.append(geturl[i])
+        i += 1
+    url = &#39;https://mooc1-1.chaoxing.com&#39; + courseurl[count]
+    url_query = urlparse(url).query
+    userdata = dict([(k, v[0]) for k, v in parse_qs(url_query).items()])
+    global courseId, classId
+    courseId = userdata[&quot;courseId&quot;]
+    classId = userdata[&quot;clazzid&quot;]
+
+def main():
+    getuserdata()
+    while 1:
+        url = f&#39;https://mobilelearn.chaoxing.com/ppt/activeAPI/taskactivelist?courseId=&#39;+courseId+&#39;&amp;classId=&#39;+classId+&#39;&amp;uid=&#39;+str(uid)
+        web = s.get(url,verify=False)
+        activeList = json.loads(web.text)[&quot;activeList&quot;]
+        for item in activeList:
+            if (&quot;nameTwo&quot; not in item):
+                continue
+            if (item[&#39;activeType&#39;] == 2 and item[&#39;status&#39;] == 1):
+                signurl = item[&#39;url&#39;]
+                var = signurl.split(&quot;&amp;&quot;)
+                for var1 in var:
+                    var2 = var1.split(&quot;=&quot;)
+                    if(var2[0] == &quot;activePrimaryId&quot;):
+                        aid = var2[1]
+                if (aid not in activates):
+                    print(&quot;查询到签到 名称:%s 活动时间:%s aid:%s&quot; % (
+                        item[&#39;nameOne&#39;], item[&#39;nameFour&#39;], aid))
+                    sign(aid, uid)
+            else:
+                time.sleep(3)
+                print(&quot;签到暂未开通&quot;)    
+
+if __name__ == &quot;__main__&quot;:
+    print(&quot;登录成功后等待签到开始&quot;)
+    try:
+        #captchalogin(username,password)
+        login()
+        main()
+    except Exception as e:
+        print(&#39;repr(e):&#39;, repr(e))
+   
+</code></pre>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>1.需要手机号登录，无fid信息无法使用院校学号登录<br>2.如果需要使用学号登录，自己或许院校fid信息，并修改代码中的fid信息<br>3.如果首次登录提示错误，关闭程序再打开试试<br>4.如果抓不到课程信息什么的，可能需要自己查询html自己修改xpath</p>
+<h1 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h1><p><a target="_blank" rel="noopener" href="https://github.com/mengshouer/mooc_tools">https://github.com/mengshouer/mooc_tools</a></p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2019 - 2021 云淡风轻
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Ne-21
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                <a target="_blank" href="https://www.beian.miit.gov.cn" rel="nofollow noopener">冀ICP备19031443号</a><br><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://imgs.521daigua.cn/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" width="300px" height="20px"></a><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?46c8202ccbfe91fef8f7d5fddc0ce94a";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

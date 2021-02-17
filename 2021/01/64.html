@@ -1,0 +1,515 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云淡风轻 || scrapy框架的命令行解释</title>
+    <meta name="author" content="Ne-21">
+    <meta name="description" content="放弃不难，但坚持一定很酷。 ">
+    <meta name="keywords" content="云淡风轻, hexo, various, python, html, 小刀娱乐网, 编程, 自学 ">
+    <link rel="icon" href="/https://imgs.521daigua.cn/blog/tx.jpeg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">云淡风轻</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>首页</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="about" theme="filled" />
+            </span>
+            <span>关于</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="archives" theme="filled" />
+            </span>
+            <span>归档</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="categories" theme="filled" />
+            </span>
+            <span>分类</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>标签</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>云淡风轻</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">首页</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="about" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">关于</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="archives" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">归档</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="categories" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">分类</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">标签</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>scrapy框架的命令行解释 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/1/29
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/python" style=color:#ffa2c4>
+                    python
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <blockquote>
+<p>Scrapy 是通过 scrapy 命令行工具进行控制的。 这里我们称之为 “Scrapy tool” 以用来和子命令进行区分。对于子命令，我们称为 “command” 或者 “Scrapy commands”。Scrapy tool 针对不同的目的提供了多个命令，每个命令支持不同的参数和选项。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="创建爬虫项目"><a href="#创建爬虫项目" class="headerlink" title="创建爬虫项目"></a>创建爬虫项目</h1><ul>
+<li><p><code>scrapy startproject 项目名</code></p>
+<blockquote>
+<pre><code class="shell">(venv) D:\python\爬虫学习\scrapy_spider&gt;scrapy startproject testproject
+New Scrapy project &#39;testproject&#39;, using template directory &#39;d:\python\venv\lib\site-pack
+ages\scrapy\templates\project&#39;, created in:
+    D:\python\爬虫学习\scrapy_spider\testproject
+You can start your first spider with:
+    cd testproject
+    scrapy genspider example example.com
+</code></pre>
+</blockquote>
+<p>这个时候爬虫的目录结构就已经创建完成了,目录结构如下：</p>
+<blockquote>
+<pre><code class="shell">(venv) D:\python\爬虫学习\scrapy_spider\testproject&gt;tree /f
+卷 DATADRIVE1 的文件夹 PATH 列表
+卷序列号为 4A47-5EA3
+D:.
+│  scrapy.cfg
+│
+└─testproject
+    │  items.py
+    │  middlewares.py
+    │  pipelines.py
+    │  settings.py
+    │  __init__.py
+    │
+    └─spiders
+            __init__.py
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<p>接着我们按照提示可以生成一个spider,这里以百度作为例子,生成spider的命令格式为;</p>
+<ul>
+<li><p><code>scrapy genspider 爬虫名字 爬虫的网址</code></p>
+<blockquote>
+<pre><code class="shell">(venv) D:\python\爬虫学习\scrapy_spider\testproject&gt;scrapy genspider baidu.com www.baidu
+.com
+Created spider &#39;baidu.com&#39; using template &#39;basic&#39; in module:
+  testproject.spiders.baidu_com
+</code></pre>
+</blockquote>
+</li>
+<li><p><code>scrapy crawl 爬虫名字</code>      开始运行爬虫</p>
+</li>
+</ul>
+<h1 id="关于命令详细使用"><a href="#关于命令详细使用" class="headerlink" title="关于命令详细使用"></a>关于命令详细使用</h1><p>这里的命令分为全局的命令和项目的命令，全局的命令表示可以在任何地方使用，而项目的命令只能在项目目录下使用</p>
+<ul>
+<li><p>全局命令</p>
+<ul>
+<li><p>startproject</p>
+<pre><code class="shell"># 创建项目
+scrapy startprojects 项目名
+</code></pre>
+</li>
+<li><p>genspider</p>
+<pre><code class="shell"># 列出所有的模版
+scrapy genspider -l
+# 运行结果
+(venv) D:\python\爬虫学习\scrapy_spider\testproject&gt;scrapy genspider -l
+Available templates:
+  basic
+  crawl
+  csvfeed
+  xmlfeed
+
+# 当我们创建的时候可以指定模板，不指定默认用的basic,如果想要指定模板则通过
+scrapy genspider -t 模板名
+# 生成一个项目crawl模版
+scrapy genspider -t crawl zhihu wwww.zhihu.com
+</code></pre>
+</li>
+<li><p>settings</p>
+<pre><code class="shell"># 获取帮助信息
+scrapy settings -h 
+# 获取settings.py中的配置
+scrapy settings --get 配置名
+# 例子获取settings.py中的MONGO_URL
+(venv) D:\python\爬虫学习\scrapy_spider\quotetutorial&gt;scrapy settings --get MONGO_URL
+localhost
+</code></pre>
+</li>
+<li><p>runspider</p>
+<pre><code class="shell"># 运行爬虫
+scrapy runspider 爬虫名
+</code></pre>
+</li>
+<li><p>shell</p>
+<pre><code class="shell"># 进入交互模式
+scrapy shell 爬虫网址
+# 例子
+(venv) D:\python\爬虫学习\scrapy_spider\testproject&gt;scrapy shell http://baidu.com
+
+&gt; (referer: None)
+[s] Available Scrapy objects:
+[s]   scrapy     scrapy module (contains scrapy.Request, scrapy.Selector, etc)
+[s]   crawler    &lt;scrapy.crawler.Crawler object at 0x000001D3C1D5E1F0&gt;
+[s]   item       &#123;&#125;
+[s]   request    &lt;GET http://baidu.com&gt;
+[s]   response   &lt;200 http://www.baidu.com/&gt;
+[s]   settings   &lt;scrapy.settings.Settings object at 0x000001D3C1D5E100&gt;
+[s]   spider     &lt;DefaultSpider &#39;default&#39; at 0x1d3c2218e80&gt;
+[s] Useful shortcuts:
+[s]   fetch(url[, redirect=True]) Fetch URL and update local objects (by default, redire
+cts are followed)
+[s]   fetch(req)                  Fetch a scrapy.Request and update local objects
+[s]   shelp()           Shell help (print this help)
+[s]   view(response)    View response in a browser
+&gt;&gt;&gt; scrapy
+&lt;module &#39;scrapy&#39; from &#39;d:\\python\\venv\\lib\\site-packages\\scrapy\\__init__.py&#39;&gt;
+&gt;&gt;&gt; exit()
+</code></pre>
+</li>
+<li><p>fetch</p>
+<blockquote>
+<p>使用 Scrapy 下载器(downloader)下载给定的 URL，并将获取到的内容送到标准输出。<br>该命令以 spider 下载页面的方式获取页面。例如，如果 spider 有 USER_AGENT 属性修改了 User Agent，该命令将会使用该属性。<br>因此，您可以使用该命令来查看 spider 如何获取某个特定页面。<br>该命令如果非项目中运行则会使用默认 Scrapy downloader 设定。</p>
+</blockquote>
+<pre><code class="shell"># 输出日志及网页源代码
+scrapy fetch 爬虫网址
+# 不显示运行日志
+scrapy fetch --nolog 爬虫网址
+# 打印响应头信息
+scrapy fetch --headers 爬虫网址
+# 不做跳转
+scrapy fetch --no-redirect 爬虫网址
+</code></pre>
+</li>
+<li><p>view</p>
+<blockquote>
+<p>在浏览器中打开给定的 URL，并以 Scrapy spider 获取到的形式展现。 有些时候 spider 获取到的页面和普通用户看到的并不相同。 因此该命令可以用来检查 spider 所获取到的页面，并确认这是您所期望的。</p>
+</blockquote>
+<pre><code class="shell"># view 从浏览器中打开网页
+scrapy view http://www.taobao.com
+</code></pre>
+<p>因为现在很多网站的数据都是通过ajax请求来加载的，这个时候直接通过requests请求是无法获取我们想要的数据，所以这个view命令可以帮助我们很好的判断</p>
+</li>
+<li><p>version</p>
+<pre><code># 查看版本信息，并查看依赖库的信息
+scrapy version
+scrapy version -v
+
+# 运行结果
+(venv) D:\python\爬虫学习\scrapy_spider\quotetutorial\quotetutorial&gt;scrapy version
+Scrapy 2.4.1
+
+(venv) D:\python\爬虫学习\scrapy_spider\quotetutorial\quotetutorial&gt;scrapy version -v
+Scrapy       : 2.4.1
+lxml         : 4.5.0.0
+libxml2      : 2.9.5
+cssselect    : 1.1.0
+parsel       : 1.6.0
+w3lib        : 1.22.0
+Twisted      : 20.3.0
+Python       : 3.8.6 (tags/v3.8.6:db45529, Sep 23 2020, 15:52:53) [MSC v.1927 64 bit (AM
+D64)]
+pyOpenSSL    : 20.0.1 (OpenSSL 1.1.1i  8 Dec 2020)
+cryptography : 3.3.1
+Platform     : Windows-10-10.0.17763-SP0
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>项目命令</p>
+<ul>
+<li><p>crawl</p>
+<blockquote>
+<p>这个是用去启动spider爬虫格式为：<br><code>scrapy crawl 爬虫名字</code><br>这里需要注意这里的爬虫名字和通过scrapy genspider 生成爬虫的名字是一致的</p>
+</blockquote>
+</li>
+<li><p>check</p>
+<blockquote>
+<p>用于检查代码是否有错误</p>
+<p><code>scrapy check</code></p>
+<pre><code class="shell">(venv) D:\python\爬虫学习\scrapy_spider\testproject&gt;scrapy check
+
+----------------------------------------------------------------------
+Ran 0 contracts in 0.001s
+
+OK
+</code></pre>
+</blockquote>
+</li>
+<li><p>list</p>
+<blockquote>
+<p>列出所有可用的爬虫</p>
+<p><code>scrapy list</code></p>
+<pre><code class="shell">(venv) D:\python\爬虫学习\scrapy_spider\testproject&gt;scrapy list
+baidu.com
+zhihu
+</code></pre>
+</blockquote>
+</li>
+<li><p>edit</p>
+<blockquote>
+<p>edit 在命令行下编辑spider ### 不建议运行<br><code>scrapy edit 爬虫名</code></p>
+</blockquote>
+</li>
+<li><p>parse</p>
+<blockquote>
+<p>获取给定的 URL 并使用相应的 spider 分析处理。如果您提供<code>--callback</code> 选项，则使用 spider 的该方法处理，否则使用 <code>parse</code>。</p>
+<p><code>scrapy parse 爬虫网址 [options]</code></p>
+<p>支持的选项：</p>
+<ul>
+<li><code>--spider=SPIDER</code>：跳过自动检测 spider 并强制使用特定的 spider</li>
+<li><code>--a NAME=VALUE</code>：设置 spider 的参数(可能被重复)</li>
+<li><code>--callback or -c</code>：spider 中用于解析返回(response)的回调函数</li>
+<li><code>--pipelines</code>：在 pipeline 中处理 item</li>
+<li><code>--rules or -r</code>：使用 CrawlSpider 规则来发现用来解析返回(response)的回调函数</li>
+<li><code>--noitems</code>：不显示爬取到的 item</li>
+<li><code>--nolinks</code>：不显示提取到的链接</li>
+<li><code>--nocolour</code>：避免使用 pygments 对输出着色</li>
+<li><code>--depth or -d</code>：指定跟进链接请求的层次数(默认：1)</li>
+<li><code>--verbose or -v</code>：显示每个请求的详细信息</li>
+</ul>
+</blockquote>
+</li>
+<li><p>bench</p>
+<blockquote>
+<p>运行 benchmark 测试。Benchmarking。</p>
+<p><code>scrapy bench</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2019 - 2021 云淡风轻
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Ne-21
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                <a target="_blank" href="https://www.beian.miit.gov.cn" rel="nofollow noopener">冀ICP备19031443号</a><br><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://imgs.521daigua.cn/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" width="300px" height="20px"></a><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?46c8202ccbfe91fef8f7d5fddc0ce94a";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

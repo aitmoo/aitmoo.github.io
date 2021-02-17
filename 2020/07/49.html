@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云淡风轻 || 超星学习通上锁视频进入原理与实现</title>
+    <meta name="author" content="Ne-21">
+    <meta name="description" content="放弃不难，但坚持一定很酷。 ">
+    <meta name="keywords" content="云淡风轻, hexo, various, python, html, 小刀娱乐网, 编程, 自学 ">
+    <link rel="icon" href="/https://imgs.521daigua.cn/blog/tx.jpeg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">云淡风轻</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>首页</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="about" theme="filled" />
+            </span>
+            <span>关于</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="archives" theme="filled" />
+            </span>
+            <span>归档</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="categories" theme="filled" />
+            </span>
+            <span>分类</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>标签</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>云淡风轻</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">首页</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="about" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">关于</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="archives" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">归档</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="categories" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">分类</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">标签</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>超星学习通上锁视频进入原理与实现 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/7/2
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/web" style=color:#ff7d73>
+                    web
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <blockquote>
+<p>相信大家都应该知道，这个学期的线上学习成绩占的比重很大吧，我们差不多占到了50%左右，这是什么概念？这就意味着返校考试划划水就可以过了。那这个线上学习的成绩大部分来自于学习通中视频的观看，鉴于学习通（du）经常性的抽风，导致我们进不去，再加上老师过了一段时间就将视频上锁，我们想学习都学不了（我要分数！我要分数！我要分数！）<br>为了省去找老师费嘴皮子求开视频的麻烦，我果断自己动手了，这篇文章就来告诉大家如何解决这个问题，成功看完视频拿到视频平时分。</p>
+</blockquote>
+<a id="more"></a>
+
+<p>这个教程分两个部分，第一部分-进后台（看自己那个视频没看），第二部分-进入视频（进入上锁视频完成观看）<br><strong>转载请注明原文链接</strong></p>
+<h1 id="如何进入后台"><a href="#如何进入后台" class="headerlink" title="如何进入后台"></a>如何进入后台</h1><p><img src="https://ae01.alicdn.com/kf/Hfad9a10c57a04f498e505be61ef4a814O.jpg" alt="1"></p>
+<p>进入后台的链接地址：<br><code>https://mooc1-1.chaoxing.com/moocAnalysis/chapterStatisticByUser?classId=你的classId&amp;courseId=你的courseId&amp;userId=你的userId&amp;ut=s</code><br>注意：大部分后台地址都是这个，如果进不去可以联系我</p>
+<p>ok，现在我们只需要解决这三个参数就可以进入后台了</p>
+<ul>
+<li>获取参数</li>
+</ul>
+<p>1.进入课程，鼠标右键，选择<code>查看网页源代码</code><br><img src="https://ae01.alicdn.com/kf/H519183b14185402683726706f7eef4b3B.jpg" alt="2"><br>2.在新弹出来的页面进行查找(快捷键ctrl+F)，查找字段<code>moocId</code>（搜索不到请搜索<code>gv</code>或者直接搜索<code>classId</code>、<code>courseId</code>、<code>userId</code>)<br><img src="https://ae01.alicdn.com/kf/H752205810f2a4063a9cac1d395d57a07r.jpg" alt="3"><br><strong>注意看图中的对应信息</strong><br>3.将获取的三个参数填入上述网址，回车进入后台</p>
+<h1 id="如何进入上锁视频"><a href="#如何进入上锁视频" class="headerlink" title="如何进入上锁视频"></a>如何进入上锁视频</h1><p>我们现在已经进入后台了，那么我们就可以看到那些视频是我们看完的，哪些是没有看的。<br><img src="https://ae01.alicdn.com/kf/H47e46556dd714b079765c34011c62847W.jpg" alt="4"></p>
+<p>ok,我们已经找到那些视频没看了，返回我们的课程，找一个可以进去的任务点<br><img src="https://ae01.alicdn.com/kf/H5c72327bb36d409faaec17bbde0ea4e7E.jpg" alt="5"></p>
+<p>1.在这个页面按F12<br><img src="https://ae01.alicdn.com/kf/Hdc28590ef6a646fa811a9aade4dae841A.jpg" alt="6"><br>2.认真看下图<br><img src="https://ae01.alicdn.com/kf/H3f7c614ccd584933aa33a2ce8230e3a95.jpg" alt="7"><br>3.认真看下图<br><img src="https://ae01.alicdn.com/kf/Hd2383ad42e12400d8489890292999accH.jpg" alt="8"><br>4.在在图中所示位置输入<code>javascript:getTeacherAjax(&#39;你的courseId&#39;,&#39;你的classId&#39;,&#39;上图获得的cur后面的数字&#39;);</code>然后按回车，奇妙的事情发生了<br><img src="https://ae01.alicdn.com/kf/Hf9c186bd32d94c54b1e6f0122b0bdb8aX.jpg" alt="9"></p>
+<p>我们已经进入上锁视频了，教程结束</p>
+<h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><p>经过测试，上锁视频看完后台进度是加的，视频的分数是加的，对于未完成的上锁作业应该是不能提交，具体自己摸索吧</p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2019 - 2021 云淡风轻
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Ne-21
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                <a target="_blank" href="https://www.beian.miit.gov.cn" rel="nofollow noopener">冀ICP备19031443号</a><br><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://imgs.521daigua.cn/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" width="300px" height="20px"></a><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?46c8202ccbfe91fef8f7d5fddc0ce94a";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

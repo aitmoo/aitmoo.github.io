@@ -1,0 +1,537 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云淡风轻 || 使用Selenium模拟浏览器抓取淘宝商品美食信息（含模拟登陆）</title>
+    <meta name="author" content="Ne-21">
+    <meta name="description" content="放弃不难，但坚持一定很酷。 ">
+    <meta name="keywords" content="云淡风轻, hexo, various, python, html, 小刀娱乐网, 编程, 自学 ">
+    <link rel="icon" href="/https://imgs.521daigua.cn/blog/tx.jpeg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">云淡风轻</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>首页</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="about" theme="filled" />
+            </span>
+            <span>关于</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="archives" theme="filled" />
+            </span>
+            <span>归档</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="categories" theme="filled" />
+            </span>
+            <span>分类</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>标签</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>云淡风轻</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">首页</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="about" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">关于</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="archives" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">归档</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="categories" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">分类</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">标签</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>使用Selenium模拟浏览器抓取淘宝商品美食信息（含模拟登陆） </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/1/26
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/python" style=color:#00bcd4>
+                    python
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <blockquote>
+<p>淘宝页面比较复杂，含有各种请求参数和加密参数，如果直接请求或者分析Ajax将会非常繁琐。<br>Selenium是一个自动化测试工具，可以驱动浏览器去完成各种工作，比如模拟点击、输入和下拉等多种功能，这样我们只需关心操作，<br>不需要关心后台发生了怎么样的请求下面对具体操作步骤进行详述。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="所用到的"><a href="#所用到的" class="headerlink" title="所用到的"></a>所用到的</h1><ul>
+<li>selenium</li>
+<li>pyqurey</li>
+<li>re</li>
+<li>pymongo</li>
+</ul>
+<h1 id="数据库截图"><a href="#数据库截图" class="headerlink" title="数据库截图"></a>数据库截图</h1><p><img src="https://p.pstatp.com/origin/138b50000ce987945cfe4"></p>
+<h1 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h1><pre><code># -*- coding: utf-8 -*-
+&quot;&quot;&quot;
+@Time ： 2021/1/25 17:02
+@Auth ： Ne-21
+@File ：taobaospider.py
+@IDE ：PyCharm
+@Motto：Another me.
+&quot;&quot;&quot;
+import re
+from selenium.common.exceptions import TimeoutException
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver import ActionChains
+import time
+from pyquery import PyQuery as pq
+import pymongo
+
+# Mongo数据库
+MONGO_URL = &#39;localhost&#39;
+MONGO_DB = &#39;taobao&#39;
+MONGO_TABLE = &#39;product&#39;
+client = pymongo.MongoClient(MONGO_URL)
+db = client[MONGO_DB]
+
+options = webdriver.ChromeOptions()
+# options.add_argument(&#39;--blink-settings=imagesEnabled=false&#39;) # 不加载图片, 提升速度
+# options.add_argument(&#39;--headless&#39;) # 浏览器不提供可视化页面
+browser = webdriver.Chrome(options=options)
+# 防止被监测
+browser.execute_cdp_cmd(&quot;Page.addScriptToEvaluateOnNewDocument&quot;, &#123;
+    &quot;source&quot;: &#39;&#39;&#39;
+            Object.defineProperty(navigator, &#39;webdriver&#39;, &#123;
+              get: () =&gt; undefined
+            &#125;)
+          &#39;&#39;&#39;
+&#125;)
+wait = WebDriverWait(browser, 5)
+
+
+def do_slider():
+    &quot;&quot;&quot;
+    处理滑动验证码，没有测试
+    :return:
+    &quot;&quot;&quot;
+    slider_go = wait.until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, &#39;#nc_1_n1z&#39;))
+    )
+    # 实例化一个动作链关联游览器
+    action = ActionChains(browser)
+    action.reset_actions()
+    # 使用鼠标动作链进行点击并悬浮
+    action.click_and_hold(slider_go)
+    # 滑动验证码
+    action.move_by_offset(xoffset=258, yoffset=0).perform()
+    time.sleep(5)
+
+
+def login(username, password):
+    print(&#39;正在登陆......&#39;)
+    browser.get(&#39;https://login.taobao.com/member/login.jhtml&#39;)
+    input_username = wait.until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, &#39;#fm-login-id&#39;))
+    )
+    input_password = wait.until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, &#39;#fm-login-password&#39;))
+    )
+    submit = wait.until(
+        EC.element_to_be_clickable((By.CSS_SELECTOR, &#39;#login-form &gt; div.fm-btn &gt; button&#39;))
+    )
+    input_username.send_keys(username)
+    time.sleep(2)
+    input_password.send_keys(password)
+    time.sleep(2)
+    submit.click()
+    time.sleep(3)  # 等待检验滑块
+
+    # 判断有无滑块验证
+    try:
+        slider = wait.until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, &#39;#nc_1__scale_text &gt; span&#39;))
+        )
+        if bool(slider):
+            print(&#39;发现滑块验证码&#39;)
+            do_slider()
+            submit.click()
+        else:
+            print(&#39;未发现滑块&#39;)
+            pass
+    except:
+        print(&#39;未发现滑块&#39;)
+
+    time.sleep(5)  # 等待短信验证
+    # 判断有无短信验证
+    try:
+        # 定位iframe标签，由于iframe没有id，name这种唯一的属性，因此只能通过先定位，在切换实现
+        frame = wait.until(
+            EC.presence_of_element_located((By.XPATH, &#39;//*[@id=&quot;content&quot;]/div/div[1]/iframe&#39;))
+        )
+        # 由于手机验证页面出现了页面的嵌套，因此需要进行页面跳转到iframe下
+        browser.switch_to.frame(frame)
+        sms_button = wait.until(
+            EC.presence_of_element_located((By.XPATH, &#39;//*[@id=&quot;J_GetCode&quot;]&#39;))
+        )
+        if bool(sms_button):
+            print(&#39;发现短信验证码&#39;)
+            time.sleep(1)
+            sms_button.click()
+            print(&#39;验证码已发送，请输入验证码（20s）&#39;)
+            time.sleep(20)
+            sms_submit = wait.until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, &#39;#submitBtn&#39;))
+            )
+            sms_submit.click()
+        else:
+            print(&#39;无短信验证&#39;)
+            pass
+    except:
+        print(&#39;无短信验证...&#39;)
+        pass
+    finally:
+        print(&#39;登陆成功&#39;)
+
+
+def search():
+    print(&#39;正在搜索.....&#39;)
+    try:
+        browser.get(&#39;https://www.taobao.com&#39;)
+        # 等待目标元素加载完成
+        # input = WebDriverWait(browser, 10).until(
+        #     EC.presence_of_all_elements_located(By.CSS_SELECTOR, &#39;#q&#39;)
+        # )
+        # submit = WebDriverWait(browser, 10).until(
+        #     EC.element_to_be_clickable(By.CSS_SELECTOR, &#39;#J_TSearchForm &gt; div.search-button &gt; button&#39;)
+        # )
+        # 改写WebDriverWait
+        input = wait.until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, &#39;#q&#39;))
+        )
+        submit = wait.until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, &#39;#J_TSearchForm &gt; div.search-button &gt; button&#39;))
+        )
+        # 输入内容
+        input.send_keys(&#39;美食&#39;)
+        submit.click()
+        # 获取总页数
+        total = wait.until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, &#39;#mainsrp-pager &gt; div &gt; div &gt; div &gt; div.total&#39;)))
+        # 第一页解析网页
+        get_products()
+        return total.text
+    except TimeoutException:
+        return search()
+
+
+# 翻页操作
+def next_page(page_number):
+    print(&#39;正在翻页......&#39;)
+    try:
+        # 到第几页
+        input = wait.until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, &#39;#mainsrp-pager &gt; div &gt; div &gt; div &gt; div.form &gt; input&#39;))
+        )
+        # 确定按钮
+        submit = wait.until(
+            EC.element_to_be_clickable(
+                (By.CSS_SELECTOR, &#39;#mainsrp-pager &gt; div &gt; div &gt; div &gt; div.form &gt; span.btn.J_Submit&#39;))
+        )
+        input.clear()
+        input.send_keys(page_number)
+        submit.click()
+        # 判断是否已翻到指定页面(*)
+        wait.until(EC.text_to_be_present_in_element(
+            (By.CSS_SELECTOR, &#39;#mainsrp-pager &gt; div &gt; div &gt; div &gt; ul &gt; li.item.active &gt; span&#39;), str(page_number)))
+        # 翻页后解析网页
+        get_products()
+    except TimeoutException:
+        return next_page(page_number)
+
+
+# 解析网页
+def get_products():
+    # 商品信息是否存在
+    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, &#39;#mainsrp-itemlist .items .item&#39;)))
+    # 拿到网页源代码
+    html = browser.page_source
+    # pyquery解析
+    doc = pq(html)
+    items = doc(&#39;#mainsrp-itemlist .items .item&#39;).items()
+    for item in items:
+        product = &#123;
+            &#39;image&#39;: item.find(&#39;.pic .img&#39;).attr(&#39;src&#39;),
+            &#39;price&#39;: item.find(&#39;.price&#39;).text(),
+            &#39;deal&#39;: item.find(&#39;.deal-cnt&#39;).text()[:-3],
+            &#39;title&#39;: item.find(&#39;.title&#39;).text(),
+            &#39;shop&#39;: item.find(&#39;.shop&#39;).text(),
+            &#39;location&#39;: item.find(&#39;.location&#39;).text()
+        &#125;
+        print(product)
+        save_to_mongo(product)
+
+
+def save_to_mongo(result):
+    print(&#39;正在加入数据库......&#39;)
+    try:
+        if db[MONGO_TABLE].insert(result):
+            print(&#39;存储到MONGODB成功&#39;, result)
+    except Exception:
+        print(&#39;存储异常&#39;, result)
+
+
+def main():
+    print(&#39;开始运行.......&#39;)
+    login(&#39;&#39;, &#39;&#39;)
+    total = search()
+    total = int(re.compile(&#39;(\d+)&#39;).search(total).group(1))
+    for i in range(2, total + 1):
+        next_page(i)
+    browser.close()
+
+
+if __name__ == &#39;__main__&#39;:
+    main()
+</code></pre>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><pre><code>chrome_options.add_argument(&#39;--user-agent=&quot;&quot;&#39;)  # 设置请求头的User-Agent
+chrome_options.add_argument(&#39;--window-size=1280x1024&#39;)  # 设置浏览器分辨率（窗口大小）
+chrome_options.add_argument(&#39;--start-maximized&#39;)  # 最大化运行（全屏窗口）,不设置，取元素会报错
+chrome_options.add_argument(&#39;--disable-infobars&#39;)  # 禁用浏览器正在被自动化程序控制的提示
+chrome_options.add_argument(&#39;--incognito&#39;)  # 隐身模式（无痕模式）
+chrome_options.add_argument(&#39;--hide-scrollbars&#39;)  # 隐藏滚动条, 应对一些特殊页面
+chrome_options.add_argument(&#39;--disable-javascript&#39;)  # 禁用javascript
+chrome_options.add_argument(&#39;--blink-settings=imagesEnabled=false&#39;)  # 不加载图片, 提升速度
+chrome_options.add_argument(&#39;--headless&#39;)  # 浏览器不提供可视化页面
+
+chrome_options.add_argument(&#39;--ignore-certificate-errors&#39;)  # 禁用扩展插件并实现窗口最大化
+chrome_options.add_argument(&#39;--disable-gpu&#39;)  # 禁用GPU加速
+chrome_options.add_argument(&#39;–disable-software-rasterizer&#39;)
+chrome_options.add_argument(&#39;--disable-extensions&#39;)
+chrome_options.add_argument(&#39;--start-maximized&#39;)
+</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2019 - 2021 云淡风轻
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Ne-21
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                <a target="_blank" href="https://www.beian.miit.gov.cn" rel="nofollow noopener">冀ICP备19031443号</a><br><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://imgs.521daigua.cn/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" width="300px" height="20px"></a><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?46c8202ccbfe91fef8f7d5fddc0ce94a";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

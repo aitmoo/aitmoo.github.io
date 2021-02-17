@@ -1,0 +1,1387 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云淡风轻 || The future is you, the future can be expected.</title>
+    <meta name="author" content="Ne-21">
+    <meta name="description" content="放弃不难，但坚持一定很酷。 ">
+    <meta name="keywords" content="云淡风轻, hexo, various, python, html, 小刀娱乐网, 编程, 自学 ">
+    <link rel="icon" href="/https://imgs.521daigua.cn/blog/tx.jpeg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">云淡风轻</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>首页</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="about" theme="filled" />
+            </span>
+            <span>关于</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="archives" theme="filled" />
+            </span>
+            <span>归档</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="categories" theme="filled" />
+            </span>
+            <span>分类</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>标签</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>云淡风轻</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">首页</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="about" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">关于</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="archives" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">归档</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="categories" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">分类</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">标签</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                    <div id="home-head" style=background-image:url('home.jpg')>
+    <script>
+        var menu = document.getElementById("menu")
+        menu.className += " menu-color"
+    </script>
+     
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>云淡风轻</h1>
+                <h3>The future is you, the future can be expected.</h3>
+                <h5>放弃不难，但坚持一定很酷。</h5>
+            </div>
+        </span>
+    </div>
+     
+</div>
+
+
+
+<div id="home-posts-wrap" class=>
+    <div id="home-posts">
+
+        <div id="posts">
+            
+
+<div class="post">
+
+    <a href="/2021/01/56.html">
+        <h2>
+            宝塔mysql总是自动停止解决方法总汇
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/1/20
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <blockquote>
+<p>宝塔的数据库经常性自动停止，是因为网站频繁的请求数据库，而服务器内存又不足，为了保证服务器不彻底卡死，保护性的自动停止数据库，特别是有些程序比如ZBlog的数据库查询次数尤为突出，加上ZBlog插件之多，就算你不进行任何操作，你的后台也是在频繁的请求数据库！</p>
+</blockquote>
+<blockquote>
+<p>就更不要提通过一些插件备份网站，做大量的文章更新，以及采集等，如果服务器配置很低，甚至采集一篇文章十几张图片就能瞬间让你的内存跑满导致服务器彻底卡死！当然导致这种问题除了服务器配置不够还跟你设置不当所导致有关，比如MySQL、php等性能设置！当然今天讨论的主题并不是这。</p>
+</blockquote>
+<blockquote>
+<p>虽然ZBlog可以通过缓存减轻数据库负担，但是当你管理后台更新文章或其他操作还是会不可避免的请求数据库，特别是ZBlog这种越来越臃肿的程序，且避免不了一些人恶意的请求以及垃圾蜘蛛的恶意爬取，导致数据库保护性暂停。</p>
+</blockquote>
+<p>当然这里是推荐你更换更高配置的服务器，如果你不打算更换可以考虑一下方法解决宝塔面板数据库自动停止的问题！</p>
+<p>出现数据库经常停止可以参照下面解决方案：</p>
+<h1 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h1><ul>
+<li>安装宝塔面板【linux工具箱】<br><img src="https://ae01.alicdn.com/kf/U482efb232e4b4a9fa0cecd78abc6d46ej.jpg"></li>
+<li>添加设置SWAP大小，根据你的实际内存进行调整，swap是Linux下的虚拟内存，设置适当的swap可增加服务器稳定性，<br>建议swap容量在真实内存容量的1.5倍左右，若您的服务器内存大于4GB，可设1-2GB的固定值，swap文件默认保存在/www/swap，设置前请确保磁盘空间够用。<br><img src="https://ae01.alicdn.com/kf/Ue2f6f44cd8c9478b862832d0056daf98T.jpg"></li>
+</ul>
+<h1 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h1><ul>
+<li>根据你的实际内存进行mysql优化<br><img src="https://ae01.alicdn.com/kf/Uc4456d93ef6f449992e8f1e09294c555s.jpg"></li>
+</ul>
+<p>#方法三：<br>这个方法简单粗暴，适合土豪站长，直接增加服务器内存或使用云数据库，把数据库分离出去。</p>
+<p>导致数据库自动暂停是多方面的，这篇文的方法并没有从根本上解决这个问题，而是尽量减少数据库导致网站长时间无法正常，如果你的数据库一个星期只是3-4次自定停止，通过这个可以有效解决，对seo优化和用户体验也不会有太大影响！</p>
+<p>如果经常性的一天数据库就停止好几次，那么就是宝塔设置有问题了，请检查你的宝塔设置是否有安全问题，以及数据库配置和php版本设置是否得当，经常看看日志是否有恶意请求！</p>
+<pre><code>本文原地址：https://www.wenytao.com/blog/333.html#comments
+</code></pre>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/web" style=color:#1bccbc>
+                web
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2021/01/56.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/10/55.html">
+        <h2>
+            【PYTHON】乐心健康刷微信支付宝步数
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/10/5
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="lx-step"><a href="#lx-step" class="headerlink" title="lx-step"></a>lx-step</h1><p>【Python】腾讯云云函数配合乐心健康刷QQ、微信、支付宝步数(支持随机步数、微信QQ推送)</p>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><ol>
+<li>下载乐心健康APP：官方下载地址：<a target="_blank" rel="noopener" href="http://www.lifesense.com/app/">http://www.lifesense.com/app/</a></li>
+<li>从应用商店下载乐心健康App，打开软件并选择手机号登录</li>
+<li>登录之后，点击我的-&gt;设置-&gt;账号与安全-&gt;设置密码(修改密码)，设置你自己记得住的密码</li>
+<li>回到App首页，点击我的-&gt;数据共享，绑定你想同步数据的项目注：同步微信运动请按照要求关注【乐心运动】公众号。</li>
+<li>回到云函数代码，配置好下图参数，运行即可提交步数即可同步至你绑定的所有平台<br><img src="https://attach.52pojie.cn/forum/202009/26/220610s1ehd59u55uh5uce.png" alt="1"></li>
+<li>设置好云函数触发规则</li>
+</ol>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p><a target="_blank" rel="noopener" href="https://www.52pojie.cn/thread-1274977-1-1.html">https://www.52pojie.cn/thread-1274977-1-1.html</a></p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre><code># -*- coding: utf8 -*-
+import requests
+import hashlib
+import json
+import time
+import random
+
+def md5(code):
+    res=hashlib.md5()
+    res.update(code.encode(&quot;utf8&quot;))
+    return res.hexdigest()
+
+def get_information(mobile,password):
+    header = &#123;
+        &#39;Content-Type&#39;: &#39;application/json; charset=utf-8&#39;,
+        &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36&quot;
+    &#125;
+    url=&quot;http://sports.lifesense.com/sessions_service/login?systemType=2&amp;version=4.6.7&quot;
+    datas = &#123;
+        &quot;appType&quot;:6,
+        &quot;clientId&quot;:md5(&quot;5454&quot;),
+        &quot;loginName&quot;:str(mobile),
+        &quot;password&quot;:md5(str(password)),
+        &quot;roleType&quot;:0
+        &#125;
+    response =requests.post(url,headers=header,data=json.dumps(datas))
+    return response.text
+
+def update_step(step,information):
+    step =int(step)
+    url=&quot;http://sports.lifesense.com/sport_service/sport/sport/uploadMobileStepV2?version=4.5&amp;systemType=2&quot;
+    accessToken=json.loads(information)[&quot;data&quot;][&quot;accessToken&quot;]
+    userId=json.loads(information)[&quot;data&quot;][&quot;userId&quot;]
+    #print(accessToken)
+    #print(userId)
+    #获取当前时间和日期
+    timeStamp=time.time()
+    localTime = time.localtime(timeStamp)
+    strTime = time.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;, localTime)
+    print(strTime)
+    measureTime=strTime+&quot;,&quot;+str(int(timeStamp))
+
+    header = &#123;
+    &#39;Cookie&#39;: &#39;accessToken=&#39;+accessToken,
+    &#39;Content-Type&#39;: &#39;application/json; charset=utf-8&#39;,
+    &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36&quot;
+    &#125;
+    sport_datas = &#123;
+        &quot;list&quot;: [
+            &#123;
+                &quot;DataSource&quot;:2,
+                &quot;active&quot;:1,
+                &quot;calories&quot;:str(int(step/4)),
+                &quot;dataSource&quot;:2,
+                &quot;deviceId&quot;:&quot;M_NULL&quot;,
+                &quot;distance&quot;:str(int(step/3)),
+                &quot;exerciseTime&quot;:0,
+                &quot;isUpload&quot;:0,
+                &quot;measurementTime&quot;:measureTime,
+                &quot;priority&quot;:0,
+                &quot;step&quot;: str(step),
+                &quot;type&quot;:2,
+                &quot;updated&quot;:str(int(time.time()*1000)),
+                &quot;userId&quot;:str(userId)
+                &#125;]
+                &#125;
+    result=requests.post(url,headers=header,data=json.dumps(sport_datas))
+    return result.text
+
+def server_send(msg):
+    if sckey == &#39;&#39;:
+        return
+    server_url = &quot;https://sc.ftqq.com/&quot; + str(sckey) + &quot;.send&quot;
+    data = &#123;
+            &#39;text&#39;: msg,
+            &#39;desp&#39;: msg
+        &#125;
+    requests.post(server_url, data=data)
+
+def kt_send(msg):
+    if ktkey == &#39;&#39;:
+        return
+    kt_url = &#39;https://push.xuthus.cc/send/&#39;+str(ktkey)
+    data = (&#39;步数刷取完成，请查看详细信息~\n&#39;+str(msg)).encode(&quot;utf-8&quot;)
+    requests.post(kt_url, data=data)
+
+def execute_walk(phone,password,step):
+    information=get_information(phone,password)
+    update_result=update_step(step,information)
+    result=json.loads(update_result)[&quot;msg&quot;]
+    if result == &#39;成功&#39;:
+        msg = &quot;刷新步数成功！此次刷取&quot; + str(step) + &quot;步。&quot;
+        print(msg)
+        server_send(msg)
+        kt_send(msg)
+    else:
+        msg = &quot;刷新步数失败！请查看云函数日志。&quot;
+        print(msg)
+        server_send(msg)
+        kt_send(msg)
+    
+
+def main():
+    if phone and password and step != &#39;&#39;:
+        execute_walk(phone, password, step)
+    else:
+        print(&quot;参数不全,请指定参数。或者在调用中直接指定参数&quot;)
+
+# -- 配置 --
+# ------------------------------
+phone = &#39;&#39;  # 登陆账号
+password = &#39;&#39;  # 密码
+step = random.randint(30000,40000)  # 随机30000-40000步数
+sckey = &#39;&#39;  # server酱key(可空)
+ktkey = &#39;&#39;  # 酷推key(可空)
+# ------------------------------
+
+def main_handler(event, context):
+    return main()
+
+if __name__ == &#39;__main__&#39;:
+    main()
+</code></pre>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/python" style=color:#00bcd4>
+                python
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/10/55.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/09/54.html">
+        <h2>
+            利用腾讯云函数实现机场每日自动签到领流量
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/9/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
+<li>云函数部署地址<a target="_blank" rel="noopener" href="https://cloud.tencent.com/product/scf">https://cloud.tencent.com/product/scf</a> ,部署方法自行百度</li>
+<li>适用SSPanel面板</li>
+<li>项目地址<a target="_blank" rel="noopener" href="https://github.com/ne-21/sspanel-automaticcheckin">https://github.com/ne-21/sspanel-automaticcheckin</a> ,最新脚本请到此获取</li>
+</ul>
+<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
+<li>自动签到</li>
+<li>Server酱微信推送</li>
+</ul>
+<h1 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h1><ul>
+<li>基于项目<a target="_blank" rel="noopener" href="https://github.com/zhjc1124/ssr_autocheckin">https://github.com/zhjc1124/ssr_autocheckin</a> 修改</li>
+</ul>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre><code># -*- coding: utf-8 -*-
+&quot;&quot;&quot;
+@Time ： 2020/9/15 9:52
+@Auth ： Ne-21
+@Des : sspanel自动每日签到脚本
+@File ：sspanel_qd.py
+@IDE ：PyCharm
+@Motto：Another me.
+sspanel自动每日签到脚本，基于项目https://github.com/zhjc1124/ssr_autocheckin修改
+&quot;&quot;&quot;
+import requests
+import re
+
+requests.packages.urllib3.disable_warnings()
+
+class SspanelQd(object):
+    def __init__(self):
+        # 机场地址
+        self.base_url = &#39;https://****.net&#39;
+        # 登录信息
+        self.email = &#39;****@qq.com&#39;
+        self.password = &#39;****&#39;
+        # Server酱推送
+        self.sckey = &#39;SCU109245Tf34928bcea84db0a*************&#39;
+
+    def checkin(self):
+        email = self.email.split(&#39;@&#39;)
+        email = email[0] + &#39;%40&#39; + email[1]
+        password = self.password
+
+        session = requests.session()
+
+        session.get(self.base_url, verify=False)
+
+        login_url = self.base_url + &#39;/auth/login&#39;
+        headers = &#123;
+            &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36&#39;,
+            &#39;Content-Type&#39;: &#39;application/x-www-form-urlencoded; charset=UTF-8&#39;,
+        &#125;
+
+        post_data = &#39;email=&#39; + email + &#39;&amp;passwd=&#39; + password + &#39;&amp;code=&#39;
+        post_data = post_data.encode()
+        response = session.post(login_url, post_data, headers=headers, verify=False)
+
+        headers = &#123;
+            &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36&#39;,
+            &#39;Referer&#39;: self.base_url + &#39;/user&#39;
+        &#125;
+
+        response = session.post(self.base_url + &#39;/user/checkin&#39;, headers=headers, verify=False)
+        msg1 = (response.json()).get(&#39;msg&#39;)
+
+        info_url = self.base_url + &#39;/user&#39;
+        response = session.get(info_url, verify=False)
+        level = re.findall(r&#39;\[&quot;Class&quot;, &quot;(.*?)&quot;],&#39;, response.text)[0]
+        day = re.findall(r&#39;\[&quot;Class_Expire&quot;, &quot;(.*)&quot;],&#39;, response.text)[0]
+        rest = re.findall(r&#39;\[&quot;Unused_Traffic&quot;, &quot;(.*?)&quot;]&#39;, response.text)[0]
+        msg = &quot;- 今日签到信息：&quot;+str(msg1)+&quot;\n- 用户等级：&quot;+str(level)+&quot;\n- 到期时间：&quot;+str(day)+&quot;\n- 剩余流量：&quot;+str(rest)
+        print(msg)
+        return msg
+
+    # Server酱推送
+    def server_send(self, msg):
+        if self.sckey == &#39;&#39;:
+            return
+        server_url = &quot;https://sc.ftqq.com/&quot; + str(self.sckey) + &quot;.send&quot;
+        data = &#123;
+                &#39;text&#39;: &quot;签到完成，点击查看详细信息~&quot;,
+                &#39;desp&#39;: msg
+            &#125;
+        requests.post(server_url, data=data)
+
+
+    def main(self):
+        msg = self.checkin()
+        self.server_send(msg)
+
+# 云函数入口
+def main_handler(event, context):
+    run = SspanelQd()
+    run.main()
+
+if __name__ == &#39;__main__&#39;:
+    run = SspanelQd()
+    run.main()
+</code></pre>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/python" style=color:#00bcd4>
+                python
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/09/54.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/09/53.html">
+        <h2>
+            ThinkPHP学习笔记 - 01入门
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/9/6
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <p>学习要点：<br>1.框架简介<br>2.安装步骤<br>3.其它杂项</p>
+<p>本节课我们来开始进入 ThinkPHP5.1 的学习过程，主动了解下框架的需求、安装步骤 以及一些零碎知识点。</p>
+<h1 id="一．框架简介"><a href="#一．框架简介" class="headerlink" title="一．框架简介"></a>一．框架简介</h1><ol>
+<li>ThinkPHP5.1 是目前框架正式版的最新版本； </li>
+<li>ThinkPHP6.0 目前是预览版（尚未稳定的测试版），正式版后考虑制作； </li>
+<li>TP 框架是免费开源的、轻量级的、简单快速且敏捷的 PHP 框架； </li>
+<li>你可以免费使用 TP 框架，甚至可以将你的项目商用； </li>
+<li>ThinkPHP5.1 要求 PHP 版本是 5.6+以上（目前最新版本是 7.x）； </li>
+<li>我们采用最新 7.x 来运行 TP5.1，而预览版 TP6 需要 7.1+； </li>
+<li>集成环境这里采用 windows 结合 wamp，其它系统或环境满足版本要求即可; </li>
+<li>除了 PHP5.6+，还需要开启 PDO 数据库引擎和 MBstring 字符串扩展；</li>
+</ol>
+<h1 id="二．安装步骤"><a href="#二．安装步骤" class="headerlink" title="二．安装步骤"></a>二．安装步骤</h1><ol>
+<li>官网不提供软件包下载，采用 <code>Composer</code> 和 <code>git</code> 方式下载和更新； </li>
+<li>这里只演示 windows 安装，Mac 和 Linux 方法参考一下手册； </li>
+<li>打开 windows 下的运行：cmd，然后运行如下代码（Mac 和 Linux 控制台）：<br><code>composer config -g repo.packagist composer https://packagist.phpcomposer.com</code></li>
+<li>如果上述地址产生阻碍，可以使用国内的：<br><code>composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/</code></li>
+<li>现在，先启用服务器环境，测试本地 Web 环境是否正常； </li>
+<li>如果你是首次安装 ThinkPHP5.1，那么先从 cmd 中切换到你要加载的目录；<br><code>composer create-project topthink/think=5.1.* tp5.1test</code></li>
+<li>通过访问 <a target="_blank" rel="noopener" href="http://localhost/tp5.1test/public">http://localhost/tp5.1test/public</a> 测试是否进入首页； </li>
+<li>如果要更新你的项目版本，直接进入项目根目录，然后直接如下代码：<br><code>composer update topthink/framework</code></li>
+</ol>
+<h1 id="三．其它杂项"><a href="#三．其它杂项" class="headerlink" title="三．其它杂项"></a>三．其它杂项</h1><ol>
+<li>开发规范遵循 PSR-2 命名规范、PSR-4 自动加载； </li>
+<li>目录结构，可以参考手册，课程中会慢慢熟知，不摘入了； </li>
+<li>对于框架的配置，在以后课程中，遇到某个讲解某个； </li>
+<li>学习条件：必须具有 PHP 基础，面向对象基础和 MVC 设计模式基础；</li>
+</ol>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/ThinkPHP" style=color:#879cff>
+                ThinkPHP
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/09/53.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/08/52.html">
+        <h2>
+            支付宝当面付配置对接代刷网发卡网易支付
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/8/15
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <blockquote>
+<p>支付宝当面付不需要挂机，监控，顾客可以用花呗信用卡，不用输入金额直接支付然后直接到账你支付宝余额，很方便。</p>
+</blockquote>
+<ul>
+<li>首先申请当面付地址：<a target="_blank" rel="noopener" href="https://b.alipay.com/signing/productSetV2.htm">https://b.alipay.com/signing/productSetV2.htm</a><br>对接代刷网易支付那些基本上都需要 <code>应用ID</code> <code>支付宝公钥</code> <code>商户私钥</code>  这三个</li>
+</ul>
+<p>打开地址： <a target="_blank" rel="noopener" href="https://openhome.alipay.com/platform/keyManage.htm">https://openhome.alipay.com/platform/keyManage.htm</a>  登陆一下 ，可以看到如图所示，里面就有 <code>应用ID</code>  已经标注出来了，<br><img src="https://wx2.sbimg.cn/2020/08/15/3oZ51.png" alt="3oZ51.png"></p>
+<p>点击接口加签方式旁边那个设置，然后验证一下手机号或者支付密码都可以，这个先放着，然后需要下载一个<a target="_blank" rel="noopener" href="https://ideservice.alipay.com/ide/getPluginUrl.htm?clientType=assistant&platform=win&channelType=WEB">支付宝密钥生成器</a> ,下载好了之后安装一下</p>
+<p>打开后直接点生成密钥，然后复制软件里面的应用公钥到刚刚网站打开那个加签管理的公钥里面，然后保存设置等待自动刷新<br><img src="https://s1.ax1x.com/2020/08/15/dkP639.png" alt="dkP639.png"><br><img src="https://s1.ax1x.com/2020/08/15/dkie5F.png" alt="dkie5F.png"><br><img src="https://s1.ax1x.com/2020/08/15/dkiMvR.png" alt="dkiMvR.png"></p>
+<p>商户私钥就是那个软件里面的应用私钥，支付宝公钥等刷新完成后在打开接口加签方式旁边那个设置/查看，上面那个就是支付宝公钥了<br><img src="https://s1.ax1x.com/2020/08/15/dkioZV.png" alt="dkioZV.png"><br><img src="https://s1.ax1x.com/2020/08/15/dkiqG4.png" alt="dkiqG4.png"></p>
+<p>现在 <code>应用ID</code> <code>支付宝公钥</code> <code>商户私钥</code>  都有了直接填入网站中即可，我这里放一个代刷的图片<br><img src="https://s1.ax1x.com/2020/08/15/dkiOz9.png" alt="dkiOz9.png"></p>
+<p><strong>原文链接<a target="_blank" rel="noopener" href="https://www.ntaaa.cn/492.html">https://www.ntaaa.cn/492.html</a></strong></p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/web" style=color:#879cff>
+                web
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/08/52.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/07/51.html">
+        <h2>
+            Ulistenhelper - 基于腾讯云语音识别的U校园听力识别工具
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/7/19
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <blockquote>
+<p>自己闲的无聊，连夜把这个工具重构了，这回个人感觉还是可以的。<br>实现原理很简单，利用腾讯语音识对听力音频进行处理<br>直接输入听力音频的网址，便可以获得听力的文本内容</p>
+</blockquote>
+<p>个人感觉识别度很高，因为自己也要用，所以做出来分享给大家</p>
+<p>注意：32位操作系统可能用不了，请使用64位操作系统</p>
+<p>源码就不放了，没有注释，命名也不规范。<br>工具下载链接：<a target="_blank" rel="noopener" href="https://gocos.lanzous.com/iiXQ5eq802f">https://gocos.lanzous.com/iiXQ5eq802f</a></p>
+<p>参数获取以及详细文档 -&gt; <a target="_blank" rel="noopener" href="https://www.52pojie.cn/thread-1221679-1-1.html">https://www.52pojie.cn/thread-1221679-1-1.html</a></p>
+<p>听力音频链接获取 -&gt; <a href="https://gocos.cn/2020/04/34.html">https://gocos.cn/2020/04/34.html</a></p>
+<p>程序截图：<br><img src="https://ftp.bmp.ovh/imgs/2020/07/03b7fc4ddcdcabec.png" alt="1"><br><img src="https://ftp.bmp.ovh/imgs/2020/07/1c15b807d76c5ba8.png" alt="2"><br><img src="https://ftp.bmp.ovh/imgs/2020/07/ad1781e16ee9bf01.png" alt="3"></p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/python" style=color:#1bccbc>
+                python
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/07/51.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/07/50.html">
+        <h2>
+            网易云音乐升级API
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/7/12
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <blockquote>
+<p>接口网站<a target="_blank" rel="noopener" href="http://netease.gocos.cn/">http://netease.gocos.cn</a><br>在线使用<a target="_blank" rel="noopener" href="http://netease.gocos.cn/music">http://netease.gocos.cn/music</a></p>
+</blockquote>
+<h1 id="接口文档"><a href="#接口文档" class="headerlink" title="接口文档"></a>接口文档</h1><ul>
+<li>调用前须知<br>本项目不提供线上 demo，请不要轻易信任使用他人提供的公开服务，如果使用，填写密码时一定要自己加密MD5，以免发生安全问题，泄露自己的账号和密码。<br>为使用方便,降低门槛, 文档示例接口直接使用了 GET 请求,本项目同时支持 GET/POST 请按实际需求使用<br>本项目仅供学习使用,请尊重版权，请勿利用此项目从事商业行为<br>API登陆接口只接收MD5加密后的密码，并且不会储存你的个人信息，原密码除了你自己谁也不知道<br>使用本项目不会影响你的听歌风格，刷的歌都来自你的每日推荐歌单。</li>
+</ul>
+<h1 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h1><p>说明 : 登录有两个接口,建议使用encodeURIComponent对密码编码或者使用POST请求,避免某些特殊字符无法解析,如#(#在url中会被识别为hash,而不是query)<br>无论是手机登录还是邮箱登陆，密码都必须使用MD5，不可以直接传入明文<br>明文例如：123456abcd<br>MD5例如：efa224f8de55cb668cd01edbccdfc8a9</p>
+<ol>
+<li>手机登录<br>必选参数 :<br>uin: 手机号码<br>pwd: 密码<br>接口地址 : /?do=login<br>可选参数 : r: 0至1的随机数，例如0.20246864764818318<br>调用例子 : /?do=login&amp;uin=xxx&amp;pwd=yyy</li>
+<li>邮箱登录<br>必选参数 :<br>uin: 163 网易邮箱<br>pwd: 密码<br>接口地址 : /?do=email<br>调用例子 : /?do=email&amp;uin=xxx&amp;pwd=yyy<br>完成登录后 , 会在浏览器保存一个 Cookies 用作登录凭证 , 大部分 API 都需要用到这个 Cookies,请求会自动带上 Cookies</li>
+</ol>
+<h1 id="签到"><a href="#签到" class="headerlink" title="签到"></a>签到</h1><p>说明：调用接口这个接口可以签到<br>接口地址 : /?do=sign</p>
+<h1 id="打卡听歌"><a href="#打卡听歌" class="headerlink" title="打卡听歌"></a>打卡听歌</h1><p>说明：由于网易云官方问题，如果打卡听歌只刷了一部分，可以多请求几次，建议每次间隔30秒请求3次左右<br>接口地址 : /?do=daka</p>
+<h1 id="获取用户详情"><a href="#获取用户详情" class="headerlink" title="获取用户详情"></a>获取用户详情</h1><p>说明 : 登陆后调用此接口 , 传入用户 id, 可以获取用户详情<br>必选参数 :<br>uid : 用户 id<br>接口地址 : /?do=detail<br>调用例子 : /?do=detail&amp;uid=32953014<br>注意获取用户信息接口传入的时uid，而登陆接口传入的是uin，不要搞混淆</p>
+<h1 id="检查接口"><a href="#检查接口" class="headerlink" title="检查接口"></a>检查接口</h1><p>说明：调用此接口可检查当前项目API是否可用，建议在调用接口前先调用此接口做个判断<br>接口地址 : /?do=check</p>
+<h1 id="刷单曲播放次数"><a href="#刷单曲播放次数" class="headerlink" title="刷单曲播放次数"></a>刷单曲播放次数</h1><p>说明 : 登陆后调用此接口 , 传入指定歌单id和次数, 可以使该歌单内每首单曲各增加一定的播放次数<br>必选参数 :<br>id : 歌单 id<br>time : 歌单播放次数<br>接口地址 : /?do=listen<br>调用例子 : /?do=listen&amp;id=5101628912&amp;time=300</p>
+<p>说明：应用场景常用于定向性训练账号的听歌趋向，可自主纠正系统的个性化推送，让它推送你真正喜欢的内容。这里的次数是指歌单播放次数，比如歌单内有两首歌，次数定为300，则两首歌各增加300次播放次数，如果只想提高某一首歌的次数，那就让这个歌单只留下这一首即可。</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/web" style=color:#ff7d73>
+                web
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/07/50.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/07/49.html">
+        <h2>
+            超星学习通上锁视频进入原理与实现
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/7/2
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <blockquote>
+<p>相信大家都应该知道，这个学期的线上学习成绩占的比重很大吧，我们差不多占到了50%左右，这是什么概念？这就意味着返校考试划划水就可以过了。那这个线上学习的成绩大部分来自于学习通中视频的观看，鉴于学习通（du）经常性的抽风，导致我们进不去，再加上老师过了一段时间就将视频上锁，我们想学习都学不了（我要分数！我要分数！我要分数！）<br>为了省去找老师费嘴皮子求开视频的麻烦，我果断自己动手了，这篇文章就来告诉大家如何解决这个问题，成功看完视频拿到视频平时分。</p>
+</blockquote>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/web" style=color:#879cff>
+                web
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/07/49.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/06/48.html">
+        <h2>
+            超星学习通考试系统功能扫盲
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/6/19
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <blockquote>
+<p>超星这个新的考试系统出了好像也有一段时间了，看网上那个的消息听起来很厉害的样子，此生有幸，我们已经用这个考试系统考过了，接下来呢，就和大家说说这个考试系统吧</p>
+</blockquote>
+<p><strong>因为没有教师端账号，以下内容仅供参考</strong></p>
+<h1 id="part1-试卷发布界面"><a href="#part1-试卷发布界面" class="headerlink" title="part1-试卷发布界面"></a>part1-试卷发布界面</h1><p><img src="https://ae01.alicdn.com/kf/H37c193043a934056938194bbb82c188al.jpg" alt="1"></p>
+<p>我们可以看到这里有一个防作弊设置，我来逐一解释下</p>
+<ul>
+<li>题目乱序-顾名思义，每个人的题目顺序不一样</li>
+<li>选项乱序-每道题目的选项顺序不同</li>
+<li>考试过程中抓拍监控-这个主要是两个步骤</li>
+<li>考试进入的时候会要求采集你的人脸信息（老版本可能采集不到，后台监考显示未采集到人脸）</li>
+<li>考试过程中会抓拍，前、后摄像头翻转一次为一次抓拍（在监考后台老师可以随时点击抓拍按钮，系统是否会自动抓拍我没有测试）</li>
+<li>考试过程中切屏控制-切屏会有提醒，解决办法见<a href="https://gocos.cn/2020/05/40.html">https://gocos.cn/2020/05/40.html</a></li>
+<li><img src="https://ae01.alicdn.com/kf/H9e1304f595a342088d79c6976943a44ft.jpg" alt="2"></li>
+<li>可以限制考试客户端（手机和电脑（注意，电脑是客户端不是网页））</li>
+<li>系统默认考试须知如下：<br><img src="https://ae01.alicdn.com/kf/Hc3dc559f71214bde82224d0d86257c9ez.jpg" alt="3"></li>
+</ul>
+<h1 id="part2-监考界面"><a href="#part2-监考界面" class="headerlink" title="part2-监考界面"></a>part2-监考界面</h1><ul>
+<li>在线监考<br><img src="https://ae01.alicdn.com/kf/H918e83f7cb194680996d38c72c65cf4aF.jpg" alt="4"><br><img src="https://ae01.alicdn.com/kf/Hdde452ae80954e13a5c939983f6d2e30p.jpg" alt="5"></li>
+<li>监考界面<br><img src="https://ae01.alicdn.com/kf/H834700a1f1144e13b5f32a207985474dG.jpg" alt="6"></li>
+<li>教师可在此监考（主要功能：发送警告、强制收卷），亦可以点击查看考生详细信息（包括：考试客户端类型、人脸采集信息、抓拍图像、切屏次数和每次切屏持续的时间、每道题目提交的时间点）</li>
+</ul>
+<p>大概就这些，祝大家考试顺利。</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/knowledge" style=color:#ff7d73>
+                knowledge
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/06/48.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/06/47.html">
+        <h2>
+            用python实现超星学习通自动签到
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/6/9
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="依赖库"><a href="#依赖库" class="headerlink" title="依赖库"></a>依赖库</h1><ul>
+<li>requests</li>
+<li>pillow</li>
+<li>lxml</li>
+</ul>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p>1.测试环境为python3.7+,自行安装python3<br>2.安装所需第三方模块，依次执行<code>pip install requests</code>、<code>pip install pillow</code>、<code>pip install lxml</code><br>3.Python 和需要模块都装好了直接在目录 cmd 运行所需脚本。</p>
+<h1 id="脚本代码"><a href="#脚本代码" class="headerlink" title="脚本代码"></a>脚本代码</h1><pre><code>import requests,time,json,re,base64
+from io import BytesIO
+requests.packages.urllib3.disable_warnings()
+from PIL import Image,ImageDraw,ImageChops
+from lxml import etree
+from urllib.parse import urlparse, parse_qs
+
+username = &quot;&quot;   #登录账号
+password = &quot;&quot;   #登录密码
+sckey = &quot;&quot;      #Server酱推送提醒key
+
+s = requests.Session()
+s.headers.update(&#123;&#39;User-Agent&#39;:&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36&#39;&#125;)
+activates = []
+
+def sign(aid, uid):
+    global activates
+    url = &quot;https://mobilelearn.chaoxing.com/pptSign/stuSignajax?activeId=&quot; + aid + &quot;&amp;uid=&quot; + uid + &quot;&amp;clientip=&amp;latitude=-1&amp;longitude=-1&amp;appType=15&amp;fid=0&quot;
+    res = s.get(url,verify=False)
+    if (res.text == &quot;success&quot;):
+        print(&quot; 签到成功！&quot;)
+        if sckey != &quot;&quot;:
+            data = &#123;
+                &quot;text&quot; : &quot;签到成功&quot;,
+                &quot;desp&quot; : &quot;aid&quot; + str(aid)
+                &#125;
+            sckeyurl = &quot;http://sc.ftqq.com/&quot;+str(sckey)+&quot;.send&quot;
+            web = s.post(sckeyurl, data=data, verify=False)
+        activates.append(aid)
+    elif(res.text == &quot;您已签到过了&quot;):
+        print(res.text)
+        activates.append(aid)
+    else:
+        if sckey != &quot;&quot;:
+            data = &#123;
+                &quot;text&quot; : &quot;签到失败&quot;,
+                &quot;desp&quot; : &quot;aid&quot; + str(aid)
+                &#125;
+            sckeyurl = &quot;http://sc.ftqq.com/&quot;+str(sckey)+&quot;.send&quot;
+            web = s.post(sckeyurl, data=data, verify=False)
+        print(&quot;签到失败&quot;)
+
+
+
+def login():
+    global uid,username,password
+    if(username == &quot;&quot; or password == &quot;&quot;):
+        username = input(&quot;登录账号：&quot;)
+        password = input(&quot;登录密码：&quot;)
+    #旧接口，已失效
+    #url=&quot;http://i.chaoxing.com/vlogin?passWord=&quot;+str(password)+&quot;&amp;userName=&quot;+str(username)
+    url = f&#39;https://passport2-api.chaoxing.com/v11/loginregister?uname=&#39;+str(username)+&#39;&amp;code=&#39;+str(password)
+    res= s.get(url)
+    if(&quot;验证通过&quot; in str(res.text)):
+        print(&#39;Login success!&#39;)
+        for key, value in res.cookies.items():
+            if key==&quot;_uid&quot;:
+                uid=value
+        return s
+    else:
+        print(username,password)
+        print(&#39;账号密码有误，请重试。&#39;)
+        username = &quot;&quot;
+        password = &quot;&quot;
+        login()
+
+
+
+
+def getuserdata():
+    web = s.get(&#39;http://mooc1-1.chaoxing.com/visit/courses&#39;)
+    h1 = etree.HTML(web.text)
+    name = h1.xpath(&#39;//h3[@class = &quot;clearfix&quot;]/a/text()&#39;)
+    print(&quot;-----------课程名称-----------&quot;)
+    print(name)
+    print(&quot;------------------------------&quot;)
+    global count
+    try:
+        count
+    except NameError:
+        count_exist = False
+    else:
+        count_exist = True
+    if(count_exist):
+        pass
+    else:
+        if(len(name) == 1):
+            count = 0
+        else:
+            #count = 0
+            count = int(input(&quot;请用数字选择要签到的课程(从0开始)：&quot;))
+    geturl = h1.xpath(&#39;//div[@class = &quot;Mcon1img httpsClass&quot;]/a/@href&#39;)
+    i = 0
+    courseurl = []
+    for temp in range(0,len(geturl)):
+        if(&quot;/mycourse/studentcourse&quot; in geturl[i]):
+            courseurl.append(geturl[i])
+        i += 1
+    url = &#39;https://mooc1-1.chaoxing.com&#39; + courseurl[count]
+    url_query = urlparse(url).query
+    userdata = dict([(k, v[0]) for k, v in parse_qs(url_query).items()])
+    global courseId, classId
+    courseId = userdata[&quot;courseId&quot;]
+    classId = userdata[&quot;clazzid&quot;]
+
+def main():
+    getuserdata()
+    while 1:
+        url = f&#39;https://mobilelearn.chaoxing.com/ppt/activeAPI/taskactivelist?courseId=&#39;+courseId+&#39;&amp;classId=&#39;+classId+&#39;&amp;uid=&#39;+str(uid)
+        web = s.get(url,verify=False)
+        activeList = json.loads(web.text)[&quot;activeList&quot;]
+        for item in activeList:
+            if (&quot;nameTwo&quot; not in item):
+                continue
+            if (item[&#39;activeType&#39;] == 2 and item[&#39;status&#39;] == 1):
+                signurl = item[&#39;url&#39;]
+                var = signurl.split(&quot;&amp;&quot;)
+                for var1 in var:
+                    var2 = var1.split(&quot;=&quot;)
+                    if(var2[0] == &quot;activePrimaryId&quot;):
+                        aid = var2[1]
+                if (aid not in activates):
+                    print(&quot;查询到签到 名称:%s 活动时间:%s aid:%s&quot; % (
+                        item[&#39;nameOne&#39;], item[&#39;nameFour&#39;], aid))
+                    sign(aid, uid)
+            else:
+                time.sleep(3)
+                print(&quot;签到暂未开通&quot;)    
+
+if __name__ == &quot;__main__&quot;:
+    print(&quot;登录成功后等待签到开始&quot;)
+    try:
+        #captchalogin(username,password)
+        login()
+        main()
+    except Exception as e:
+        print(&#39;repr(e):&#39;, repr(e))
+   
+</code></pre>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>1.需要手机号登录，无fid信息无法使用院校学号登录<br>2.如果需要使用学号登录，自己或许院校fid信息，并修改代码中的fid信息<br>3.如果首次登录提示错误，关闭程序再打开试试<br>4.如果抓不到课程信息什么的，可能需要自己查询html自己修改xpath</p>
+<h1 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h1><p><a target="_blank" rel="noopener" href="https://github.com/mengshouer/mooc_tools">https://github.com/mengshouer/mooc_tools</a></p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/python" style=color:#ffa2c4>
+                python
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/06/47.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+
+             
+<div class="page-current">
+
+    <div class="prev">
+        
+        <a href="/">
+            <span class="page-num">
+                <a-icon type="caret-left" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+    <div class="page-index">
+
+        
+        <span>
+
+            
+
+            
+            <a href="/">
+                <span class="page-num">
+                    1
+                </span>
+            </a>
+        </span>
+        
+
+        <span class="current">
+            2
+        </span>
+
+        
+        <span>
+            <a href="/page/3/">
+                <span class="page-num">
+                    3
+                </span>
+            </a>
+            
+            <a href="/page/4">
+                <span class="page-num">
+                    4
+                </span>
+            </a>
+            
+
+            
+            <span class="page-omit">...</span>
+            <a href="/page/6">
+                <span class="page-num">
+                    6
+                </span>
+            </a>
+            
+
+        </span>
+        
+
+    </div>
+
+    <div class="next">
+        
+        <a href="/page/3/ ">
+            <span class="page-num">
+                <a-icon type="caret-right" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+</div>
+
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <a-affix :offset-top="card_top">
+    <a-card class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="https://imgs.521daigua.cn/blog/tx.jpeg " alt="头像">
+        </div>
+        <div class="name">
+            Ne-21
+        </div>
+        <div class="descriptions">
+            
+            <div class="description">
+                放弃不难，但坚持一定很酷。
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://github.com/ne-21">
+
+                    
+                    <a-icon type="github"
+                        theme="filled" />
+                    
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://twitter.com/">
+
+                    
+                    <a-icon type="twitter"
+                        theme="" />
+                    
+                </a>
+            </span>
+            
+        </div>
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="http://www.ily.plus">
+                    ILY
+                </a>
+            </div>
+            
+        </div>
+    </a-card>
+</a-affix>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2019 - 2021 云淡风轻
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Ne-21
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                <a target="_blank" href="https://www.beian.miit.gov.cn" rel="nofollow noopener">冀ICP备19031443号</a><br><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://imgs.521daigua.cn/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" width="300px" height="20px"></a><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?46c8202ccbfe91fef8f7d5fddc0ce94a";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

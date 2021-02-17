@@ -1,0 +1,1028 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云淡风轻 || The future is you, the future can be expected.</title>
+    <meta name="author" content="Ne-21">
+    <meta name="description" content="放弃不难，但坚持一定很酷。 ">
+    <meta name="keywords" content="云淡风轻, hexo, various, python, html, 小刀娱乐网, 编程, 自学 ">
+    <link rel="icon" href="/https://imgs.521daigua.cn/blog/tx.jpeg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">云淡风轻</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>首页</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="about" theme="filled" />
+            </span>
+            <span>关于</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="archives" theme="filled" />
+            </span>
+            <span>归档</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="categories" theme="filled" />
+            </span>
+            <span>分类</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>标签</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>云淡风轻</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">首页</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="about" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">关于</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="archives" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">归档</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="categories" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">分类</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">标签</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                    <div id="home-head" style=background-image:url('home.jpg')>
+    <script>
+        var menu = document.getElementById("menu")
+        menu.className += " menu-color"
+    </script>
+     
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>云淡风轻</h1>
+                <h3>The future is you, the future can be expected.</h3>
+                <h5>放弃不难，但坚持一定很酷。</h5>
+            </div>
+        </span>
+    </div>
+     
+</div>
+
+
+
+<div id="home-posts-wrap" class=>
+    <div id="home-posts">
+
+        <div id="posts">
+            
+
+<div class="post">
+
+    <a href="/2021/02/66.html">
+        <h2>
+            Linux环境下安装Docker以及其常用命令
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/2/9
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <blockquote>
+<p>Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。</p>
+</blockquote>
+<p><img src="https://p.pstatp.com/origin/138ea000055afa9a4fa5a"></p>
+<h1 id="安装要求"><a href="#安装要求" class="headerlink" title="安装要求"></a>安装要求</h1><ul>
+<li>Linux内核  &gt; <code>3.1</code></li>
+</ul>
+<pre><code class="shell">#查看Linux内核版本
+uanme -r
+</code></pre>
+<ul>
+<li>不是<code>OpenVZ</code>虚拟化架构</li>
+</ul>
+<pre><code class="shell">#CentOS安装virt-what
+yum -y install virt-what
+#Debian or Ubuntu安装virt-what
+apt-get install -y virt-what
+#查看虚拟化架构
+virt-what
+</code></pre>
+<h1 id="CentOS-7-安装-Docker"><a href="#CentOS-7-安装-Docker" class="headerlink" title="CentOS 7 安装 Docker"></a>CentOS 7 安装 Docker</h1><ul>
+<li>卸载旧版Docker</li>
+</ul>
+<pre><code class="shell">sudo yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-engine
+</code></pre>
+<p><img src="https://p.pstatp.com/origin/ff0100033c402b50bf48"></p>
+<ul>
+<li>设置Docker存储库</li>
+</ul>
+<pre><code class="shell">sudo yum -y install -y yum-utils
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+</code></pre>
+<p><img src="https://p.pstatp.com/origin/137ec00025ea1b6ed4d3b"></p>
+<ul>
+<li>安装最新版Docker 引擎和容器</li>
+</ul>
+<pre><code class="shell">sudo yum -y install docker-ce docker-ce-cli containerd.io
+</code></pre>
+<ul>
+<li>启动Docker</li>
+</ul>
+<pre><code class="shell">#启动Docker
+sudo systemctl start docker
+#开机启动
+sudo systemctl enable docker
+</code></pre>
+<blockquote>
+<p>更多说明可参考：<a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/centos/">https://docs.docker.com/engine/install/centos/</a></p>
+</blockquote>
+<h1 id="验证与测试"><a href="#验证与测试" class="headerlink" title="验证与测试"></a>验证与测试</h1><p>安装顺利可以使用<code>docker -v</code>可查看到当前版本：</p>
+<pre><code class="shell">[root@iZe0754mxynaalZ ~]# docker -v
+Docker version 20.10.3, build 48d30b5
+</code></pre>
+<h1 id="Docker镜像加速"><a href="#Docker镜像加速" class="headerlink" title="Docker镜像加速"></a>Docker镜像加速</h1><p>Docker镜像在海外，国内拉取速度非常缓慢，可以使用网易Docker镜像源来加速,新建一个文件<code>/etc/docker/daemon.json</code>添加以下内容：</p>
+<pre><code class="shell">&#123;
+ &quot;registry-mirrors&quot;: [&quot;http://hub-mirror.c.163.com&quot;]
+&#125;
+</code></pre>
+<h1 id="Docker常用命令"><a href="#Docker常用命令" class="headerlink" title="Docker常用命令"></a>Docker常用命令</h1><ul>
+<li>查看运行中的Docker进程：<code>docker ps</code></li>
+<li>启动容器：<code>docker start id</code></li>
+<li>停止指定docker进程：<code>docker stop id</code></li>
+<li>查找镜像：<code>docker search name</code></li>
+<li>查看已安装的镜像：<code>docker images</code></li>
+<li>删除某个镜像：<code>docker rm &lt;image id&gt;</code></li>
+</ul>
+<blockquote>
+<p>实际过程中可能遇到其它问题，仅供各位参考，更多说明建议参考Docker官方文档。</p>
+</blockquote>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Linux" style=color:#ffa2c4>
+                Linux
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2021/02/66.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2021/01/65.html">
+        <h2>
+            Scrapy中选择器用法
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/1/30
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <blockquote>
+<p>Scrapy提取数据有自己的一套机制，被称作选择器（selectors）,通过特定的Xpath或者CSS表达式来选择HTML文件的某个部分<br>Xpath是专门在XML文件中选择节点的语言，也可以用在HTML上。<br>CSS是一门将HTML文档样式化语言，选择器由它定义，并与特定的HTML元素的样式相关联。</p>
+</blockquote>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/python" style=color:#00bcd4>
+                python
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2021/01/65.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2021/01/64.html">
+        <h2>
+            scrapy框架的命令行解释
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/1/29
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <blockquote>
+<p>Scrapy 是通过 scrapy 命令行工具进行控制的。 这里我们称之为 “Scrapy tool” 以用来和子命令进行区分。对于子命令，我们称为 “command” 或者 “Scrapy commands”。Scrapy tool 针对不同的目的提供了多个命令，每个命令支持不同的参数和选项。</p>
+</blockquote>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/python" style=color:#1bccbc>
+                python
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2021/01/64.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2021/01/63.html">
+        <h2>
+            Windows环境下安装Scrapy的正确方式
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/1/29
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <blockquote>
+<p>Scrapy是一个为了爬取网站数据提取结构性数据而编写的应用框架，可以应用于数据挖掘，信息处理或存储历史数据等一些列的程序中。<br>Scrapy最初就是为了网络爬取而设计的。现在，Scrapy已经推出了曾承诺过的Python3.x版本。<br>为什么学习Scrapy呢？它能我们更好的完成爬虫任务，自己写Python爬虫程序好比孤军奋战，而使用了Scrapy就好比手底下有了千军万马。<br>Scrapy可以起到事半功倍的效果。所以，学习Scrapy也就显得很有必要了。</p>
+</blockquote>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/python" style=color:#ffa2c4>
+                python
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2021/01/63.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2021/01/62.html">
+        <h2>
+            PySpider安装遇到的坑及解决办法
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/1/28
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <blockquote>
+<p>这段时间在学爬虫，安装pyspider框架，遇到了很多坑，像关键字问题等等，本机已经安装好pycharm(python3.9)，现做测试，需要在开发机上安装pyspider，基于windows下的安装遇到一些坑，记录一下。</p>
+</blockquote>
+<h1 id="安装命令"><a href="#安装命令" class="headerlink" title="安装命令"></a>安装命令</h1><ul>
+<li><p><code>pip3 install pyspider</code></p>
+</li>
+<li><p>这个过程应该能没什么问题，pyspider是对pip有版本要求的，所以最好自动升级一下</p>
+<h1 id="填坑"><a href="#填坑" class="headerlink" title="填坑"></a>填坑</h1></li>
+</ul>
+<p>ok ,安装完成我们开始填坑。</p>
+<ul>
+<li>执行 pyspider all，立马报错：<br><img src="https://p.pstatp.com/origin/138640001b5887ab45483"></li>
+</ul>
+<p><strong>报错信息：</strong></p>
+<pre><code>  File &quot;d:\python\venv\lib\site-packages\pyspider\run.py&quot;, line 231
+    async=True, get_object=False, no_input=False):
+    ^
+SyntaxError: invalid syntax
+</code></pre>
+<p>这是因为python3.5开始把<code>async</code>和<code>await</code>设为关键字了，这里作为参数名与关键字冲突了，因此找到对应的py文件，将<code>async</code>修改为其他名称，我修改为<code>pyspiderasync</code>。在以下几个文件中存在：<code>pyspider-&gt;run.py</code>、<code>pyspider-&gt;fetcher-&gt;tornado_fetcher.py</code>、<code>webui&gt;app.py</code>。</p>
+<ul>
+<li>再次执行 pyspider all, 报错：<br><img src="https://p.pstatp.com/origin/1384900026e094d9a65ea"></li>
+</ul>
+<p><strong>报错信息：</strong></p>
+<pre><code>ValueError: Invalid configuration:
+  - Deprecated option &#39;domaincontroller&#39;: use &#39;http_authenticator.domain_controller&#39; instead.
+</code></pre>
+<p>这个是因为wsgidav版本太高了，重新安装一下：<br><code>pip install wsgidav==2.4.1</code></p>
+<ul>
+<li>在运行，还报错：<br><img src="https://p.pstatp.com/origin/fef200036a88bb09b5da"></li>
+</ul>
+<p><strong>报错信息：</strong></p>
+<pre><code>ImportError: cannot import name &#39;DispatcherMiddleware&#39; from &#39;werkzeug.wsgi&#39; (d:\python\venv\lib\site-packages\werkzeug\wsgi.py)
+</code></pre>
+<p>这是因为werkzeug版本高了，DispatcherMiddleware这个类已经不存在了，因此重新安装小版本：</p>
+<p><code>pip install werkzeug=0.16</code><br>为什么是0.16版本？我是再卸载后，暂不安装，直接执行pyspider时，错误提示信息中显示了最低版本为0.16：）</p>
+<ul>
+<li>再次运行 pyspider all 填坑完毕，纪念一下<br><img src="https://p.pstatp.com/origin/13858000236106042f24a"></li>
+</ul>
+<h1 id="其他错误"><a href="#其他错误" class="headerlink" title="其他错误"></a>其他错误</h1><pre><code> D:\python&gt;pyspider all
+d:\python\venv\lib\site-packages\pyspider\libs\utils.py:196: FutureWarning: timeout is not supported on your platform.
+  warnings.warn(&quot;timeout is not supported on your platform.&quot;, FutureWarning)
+</code></pre>
+<p>忽视即可。</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/python" style=color:#879cff>
+                python
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2021/01/62.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2021/01/61.html">
+        <h2>
+            使用代理池处理反爬抓取微信文章
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/1/27
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <blockquote>
+<p>搜狗（<a target="_blank" rel="noopener" href="http://weixin.sogou.com/%EF%BC%89%E5%B7%B2%E7%BB%8F%E4%B8%BA%E6%88%91%E4%BB%AC%E5%81%9A%E4%BA%86%E4%B8%80%E5%B1%82%E5%BE%AE%E4%BF%A1%E6%96%87%E7%AB%A0%E7%9A%84%E7%88%AC%E5%8F%96%EF%BC%8C%E9%80%9A%E8%BF%87%E5%AE%83%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E8%8E%B7%E5%8F%96%E4%B8%80%E4%BA%9B%E5%BE%AE%E4%BF%A1%E6%96%87%E7%AB%A0%E7%9A%84%E5%88%97%E8%A1%A8%E4%BB%A5%E5%8F%8A%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BF%A1%E6%81%AF%EF%BC%8C">http://weixin.sogou.com/）已经为我们做了一层微信文章的爬取，通过它我们可以获取一些微信文章的列表以及微信公众号的一些信息，</a><br>但是它有很多反爬虫的措施，可以检测到你的IP异常，然后把你封掉。<br>本文采用代理的方法处理反爬来抓取微信文章。</p>
+</blockquote>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/python" style=color:#ffa2c4>
+                python
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2021/01/61.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2021/01/60.html">
+        <h2>
+            使用Selenium模拟浏览器抓取淘宝商品美食信息（含模拟登陆）
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/1/26
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <blockquote>
+<p>淘宝页面比较复杂，含有各种请求参数和加密参数，如果直接请求或者分析Ajax将会非常繁琐。<br>Selenium是一个自动化测试工具，可以驱动浏览器去完成各种工作，比如模拟点击、输入和下拉等多种功能，这样我们只需关心操作，<br>不需要关心后台发生了怎么样的请求下面对具体操作步骤进行详述。</p>
+</blockquote>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/python" style=color:#1bccbc>
+                python
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2021/01/60.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2021/01/59.html">
+        <h2>
+            Selenium模拟淘宝登陆的一次尝试
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/1/25
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <blockquote>
+<p>最近在研究python爬虫，因为教程是前几年的，所以随着网站的迭代，实战部分出现了很多新的问题。出现问题解决问题go~</p>
+</blockquote>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/python" style=color:#00bcd4>
+                python
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2021/01/59.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2021/01/58.html">
+        <h2>
+            Requests+正则表达式爬取猫眼电影TOP100
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/1/24
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <blockquote>
+<p>般爬猫眼电影有两种方法，一种就像我前段时间写的豆瓣电影爬取方法一样，可以只获取全部电影所在的详情页内容，<br>然后利用 正则表达式 一个一个提取，另一种就是先获取全部电影所在的详情页内容，在分别获取每个电影对应的详情页内容，再利用 正则表达式 或 pyquery 获取。</p>
+</blockquote>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/python" style=color:#00bcd4>
+                python
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2021/01/58.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2021/01/57.html">
+        <h2>
+            Linux系统下无法卸载挂载的解决办法
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/1/24
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <blockquote>
+<p>在日常运维中经常性会遇到需要进行磁盘的扩容、卸载、挂载等操作，但是有时候这个系统上跑的应用并没有停止或者有其他的运维同事在操作这个目录，这个时候我们是无法直接umount卸载掉的，所以今天就给大家分享一下如果遇到这种问题了，我们如何去合理的处理?</p>
+</blockquote>
+<p>现象描述：这里我们需要将/www目录卸载掉，如下图所示：<br><img src="https://p.pstatp.com/origin/1374b00025551ee96e710"></p>
+<p>执行卸载命令：<code>umount /www</code>后，发现卸载不了，提示资源被占用，如下图所示：<br><img src="https://p.pstatp.com/origin/fffe0001d1f8cfadace4"></p>
+<p>上面我们已经看到了，提示被占用，无法卸载，如何处理呢?方法很简单，可以使用<code>umount -f /www</code>强制卸载<br><img src="https://p.pstatp.com/origin/ff8300037e48197ecdba"></p>
+<p><code>-f</code> 参数为强制进行卸载，上面使用的强制卸载并未生效，还是报错了，现在使用fuser命令查看有哪些进程在占用目录<br><img src="https://p.pstatp.com/origin/1382e00024a057add1370"></p>
+<p>查看到有很多进程目前在占用此目录，所以无法卸载，现在有两种方法结束这些进程。</p>
+<ul>
+<li>第一种：平时常用到的<code>kill -9 进程号</code></li>
+<li>第二种：结束目录中的所有进程<code>fuser -m -v -i -k /www</code><br><img src="https://p.pstatp.com/origin/137d10003575939ab06cc"></li>
+</ul>
+<p><code>umount /www</code>   再次卸载，已经没有报错了</p>
+<p><code>df -h</code>  查看这个设备已经卸载掉<br><img src="https://p.pstatp.com/origin/138b50000c908da17f452"></p>
+<p><strong>原文来自尊云<a target="_blank" rel="noopener" href="https://www.zun.com/news/content/98.html">https://www.zun.com/news/content/98.html</a></strong></p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Linux" style=color:#ffa2c4>
+                Linux
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2021/01/57.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+
+             
+<div class="page-current">
+
+    <div class="prev">
+        
+    </div>
+
+    <div class="page-index">
+
+        
+
+        <span class="current">
+            1
+        </span>
+
+        
+        <span>
+            <a href="/page/2/">
+                <span class="page-num">
+                    2
+                </span>
+            </a>
+            
+            <a href="/page/3">
+                <span class="page-num">
+                    3
+                </span>
+            </a>
+            
+
+            
+            <span class="page-omit">...</span>
+            <a href="/page/6">
+                <span class="page-num">
+                    6
+                </span>
+            </a>
+            
+
+        </span>
+        
+
+    </div>
+
+    <div class="next">
+        
+        <a href="/page/2/ ">
+            <span class="page-num">
+                <a-icon type="caret-right" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+</div>
+
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <a-affix :offset-top="card_top">
+    <a-card class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="https://imgs.521daigua.cn/blog/tx.jpeg " alt="头像">
+        </div>
+        <div class="name">
+            Ne-21
+        </div>
+        <div class="descriptions">
+            
+            <div class="description">
+                放弃不难，但坚持一定很酷。
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://github.com/ne-21">
+
+                    
+                    <a-icon type="github"
+                        theme="filled" />
+                    
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://twitter.com/">
+
+                    
+                    <a-icon type="twitter"
+                        theme="" />
+                    
+                </a>
+            </span>
+            
+        </div>
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="http://www.ily.plus">
+                    ILY
+                </a>
+            </div>
+            
+        </div>
+    </a-card>
+</a-affix>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2019 - 2021 云淡风轻
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Ne-21
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                <a target="_blank" href="https://www.beian.miit.gov.cn" rel="nofollow noopener">冀ICP备19031443号</a><br><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://imgs.521daigua.cn/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" width="300px" height="20px"></a><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?46c8202ccbfe91fef8f7d5fddc0ce94a";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

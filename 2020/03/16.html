@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云淡风轻 || 关于http与https之间的区别</title>
+    <meta name="author" content="Ne-21">
+    <meta name="description" content="放弃不难，但坚持一定很酷。 ">
+    <meta name="keywords" content="云淡风轻, hexo, various, python, html, 小刀娱乐网, 编程, 自学 ">
+    <link rel="icon" href="/https://imgs.521daigua.cn/blog/tx.jpeg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">云淡风轻</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>首页</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="about" theme="filled" />
+            </span>
+            <span>关于</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="archives" theme="filled" />
+            </span>
+            <span>归档</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="categories" theme="filled" />
+            </span>
+            <span>分类</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>标签</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>云淡风轻</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">首页</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="about" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">关于</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="archives" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">归档</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="categories" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">分类</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">标签</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>关于http与https之间的区别 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/3/2
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/knowledge" style=color:#00bcd4>
+                    knowledge
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <blockquote>
+<p>今天我将博客全部启用了https，这就发现了一个问题，https和http到底有什么区别呢？</p>
+</blockquote>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>谷歌在2018年2月9日宣布从今年的7月起，Chrome浏览器将在地址栏把所有的HTTP网址标示为不安全网站。</p>
+<p>谷歌早在2017年1月发布的Chrome56，开始把要求用户输入密码或信用卡信息的HTTP网页标为不安全；2017年10月发布的Chrome62，开始把需要输入数据的HTTP网页和在Incognito模式下浏览的HTTP网站标为不安全。</p>
+<h1 id="http与https的概念"><a href="#http与https的概念" class="headerlink" title="http与https的概念"></a>http与https的概念</h1><p>http超文本传输协议，是一个客户端和服务端请求和应答的标准，用于WWW服务器传输超文本到本地浏览器的传输协议，可以使浏览器更加高效，减少网络传输。</p>
+<p>https超文本传输安全协议，就是http的安全版本，https是由http进行通信，但利用SSL/TLS来加密数据包。</p>
+<p>HTTPS开发的主要目的，是提供对网站服务器的身份认证，保护交换数据隐私与完整性。这个协议由网景公司在1994年首次提出，随后扩展到互联网。</p>
+<a id="more"></a>
+
+<h1 id="http存在的问题"><a href="#http存在的问题" class="headerlink" title="http存在的问题"></a>http存在的问题</h1><ul>
+<li>易被监听<br>http通信是明文，数据在客户端与服务器通信的过程中，任何一点都可能被劫持。比如，发送了银行卡号和密码，hacker劫取到数据，就可以看到卡号和密码，这是很危险的；</li>
+<li>易被伪装<br>http通信时，无法保证通行双方是合法的，通信方可能是伪装后的。比如你请求birdteam.net，你怎么知道返回的数据就是来自本站，中间人可能返回数据伪装成本站；</li>
+<li>易被篡改<br>hacker中间篡改数据后，接收方并不知道数据已经被更改。</li>
+</ul>
+<h1 id="https解决的问题"><a href="#https解决的问题" class="headerlink" title="https解决的问题"></a>https解决的问题</h1><p>https恰好解决了上述三个问题，https不是一种新协议，它是由http+SSL的结合体，由之前http到tcp，改为了http到SSL到tcp。</p>
+<ul>
+<li>防止监听<br>因为数据是加密的，黑客监听得到的是密文，看不懂的；</li>
+<li>防止伪装<br>https在通信的过程中，客户端和服务器端都是携带证书，证书相当于身份证，有证书就是合法的，没有就是非法，证书由第三方颁布，很难伪造；</li>
+<li>防止篡改<br>https对数据进行摘要处理，即使被篡改也是会被感知的，改了数据也没有用。</li>
+</ul>
+<h1 id="http与https的区别"><a href="#http与https的区别" class="headerlink" title="http与https的区别"></a>http与https的区别</h1><p>http协议传输的数据时未经过加密的，就是明文；</p>
+<p>https在使用http进行通信时，利用SSL进行了加密传输、身份认证的网络协议http+SSL，比http更加安全。</p>
+<ul>
+<li><p>https使用需要CA证书，大部分都是付费使用的<br>CA是Certificate Authority的缩写，也叫证书授权中心，也是需要第三方公司进行授权的。</p>
+</li>
+<li><p>端口不同<br>HTTP的URL是由http://起始且默认使用80端口；</p>
+</li>
+</ul>
+<p>HTTPS的URL是由https://起始且默认使用443端口。</p>
+<h1 id="https的工作原理"><a href="#https的工作原理" class="headerlink" title="https的工作原理"></a>https的工作原理</h1><p>如图所示，https工作原理可以细分为八个步骤：<br><img src="https://birdteam.net/wp-content/uploads/2018/02/201802280312223.jpg" alt="原理图"></p>
+<ul>
+<li>客户端发起HTTPS请求<br>用户在浏览器里输入一个https网址，然后连接到server的443端口；</li>
+<li>服务端的配置<br>就是指上述提到的数字证书；</li>
+<li>传送证书<br>Web服务器收到客户端请求后，会将网站的证书信息中包含公钥传送一份给客户端；</li>
+<li>客户解析证书<br>客户会对证书进行判断，验证公钥是否有效，存在问题弹出警告；若没问题，生成一个秘钥，后用证书继续进行加密；</li>
+<li>传送加密信息<br>客户端将上加密后的随机值（私钥）提供给服务端，服务端会对其进行解密；</li>
+<li>服务器端解密信息<br>服务端解密后得到私钥，然后把内容通过该值进行对称性加密。对称加密就是指把要返回的信息和随机值（私钥）混合加密，这样除非知道私钥，不然无法获取数据；</li>
+<li>传输加密后的信息<br>继续将加密后的信息传递给客户；</li>
+<li>客户解密信息<br>客户端用之前生成的秘钥解密服务端传过来的信息，于是获取解密后的内容。</li>
+</ul>
+<h1 id="https的缺点"><a href="#https的缺点" class="headerlink" title="https的缺点"></a>https的缺点</h1><p>https虽然安全性比http高出很多但是也有一些缺点。</p>
+<ul>
+<li>握手阶段费时<br>因为SSL的缘故，HTTPS协议握手阶段会比较费时，会使页面加载时间延长近50%；</li>
+<li>SSL证书要花钱<br>便宜没好货好货不便宜；</li>
+<li>HTTPS连接缓存不如HTTP高效<br>HTTPS连接缓存不如HTTP高效，会增加数据开销和功耗，甚至已有的安全措施也会因此而受到影响；</li>
+<li>SSL证书通常需要绑定IP<br>SSL证书通常需要绑定IP，不可以在同一IP上绑定多个域名，IPv4资源不可能支撑这个消耗；</li>
+<li>有局限性<br>HTTPS协议加密范围也比较有限，黑客攻击、拒绝服务攻击、服务器劫持方面几乎起不到什么作用。最关键的，SSL证书信用链体系并不安全，特别是在某些国家可以控制CA根证书的情况下，中间攻击一样可行。</li>
+</ul>
+<p>本文转自菜鸟博—<a target="_blank" rel="noopener" href="https://birdteam.net/30333">原文链接</a></p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2019 - 2021 云淡风轻
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Ne-21
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                <a target="_blank" href="https://www.beian.miit.gov.cn" rel="nofollow noopener">冀ICP备19031443号</a><br><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://imgs.521daigua.cn/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" width="300px" height="20px"></a><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?46c8202ccbfe91fef8f7d5fddc0ce94a";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

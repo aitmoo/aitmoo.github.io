@@ -1,0 +1,1315 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云淡风轻 || The future is you, the future can be expected.</title>
+    <meta name="author" content="Ne-21">
+    <meta name="description" content="放弃不难，但坚持一定很酷。 ">
+    <meta name="keywords" content="云淡风轻, hexo, various, python, html, 小刀娱乐网, 编程, 自学 ">
+    <link rel="icon" href="/https://imgs.521daigua.cn/blog/tx.jpeg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">云淡风轻</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>首页</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="about" theme="filled" />
+            </span>
+            <span>关于</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="archives" theme="filled" />
+            </span>
+            <span>归档</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="categories" theme="filled" />
+            </span>
+            <span>分类</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>标签</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>云淡风轻</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">首页</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="about" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">关于</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="archives" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">归档</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="categories" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">分类</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">标签</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                    <div id="home-head" style=background-image:url('home.jpg')>
+    <script>
+        var menu = document.getElementById("menu")
+        menu.className += " menu-color"
+    </script>
+     
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>云淡风轻</h1>
+                <h3>The future is you, the future can be expected.</h3>
+                <h5>放弃不难，但坚持一定很酷。</h5>
+            </div>
+        </span>
+    </div>
+     
+</div>
+
+
+
+<div id="home-posts-wrap" class=>
+    <div id="home-posts">
+
+        <div id="posts">
+            
+
+<div class="post">
+
+    <a href="/2020/04/36.html">
+        <h2>
+            Hoo!k机器人进群与获取webhook教程
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/13
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <blockquote>
+<p>   webhooks是一个api概念，是微服务api的使用范式之一，也被成为反向api，即：前端不主动发送请求，完全由后端推送。 举个常用例子，比如你的好友发了一条朋友圈，后端将这条消息推送给所有其他好友的客户端，就是 Webhooks 的典型场景。<br>　　简单来说，WebHook就是一个接收HTTP POST（或GET，PUT，DELETE）的URL。一个实现了WebHook的API提供商就是在当事件发生的时候会向这个配置好的URL发送一条信息。与请求-响应式不同，使用WebHooks，你可以实时接受到变化。</p>
+</blockquote>
+<p>那么，我么如何将Hoo!k机器人添加到群里，并获取webhook呢？</p>
+<p>1.请将下面QQ号<code>2854196399</code>先发到你管理或者你创建的群<br>2.点击qq号，将机器人添加到你的群，然后打开消息推送，并且选择推送消息那里的已设置。<br><img src="https://ae01.alicdn.com/kf/H93ef214d90da43df97cbcaa32621d015t.jpg" alt="1"><br><img src="https://ae01.alicdn.com/kf/Hdc67330127b94deb9633a61b07a08d42x.jpg" alt="2"><br><img src="https://ae01.alicdn.com/kf/H96927892e6a84ac290ec36dd934797efj.jpg" alt="3"><br>3.接下来选择生成接口复制 key= 后面的参数记录保存，千万不可泄露接下来选择生成接口复制 key= 后面的参数记录保存，千万不可泄露<br>4.获取完成</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/knowledge" style=color:#ffa2c4>
+                knowledge
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/04/36.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/04/35.html">
+        <h2>
+            用Cloudflare CDN 如何自定义节点（CF自选IP）
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/11
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <p>具体步骤就不说了,大概就是用Cloudflare的CDN以CNAME别名方式解析,然后到各种智能dns里面a到节点就ok了(利用A记录进行负载均衡)</p>
+<p>接入CF之后，CF会给域名分配一个入口IP，一般是美西洛杉矶那边的。这个IP其实是采用的AnyCast技术，当用户访问到时候，会就近分配一个真实的节点IP，以加快访问速度。</p>
+<p>访问：http://{节点IP/域名}/cdn-cgi/trace。比如要查看访客的真实IP ，则访问 HTTPS://<a target="_blank" rel="noopener" href="http://www.ily.plus/cdn-cgi/trace">www.ily.plus/cdn-cgi/trace</a></p>
+<p> </p>
+<p>需要用到的东西：<br>CF:<code>www.cloudflare.com</code></p>
+<p>cfp（Cloudflare合作伙伴）<br>推荐笨牛:<code>http://cdn.bnxb.com</code> </p>
+<p>稳定很长时间的: <code>https://cf.tlo.xyz/</code></p>
+<p>萌精灵 <code>https://cdn.moeelf.com/</code></p>
+<p>智能解析 国内随便选 建议dnspod/dnsdun/dnsla</p>
+<p>都比较不错 因为这三家支持智能三网/四网解析 外加搜索引擎百度等单独解析</p>
+<h2 id="下面说一下IP段-这里面有一个思想就是需要自己添加后不断去优化-也就是用各种ping命令检查一下-把延迟比较高的换掉"><a href="#下面说一下IP段-这里面有一个思想就是需要自己添加后不断去优化-也就是用各种ping命令检查一下-把延迟比较高的换掉" class="headerlink" title="下面说一下IP段,这里面有一个思想就是需要自己添加后不断去优化! 也就是用各种ping命令检查一下,把延迟比较高的换掉"></a>下面说一下IP段,这里面有一个思想就是需要自己添加后不断去优化! 也就是用各种ping命令检查一下,把延迟比较高的换掉</h2><p>CloudFlare的节点：国内速较快的IP段：</p>
+<p>（联通移动推荐节点）</p>
+<p><code>104.23.240.0-104.23.243.254</code></p>
+<p>（电信推荐CloudFlare 百度云合作 ip）</p>
+<pre><code>162.159.208.4-162.159.208.103
+
+162.159.209.4-162.159.209.103
+
+162.159.210.4-162.159.210.103
+
+162.159.211.4-162.159.211.103
+</code></pre>
+<p>各线路推荐列表：<br>电信：推荐走圣何塞，例：<code>104.16.160.*</code> 或者上面的百度云合作 ip。<br>移动：推荐走移动香港，例：<code>172.64.32.*、141.101.115.*</code> 或者 <code>104.23.240.0-104.23.243.254</code>。<br>联通：没发布什么好线路，可走圣何塞。例：<code>104.16.160.*</code> 或者 <code>104.23.240.0-104.23.243.254</code>。也可以试一下走亚特兰大 <code>108.162.236.*</code>（日前不可用。） 。</p>
+<p>延迟和速度不错，IP地址：<code>162.159.211.3-162.159.211.103</code></p>
+<p>移动很不错：<code>198.41.214.162</code></p>
+<pre><code>162.158.26.1
+172.68.144.1
+172.69.152.1
+104.19.195.151
+104.18.177.69
+104.25.176.1
+</code></pre>
+<p>可以设置用于 移动网络</p>
+<pre><code>108.162.227.1
+162.158.4.1
+172.69.152.1
+</code></pre>
+<p>可以设置用于 联通网络</p>
+<pre><code>162.158.116.1
+108.162.226.1
+</code></pre>
+<p>可以设置用于 默认网络</p>
+<pre><code>172.68.32.1
+108.162.243.1
+108.162.245.1
+108.162.246.1
+172.68.172.1
+</code></pre>
+<p>可以设置用于 电信网络</p>
+<p>官方列表：CloudFlare公开的节点</p>
+<p>某博主找到了一批CF亚洲节点，再通过实测最终得出了3个ping值很低（100ms以内）的节点IP：</p>
+<p><code>202.86.161.100</code>（澳门）、<code>27.102.67.84</code>（韩国）、<code>23.61.246.100</code>（台湾，速度略慢，但相对其他节点亚洲又好那么一丢丢）。未测试</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/web" style=color:#ffa2c4>
+                web
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/04/35.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/04/34.html">
+        <h2>
+            U校园获取听力音频教程
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/10
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <blockquote>
+<p>今天下午成功的把识别程序写完了，不过这次并没有使用百度提供的服务，对，但现在为止，我还没有解决pcm的问题，在这里还是想请大佬指点一下，毕竟是新手，我还是有自知之明的。那么问题又来了，我这次用的是什么呢，嘿嘿，这次我选择了腾讯云的语音识别，它可以直接识别MP3格式的音频，当然，更加吸引人的是，它可以跨域识别。这就大大提高了效率。万事俱备，只欠东风。接下来我就来说一说如何获取听力音频。</p>
+</blockquote>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/web" style=color:#1bccbc>
+                web
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/04/34.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/04/33.html">
+        <h2>
+            Python语音识别折腾记
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/9
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <blockquote>
+<p>今天好不容易休息半天，但是又被英语作业给折服了，就上一次<a href="https://gocos.cn/2020/03/29.html">U校园半自动化</a>造福大学生之后，就有这么一个想法，是什么呢？<br>就是能不能把听力的内容识别出来，变成文本。这样就可以看听力文本了，那答题岂不是很简单？<br>ok，废话不多说，下面就来介绍下自己的折腾日记和遇到的问题</p>
+</blockquote>
+<h1 id="抓包"><a href="#抓包" class="headerlink" title="抓包"></a>抓包</h1><p>我们第一步要做的就是拿到听力文件，怎么拿呢？——抓包<br>由于过于简单，我只说大概步骤，具体百度<br><code>登陆——进入听力测验——按F12打开开发者工具——点击音频播放按钮——看工具里的最后一个资源——双击该资源进入——下载音频</code></p>
+<h1 id="音频格式转换"><a href="#音频格式转换" class="headerlink" title="音频格式转换"></a>音频格式转换</h1><p>我们拿到的音频格式是MP3格式的，按照<a target="_blank" rel="noopener" href="https://ai.baidu.com/ai-doc/SPEECH/Vk38lxily">百度语音识别的文档</a>来说支持音频格式：pcm、wav、amr、m4a的音频，<br>当然我在这里卡住了，用格式工厂转码后进行识别会报错，由于格式工厂没有pcm格式，所以我在这里纠结怎么转换，当然百度也给出了<a target="_blank" rel="noopener" href="https://ai.baidu.com/ai-doc/SPEECH/7k38lxpwf">转换方法</a><br>我这里还没研究明白，恳请大佬指点，下面我们只能用百度提供的示例音频做演示了QAQ</p>
+<h1 id="在百度智能云开通服务"><a href="#在百度智能云开通服务" class="headerlink" title="在百度智能云开通服务"></a>在百度智能云开通服务</h1><p>1.登陆<a target="_blank" rel="noopener" href="https://login.bce.baidu.com/?account=&redirect=http://console.bce.baidu.com/">百度智能云</a><br>2.<img src="https://s1.ax1x.com/2020/04/09/G5RH6H.png" alt="2"><br>3.<img src="https://ae01.alicdn.com/kf/H2c23f18f5055486ab6756f3fb584498ei.png" alt="3"><br>4.<img src="https://ae01.alicdn.com/kf/Hba63e7bd6da14287a237bf5504f519eb2.png" alt="4"><br>5.<img src="https://ae01.alicdn.com/kf/H9b980f96caea4f60913b8cef7d2c4742i.png" alt="5"><br>6.<img src="https://ae01.alicdn.com/kf/H43e62f8f01f94c3e97bf74740a61cd08o.png" alt="6"><br>7.创建成功后，我们就会获得api-key,secret-key（后面会用到）<br><img src="https://ae01.alicdn.com/kf/H7bd399a826824546bbddf77b6ac324d6a.png" alt="7"></p>
+<h1 id="开始在python构造请求"><a href="#开始在python构造请求" class="headerlink" title="开始在python构造请求"></a>开始在python构造请求</h1><p>这里我们直接使用百度提供的<a target="_blank" rel="noopener" href="https://github.com/Baidu-AIP/speech-demo/tree/master/rest-api-asr/python">DEMO</a>,然后自己做一些修改</p>
+<ul>
+<li><p>安装依赖库(利用pip,不懂请自行百度)</p>
+</li>
+<li><p><code>pip install baidu-aip</code> # 百度语音识别Python SDK</p>
+</li>
+<li><p><code>pip install urllib</code> # 网页请求库</p>
+</li>
+<li><p>开始构造代码（注意看注释）</p>
+<pre><code># coding=utf-8
+</code></pre>
+</li>
+</ul>
+<h1 id="引入所需库"><a href="#引入所需库" class="headerlink" title="引入所需库"></a>引入所需库</h1><p>import sys<br>import json<br>import base64<br>import time</p>
+<p>IS_PY3 = sys.version_info.major == 3</p>
+<p>if IS_PY3:<br>    from urllib.request import urlopen<br>    from urllib.request import Request<br>    from urllib.error import URLError<br>    from urllib.parse import urlencode<br>    timer = time.perf_counter<br>else:<br>    from urllib2 import urlopen<br>    from urllib2 import Request<br>    from urllib2 import URLError<br>    from urllib import urlencode<br>    if sys.platform == “win32”:<br>        timer = time.clock<br>    else:<br>        # On most other platforms the best timer is time.time()<br>        timer = time.time</p>
+<h1 id="设置api-key-secret-key-此数据在上文有提及"><a href="#设置api-key-secret-key-此数据在上文有提及" class="headerlink" title="设置api-key,secret-key  此数据在上文有提及"></a>设置api-key,secret-key  此数据在上文有提及</h1><p>API_KEY = ‘你的api-key’<br>SECRET_KEY = ‘你的secret-key’</p>
+<h1 id="需要识别的文件-audio-16k-pcm为音频文件路径，例如在D盘，那就是D-audio-16k-pcm"><a href="#需要识别的文件-audio-16k-pcm为音频文件路径，例如在D盘，那就是D-audio-16k-pcm" class="headerlink" title="需要识别的文件  ./audio/16k.pcm为音频文件路径，例如在D盘，那就是D:/audio/16k.pcm"></a>需要识别的文件  ./audio/16k.pcm为音频文件路径，例如在D盘，那就是D:/audio/16k.pcm</h1><p>AUDIO_FILE = ‘./audio/16k.pcm’  # 只支持 pcm/wav/amr 格式，极速版额外支持m4a 格式</p>
+<h1 id="文件格式"><a href="#文件格式" class="headerlink" title="文件格式"></a>文件格式</h1><p>FORMAT = AUDIO_FILE[-3:]  # 文件后缀只支持 pcm/wav/amr 格式，极速版额外支持m4a 格式</p>
+<h1 id="电脑mac地址，个人感觉没用，默认即可"><a href="#电脑mac地址，个人感觉没用，默认即可" class="headerlink" title="电脑mac地址，个人感觉没用，默认即可"></a>电脑mac地址，个人感觉没用，默认即可</h1><p>CUID = ‘123456PYTHON’</p>
+<h1 id="采样率"><a href="#采样率" class="headerlink" title="采样率"></a>采样率</h1><p>RATE = 16000  # 固定值</p>
+<h1 id="普通版"><a href="#普通版" class="headerlink" title="普通版"></a>普通版</h1><p>DEV_PID = 1537  # 1537 表示识别普通话，使用输入法模型。根据文档填写PID，选择语言及识别模型<br>ASR_URL = ‘<a target="_blank" rel="noopener" href="http://vop.baidu.com/server_api&#39;">http://vop.baidu.com/server_api&#39;</a><br>SCOPE = ‘audio_voice_assistant_get’  # 有此scope表示有asr能力，没有请在网页里勾选，非常旧的应用可能没有</p>
+<p>#测试自训练平台需要打开以下信息， 自训练平台模型上线后，您会看见 第二步：“”获取专属模型参数pid:8001，modelid:1234”，按照这个信息获取 dev_pid=8001，lm_id=1234</p>
+<h1 id="DEV-PID-8001"><a href="#DEV-PID-8001" class="headerlink" title="DEV_PID = 8001 ;"></a>DEV_PID = 8001 ;</h1><h1 id="LM-ID-1234"><a href="#LM-ID-1234" class="headerlink" title="LM_ID = 1234 ;"></a>LM_ID = 1234 ;</h1><h1 id="极速版-打开注释的话请填写自己申请的appkey-appSecret-，并在网页中开通极速版（开通后可能会收费）"><a href="#极速版-打开注释的话请填写自己申请的appkey-appSecret-，并在网页中开通极速版（开通后可能会收费）" class="headerlink" title="极速版 打开注释的话请填写自己申请的appkey appSecret ，并在网页中开通极速版（开通后可能会收费）"></a>极速版 打开注释的话请填写自己申请的appkey appSecret ，并在网页中开通极速版（开通后可能会收费）</h1><h1 id="DEV-PID-80001"><a href="#DEV-PID-80001" class="headerlink" title="DEV_PID = 80001"></a>DEV_PID = 80001</h1><h1 id="ASR-URL-‘http-vop-baidu-com-pro-api-39"><a href="#ASR-URL-‘http-vop-baidu-com-pro-api-39" class="headerlink" title="ASR_URL = ‘http://vop.baidu.com/pro_api&#39;"></a>ASR_URL = ‘<a target="_blank" rel="noopener" href="http://vop.baidu.com/pro_api&#39;">http://vop.baidu.com/pro_api&#39;</a></h1><h1 id="SCOPE-‘brain-enhanced-asr’-有此scope表示有极速版能力，没有请在网页里开通极速版"><a href="#SCOPE-‘brain-enhanced-asr’-有此scope表示有极速版能力，没有请在网页里开通极速版" class="headerlink" title="SCOPE = ‘brain_enhanced_asr’  # 有此scope表示有极速版能力，没有请在网页里开通极速版"></a>SCOPE = ‘brain_enhanced_asr’  # 有此scope表示有极速版能力，没有请在网页里开通极速版</h1><h1 id="忽略scope检查，非常旧的应用可能没有"><a href="#忽略scope检查，非常旧的应用可能没有" class="headerlink" title="忽略scope检查，非常旧的应用可能没有"></a>忽略scope检查，非常旧的应用可能没有</h1><h1 id="SCOPE-False"><a href="#SCOPE-False" class="headerlink" title="SCOPE = False"></a>SCOPE = False</h1><p>class DemoError(Exception):<br>    pass</p>
+<p>“””  TOKEN start “””</p>
+<p>TOKEN_URL = ‘<a target="_blank" rel="noopener" href="http://openapi.baidu.com/oauth/2.0/token&#39;">http://openapi.baidu.com/oauth/2.0/token&#39;</a></p>
+<p>def fetch_token():<br>    params = {‘grant_type’: ‘client_credentials’,<br>              ‘client_id’: API_KEY,<br>              ‘client_secret’: SECRET_KEY}<br>    post_data = urlencode(params)<br>    if (IS_PY3):<br>        post_data = post_data.encode( ‘utf-8’)<br>    req = Request(TOKEN_URL, post_data)<br>    try:<br>        f = urlopen(req)<br>        result_str = f.read()<br>    except URLError as err:<br>        print(‘token http response http code : ‘ + str(err.code))<br>        result_str = err.read()<br>    if (IS_PY3):<br>        result_str =  result_str.decode()</p>
+<pre><code>print(result_str)
+result = json.loads(result_str)
+print(result)
+if (&#39;access_token&#39; in result.keys() and &#39;scope&#39; in result.keys()):
+    print(SCOPE)
+    if SCOPE and (not SCOPE in result[&#39;scope&#39;].split(&#39; &#39;)):  # SCOPE = False 忽略检查
+        raise DemoError(&#39;scope is not correct&#39;)
+    print(&#39;SUCCESS WITH TOKEN: %s  EXPIRES IN SECONDS: %s&#39; % (result[&#39;access_token&#39;], result[&#39;expires_in&#39;]))
+    return result[&#39;access_token&#39;]
+else:
+    raise DemoError(&#39;MAYBE API_KEY or SECRET_KEY not correct: access_token or scope not found in token response&#39;)
+</code></pre>
+<p>“””  TOKEN end “””</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    token = fetch_token()</p>
+<pre><code>speech_data = []
+with open(AUDIO_FILE, &#39;rb&#39;) as speech_file:
+    speech_data = speech_file.read()
+
+length = len(speech_data)
+if length == 0:
+    raise DemoError(&#39;file %s length read 0 bytes&#39; % AUDIO_FILE)
+speech = base64.b64encode(speech_data)
+if (IS_PY3):
+    speech = str(speech, &#39;utf-8&#39;)
+params = &#123;&#39;dev_pid&#39;: DEV_PID,
+         #&quot;lm_id&quot; : LM_ID,    #测试自训练平台开启此项
+          &#39;format&#39;: FORMAT,
+          &#39;rate&#39;: RATE,
+          &#39;token&#39;: token,
+          &#39;cuid&#39;: CUID,
+          &#39;channel&#39;: 1,
+          &#39;speech&#39;: speech,
+          &#39;len&#39;: length
+          &#125;
+post_data = json.dumps(params, sort_keys=False)
+# print post_data
+req = Request(ASR_URL, post_data.encode(&#39;utf-8&#39;))
+req.add_header(&#39;Content-Type&#39;, &#39;application/json&#39;)
+try:
+    begin = timer()
+    f = urlopen(req)
+    result_str = f.read()
+    print (&quot;Request time cost %f&quot; % (timer() - begin))
+except URLError as err:
+    print(&#39;asr http response http code : &#39; + str(err.code))
+    result_str = err.read()
+
+if (IS_PY3):
+    result_str = str(result_str, &#39;utf-8&#39;)
+print(result_str)
+with open(&quot;result.txt&quot;,&quot;w&quot;) as of:
+    of.write(result_str)
+</code></pre>
+<pre><code>
+# 运行程序
+我们运行程序后或返回一下信息
+</code></pre>
+<p>{“access_token”:”24.0ed58d5f890b6388b8e1fbb4f595e64e.2592000.1589017415.282335-19345000”,”session_key”:”9mzdC33+ru+xjYD0Bs+vqaaCurlrknFs75w6pvM+ddSFc9hWFqSn0t8aW8gWU7qWGl21RSTcM4A1bevZRf5m2labdgfjvA==”,”scope”:”audio_voice_assistant_get brain_enhanced_asr audio_tts_post public brain_all_scope picchain_test_picchain_api_scope wise_adapt lebo_resource_base lightservice_public hetu_basic lightcms_map_poi kaidian_kaidian ApsMisTest_Test\u6743\u9650 vis-classify_flower lpq_\u5f00\u653e cop_helloScope ApsMis_fangdi_permission smartapp_snsapi_base iop_autocar oauth_tp_app smartapp_smart_game_openapi oauth_sessionkey smartapp_swanid_verify smartapp_opensource_openapi smartapp_opensource_recapi qatest_scope1 fake_face_detect_\u5f00\u653eScope vis-ocr_\u865a\u62df\u4eba\u7269\u52a9\u7406 idl-video_\u865a\u62df\u4eba\u7269\u52a9\u7406”,”refresh_token”:”25.ccc2be055d9e6273d3c0bad9b8bb2368.315360000.1901785415.282335-19345000”,”session_secret”:”a0a53e0d2183b7145217373b71784075”,”expires_in”:2592000}<br>{‘access_token’: ‘24.0ed58d5f890b6388b8e1fbb4f595e64e.2592000.1589017415.282335-19345000’, ‘session_key’: ‘9mzdC33+ru+xjYD0Bs+vqaaCurlrknFs75w6pvM+ddSFc9hWFqSn0t8aW8gWU7qWGl21RSTcM4A1bevZRf5m2labdgfjvA==’, ‘scope’: ‘audio_voice_assistant_get brain_enhanced_asr audio_tts_post public brain_all_scope picchain_test_picchain_api_scope wise_adapt lebo_resource_base lightservice_public hetu_basic lightcms_map_poi kaidian_kaidian ApsMisTest_Test权限 vis-classify_flower lpq_开放 cop_helloScope ApsMis_fangdi_permission smartapp_snsapi_base iop_autocar oauth_tp_app smartapp_smart_game_openapi oauth_sessionkey smartapp_swanid_verify smartapp_opensource_openapi smartapp_opensource_recapi qatest_scope1 fake_face_detect_开放Scope vis-ocr_虚拟人物助理 idl-video_虚拟人物助理’, ‘refresh_token’: ‘25.ccc2be055d9e6273d3c0bad9b8bb2368.315360000.1901785415.282335-19345000’, ‘session_secret’: ‘a0a53e0d2183b7145217373b71784075’, ‘expires_in’: 2592000}<br>audio_voice_assistant_get<br>SUCCESS WITH TOKEN: 24.0ed58d5f890b6388b8e1fbb4f595e64e.2592000.1589017415.282335-19345000  EXPIRES IN SECONDS: 2592000<br>Request time cost 1.736482<br>{“corpus_no”:”6813645276203395866”,”err_msg”:”success.”,”err_no”:0,”result”:[“Beijing Cody girl”],”sn”:”487908489041586425415”}</p>
+<p>```<br><img src="https://ae01.alicdn.com/kf/H119a0599495846b8aaf1762ffbe78a6aV.png" alt="8"><br>“result”:[“Beijing Cody girl”]中的内容就是识别的内容，在程序根目录也会生成result.txt文件也可以查看。</p>
+<p>ok，大概就是这个样子，我要去研究pcm这个鬼东西了。。。</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/python" style=color:#1bccbc>
+                python
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/04/33.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/04/32.html">
+        <h2>
+            表情包太少？利用Python爬取表情包
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/8
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>前言：代码实现了下载动态 下载静态的识别！<br>当然代码还有很多需要完善的 比如下载完的弹窗 bug也有比如创建空文件夹  只能爬取带ID固定的地址栏的表情包等等<br>简简单单凑合用！</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/python" style=color:#ffa2c4>
+                python
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/04/32.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/04/31.html">
+        <h2>
+            如何一键灰白，以示哀思
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/4
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <p>2020年4月4日</p>
+<p>是农历庚子年的清明节</p>
+<p>同样也是2000年以来的第四个全国追悼日</p>
+<h1 id="小记"><a href="#小记" class="headerlink" title="小记"></a>小记</h1><p>2020年4月3日，国务院公告：2020年4月4日举行全国性哀悼活动。</p>
+<p>4日零点，各大游戏停服维护，各个公司主页应用改为黑白主题。<br>4日10时全国降半旗鸣笛默哀，表达全国各族人民对抗击新冠肺炎疫情斗争牺牲烈士和逝世同胞的深切哀悼。<br>这也许是人生中第一次全网上下，身前身后都是一片灰色沉痛的基调。百度、腾讯新闻、今日头条、人民日报、淘宝等等你所能用到的app/官网，都将页面色调转为黑白，以示哀思。他们是怎么做到一夜之间将如此大体量的网页做了主题切换的呢？难道他们早就接到了通知？</p>
+<p>其实不然，做到这些关键代码只有一行，其次再考虑下各浏览器版本兼容的问题就可以轻松做到：</p>
+<pre><code>filter: grayscale(100%)
+</code></pre>
+<p>这是一行css3的样式代码，意为将图像转换为灰度图像。值定义转换的比例。值为100%则完全转为灰度图像，值为0%图像无变化。值在0%到100%之间，则是效果的线性乘子。若未设置，值默认是0；<br>有了核心代码，再稍加修饰，让其兼容多版本浏览器</p>
+<pre><code>html &#123; 
+  filter: url(&quot;data:image/svg+xml;utf8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;filter id=&quot;grayscale&quot;&gt;&lt;feColorMatrix type=&quot;matrix&quot; values=&quot;0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0&quot;/&gt;&lt;/filter&gt;&lt;/svg&gt;#grayscale&quot;); /* Firefox 3.5+ */
+  -webkit-filter: grayscale(100%); /* chrome+ */
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray; /* ie6-8 */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);/*ie6-9 */
+&#125;
+</code></pre>
+<p>此段样式代码只需声明为全局样式，其样式文件在页面头部引入，即可生效。如有需要请自行食用。</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/web" style=color:#ff7d73>
+                web
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/04/31.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/04/30.html">
+        <h2>
+            Hexo利用CDN实现静态文件加速
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/1
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <blockquote>
+<p>最近搞来搞去，还是把博客的主题换成了NexT，现在感觉还是这款主题用着舒服，简洁，功能还很丰富，不过由于本博客托管于github，毕竟是国外网站，在国内的速度<br>还是很感人的，更何况还需要加载好多的静态文件，所以我们为了提高页面的打开速度，我决定将第三方的静态文件全部改为从公用的CDN来获取，几天下来，博客的打开速度<br>确实提高了不少。下面把CDN的配置给大家，赶快去体验吧！！！！！！！！<br>这里只是针对第三方静态文件的加速，修改<code>Next</code>主题配置文件<code>_config.yml</code>如下：</p>
+</blockquote>
+<pre><code>vendors:
+  # Internal path prefix. Please do not edit it.
+  _internal: lib
+
+  # Internal version: 2.1.3
+  jquery: https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js
+
+  # Internal version: 2.1.5
+  # See: http://fancyapps.com/fancybox/
+  fancybox: https://cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js # https://cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js
+  fancybox_css: https://cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css
+
+  # Internal version: 1.0.6
+  # See: https://github.com/ftlabs/fastclick
+  fastclick: https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+
+  # Internal version: 1.9.7
+  # See: https://github.com/tuupola/jquery_lazyload
+  lazyload: https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js
+
+  # Internal version: 1.2.1
+  # See: http://VelocityJS.org
+  velocity: https://cdn.bootcss.com/velocity/1.2.1/velocity.min.js
+
+  # Internal version: 1.2.1
+  # See: http://VelocityJS.org
+  velocity_ui: https://cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js
+
+  # Internal version: 0.7.9
+  # See: https://faisalman.github.io/ua-parser-js/
+  ua_parser:
+
+  # Internal version: 4.6.2
+  # See: http://fontawesome.io/
+  fontawesome: https://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css
+
+  # Internal version: 1
+  # https://www.algolia.com
+  algolia_instant_js:
+  algolia_instant_css:
+
+  # Internal version: 1.0.2
+  # See: https://github.com/HubSpot/pace
+  # Or use direct links below:
+  # pace: //cdn.bootcss.com/pace/1.0.2/pace.min.js
+  # pace_css: //cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css
+  pace: https://cdn.bootcss.com/pace/1.0.2/pace.min.js
+  pace_css: https://cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css
+</code></pre>
+<p>针对自定义的静态文件(main.min.js和main.min.css)需要自行使用融合CDN，国内都需要备案域名.</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/hexo" style=color:#879cff>
+                hexo
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/04/30.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/03/29.html">
+        <h2>
+            U校园刷课半自动化解决方案
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/3/28
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <blockquote>
+<p>学习使人快乐，技术使人懒惰。秉持着雷锋精神，为了服务爱学(tou)习(lan)的大学生，今天就来分享下U校园的刷课半自动化解决方案。怎么说呢，也不算方案吧，也就是个工具。</p>
+</blockquote>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>利用脚本+题库实现自动搜答案，自动填空</p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>1.可以上网的电脑（注意下，这里要固定ip地址的，不要开加速器哦，不然U校园的垃圾判断机制会限制你登陆哦，一般家用宽带都是固定ip的）<br>2.下载本文提供的集成浏览器，下载地址：<a target="_blank" rel="noopener" href="https://www.lanzous.com/iaqd8pc">https://www.lanzous.com/iaqd8pc</a><br>3.没有解压软件推荐用7-zip,下载地址：<a target="_blank" rel="noopener" href="https://sparanoid.com/lab/7z/">https://sparanoid.com/lab/7z/</a></p>
+<h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><p>1.下载浏览器<br>2.解压缩<br>3.打开解压后的文件夹有<code>运行此文件.exe</code>,双击运行<br>4.如图，点击箭头所指链接<br><img src="https://s1.ax1x.com/2020/03/28/Gkge1J.png" alt="1"><br>5.登陆U校园<br><img src="https://s1.ax1x.com/2020/03/28/GkgvE6.png" alt="2"><br>6.进入课程，开始学习，遇到需要你回答的题目会出现下面类似的窗口<br><img src="https://s1.ax1x.com/2020/03/28/Gk2lKs.png" alt="3"><br>等待它自动完成回答，完成后自己用鼠标去点一下回答的空。之后就可以提交了。</p>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>出现答题失败的可能原因：<br>1.该题型未适配<br>2.网页存在缓存，刷新网页即可<br>3.如有疑问，请反馈。</p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>使用脚本则同意以下规定<br>代码禁止二次开发<br>本软件按“原样”提供，不提供任何形式的明示或暗示担保，包括但不限于对适销性，特定目的的适用性和非侵权性的担保。无论是由于软件，使用或其他方式产生的，与之有关或与之有关的合同，侵权或其他形式的任何索赔，损害或其他责任，作者或版权所有者概不负责。</p>
+<h1 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h1><p>MrDgbot提供的脚本支持</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/web" style=color:#ff7d73>
+                web
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/03/29.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/03/28.html">
+        <h2>
+            Python学习之路（五）
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/3/27
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <blockquote>
+<p>今天来聊聊程序是如何控制的？</p>
+</blockquote>
+<h1 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h1><ul>
+<li><p>选择结构（分支结构）：根据程序中给出的条件语句，判断当前条件 是否满足，如果满足就执行相应的语句块，如果不满足则什么都不执 行或者执行预先定义好的另外一组语句块</p>
+</li>
+<li><p>if语句块的语法格式，根据实际情况elif和else分支可以没有： </p>
+<pre><code>if 条件: 
+  要执行的语句块 
+elif 条件: 
+  要执行的语句块 
+else: 
+  要执行的语句块
+</code></pre>
+</li>
+<li><p><code>==</code>用来判断运算符两边的表达式所得到的值是否相等，如果相 等，则返回true（真）；如果不等，则返回false（假）</p>
+</li>
+<li><p><code>!=</code>用来判断运算符两边的表达式所得到的值是否不等，如果不 等，则返回true（真）；如果相等，则返回false（假）</p>
+</li>
+<li><p>与<code>==</code>和<code>！=</code>相似的运算符还有<code>&gt;</code>,<code>&gt;=</code>,<code>&lt;</code>,<code>&lt;=</code></p>
+</li>
+<li><p>关键字<code>and</code>表示并且的意思，即只有同时满足使用and连接的若 干条件，算式的最终结果才能为true，否则结果为false</p>
+</li>
+<li><p>关键字<code>or</code>表示或者的意思，即使用or连接的若干条件中，只要 有任意一个是成立的，则算式的最终结果就为true，否则为false</p>
+</li>
+<li><p>关键字<code>not</code>表示逻辑非，即取反操作，对true（真）取反得到 false（假），对false（假）取反得到true（真）</p>
+</li>
+</ul>
+<h1 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h1><ul>
+<li><code>for循环</code>是Python循环的一种，其语法格式为： <pre><code>for 循环变量 in 循环变量取值范围: 
+  循环执行的语句块（循环体）
+</code></pre>
+</li>
+<li><code>range()函数</code>，它的功能是产生指定的整数序列范围，语法格式为： <pre><code>range(起始数值,结束数值,递增值)
+</code></pre>
+</li>
+<li><code>while语句</code>的语法格式： <pre><code>while 循环的条件: 
+  循环执行的语句块（循环体）
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p>下面我们来谈谈软件的设计方法</p>
+</blockquote>
+<h1 id="原型法"><a href="#原型法" class="headerlink" title="原型法"></a>原型法</h1><p>原型法的核心思想就是快速搭建一个程序的可运行版本，这个最 初的版本可能只是包含一些最简单的功能，然后再不断修改和完 善该版本的程序，直到最终完成程序的所有功能</p>
+<p>使用该方法进行编程的好处就是最大程度保证每一个阶段产生的 程序都是正确的</p>
+<h1 id="几个特别的语句"><a href="#几个特别的语句" class="headerlink" title="几个特别的语句"></a>几个特别的语句</h1><ul>
+<li>程序在执行循环语句时，若碰到了<code>break</code>语句，则终止整个循环， 执行循环下面的语句。</li>
+<li>程序在执行循环语句时，若碰到了<code>continue</code>语句，则终止本次循 环，执行下一次的循环。</li>
+<li>如果想定义一个什么事也不做的空语句块，可以用<code>pass</code>语句</li>
+<li>else关键字的用法 </li>
+<li>else语句在分支结构中表示不满足if和elif判断条件以外的分支； </li>
+<li>在while循环中它表示当循环条件不再成立时，则执行else包 含的语句块； </li>
+<li>在for循环中它表示当循环范围中所有元素都已经被尝试过， 则执行else包含的语句块</li>
+</ul>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/python" style=color:#ff7d73>
+                python
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/03/28.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/03/27.html">
+        <h2>
+            爬虫是什么？爬虫简介及应用
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/3/27
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <p>1 什么是网络爬虫</p>
+<p>爬虫的简单定义</p>
+<p>网络爬虫（又被称为网页蜘蛛，网络机器人，在FOAF社区中间，更经常的称为网页追逐者），是一种按照一定的规则，自动地抓取万维网信息的程序或者脚本。另外一些不常使用的名字还有蚂蚁、自动索引、模拟程序或者蠕虫。</p>
+<p>简单来说：使用事先写好的程序去抓取网络上所需要的数据，这样的程序就叫网络爬虫。</p>
+<p>爬虫的分类</p>
+<p>网络爬虫可以分为通用网络爬虫(如搜索引擎的爬虫，根据几个URL的种子不断的去抓取数据)和聚焦网络爬虫(有选择性的抓取预先定义好的主题和相关页面的网络爬虫)。</p>
+<p>A.通用网络爬虫：</p>
+<p>搜索引擎</p>
+<p>B.聚焦网络爬虫：</p>
+<p>针对某一特定领域的数据进行抓取的程序。飞猪、携程的行程信息，天眼查的企业信息等。</p>
+<p>2 为什么需要爬虫</p>
+<p>爬虫的用途</p>
+<p>A.解决冷启动问题：</p>
+<p>一些论坛的假用户</p>
+<p>B.搜索引擎的根基：</p>
+<p>做搜索引擎少不了爬虫程序；</p>
+<p>C.建立起知识图谱，帮助建立机器学习的训练集：</p>
+<p>维基百科是一个较好的数据集来源；</p>
+<p>D.可以制作各种商品的比价，趋势分析等；</p>
+<p>E.其他：</p>
+<p>比如分析淘宝上竞争对手的数据；分析微博的数据传递影响力，政府的舆情分析，分析人与人之间的关系等等。</p>
+<p>总之一句话：在当今的大数据时代，做任何价值分析的前提是数据，而爬虫则是获得这个前提的一个低成本高收益手段。</p>
+<p>怎么做爬虫</p>
+<p>Python 、node 、java</p>
+<p>初级爬虫工程师：</p>
+<p>1.Web前端的知识：HTML，CSS，JavaScript，DOM，DHTML，Ajax，jQuery，json等；</p>
+<p>2.正则表达式，能提取正常一般网页中想要的信息，比如某些特殊的文字，链接信息，知道什么是懒惰，什么是贪婪型的正则；</p>
+<p>3.会使用re，cheerio，XPath等获取一些DOM结构中的节点信息；</p>
+<p>4.知道什么是深度优先，广度优先的抓取算法，及实践中的使用规则；</p>
+<p>5.能分析简单网站的结构。</p>
+<p>中级爬虫工程师：</p>
+<p>1.了解什么是Hash，会使用简单的MD5，SHA1等算法对数据进行Hash以便存储；</p>
+<p>2.熟悉HTTP，HTTPS协议的基础知识，了解GET，POST方法，了解HTTP头中的信息，包括返回状态码，编码，user-agent，cookie，session等；</p>
+<p>3.能设置User-Agent进行数据爬取，设置代理等；</p>
+<p>4.知道什么是Request，什么是Response，会使用Fiddler, Wireshark等工具抓取及分析简单的网络数据包；对于动态爬虫，要学会分析Ajax请求，模拟制造Post数据包请求，抓取客户端session等信息，对于一些简单的网站，能够通过模拟数据包进行自动登录；</p>
+<p>5.对于比较难搞定的网站，学会使用浏览器+selenium抓取一些动态网页信息；</p>
+<p>6.并发下载，通过并行下载加速数据抓取；多线程的使用。</p>
+<p>高级爬虫工程师：</p>
+<p>……</p>
+<p>3 爬虫的合法性问题</p>
+<p>目前还处于不明确的蛮荒阶段，“允许哪些行为”这种基本秩序还处于建设中。至少目前来看，如果抓取的数据为个人所用，则不存在问题；如果数据用于转载，那么抓取数据的类型就很重要了：一般来说，当抓取的数据是实现生活中的真实数据（比如，营业地址，电话清单）时，是允许转载的，但是，如果是原创数据（比如，意见或评论），通常就会受到版权限制，而不能转载。(知乎的复制会粘贴上版权信息，都是爬虫可以轻松拿到干净的数据)</p>
+<p>注意：不管怎么样，作为一个访客，应当约束自己的抓取行为，这就是说要求下载请求的速度需要限定在一个合理值之内（对别人服务器和维护人员的同情），并且还需要设定一个专属的用户代理来标识自己。</p>
+<p>4 爬虫的准备工作：网站的背景调研</p>
+<p>网站的背景调研对聚焦的网络爬虫而言至关重要，正所谓：知己知彼，百战不殆。</p>
+<p>robots协议</p>
+<p>识别网站用了何种技术</p>
+<p>找网站的所有者</p>
+<p>5爬虫的实现</p>
+<p>插入企查查案例</p>
+<p>总结：一个通用爬虫的流程如下：</p>
+<p>设置种子站点</p>
+<p>获取网站信息</p>
+<p>错误处理及日志记录</p>
+<p>6 数据的类型</p>
+<p>网页中数据的类型简单来说可以分成以下三类：结构化数据、半结构化数据和非结构化数据。</p>
+<p>7 怎么提取网页中的信息</p>
+<p>XPath</p>
+<p>选取节点</p>
+<p>正则表达式re</p>
+<p>被用来检索\替换那些符合某个模式(规则)的文本,对于文本过滤或规则匹配,最强大的就是正则表达式,是python爬虫里必不可少的神兵利器。</p>
+<p>8 动态网页的使用场景</p>
+<p>先看下面一个例子：</p>
+<p>这是京东上看一本书的场景。我们发现打开一本书之后，书的价格，排名等信息及书的评论信息不是在我们第一次打开网站时就立即加载进来的。而是通过二次请求或多次的异步请求获取的。这样的页面就是动态页面。</p>
+<p>关于动态页面使用的场景：</p>
+<p>希望异步刷新的场景。有些网页内容很多，一次加载完对服务器压力很大，而且有的用户不会去查看所有内容；</p>
+<p>GET方法</p>
+<p>POST方法</p>
+<p>更加难以对付的动态网站</p>
+<p>1． 应对需要多次数据的交互模拟的网站</p>
+<p>我们有时会遇到像淘宝这样的大型网站，对数据版权看得特别重的，它们的网站有大量的工程师和技术人员去维护，它们也可能在技术手段上采用多次交互数据包的方式来完成网站服务器与用户浏览器之间的交互。如果此时还采用传统的分析数据包的方式会比较的复杂，难度较高。那么，有没有一劳永逸的方法，来解决此类问题呢？</p>
+<p>我们的解决方案是：Selenium + PhantomJS。</p>
+<p>我们的爬虫其实就是在做模拟浏览器的行为。</p>
+<p>2．Electron</p>
+<p>Electron是由Github开发，用HTML，CSS和JavaScript来构建跨平台桌面应用程序的一个开源库。</p>
+<p>3． PhantomJS</p>
+<p>一个基于webkit无界面(headless)的浏览器,它可以把网站加载到内存中并执行页面上的JS，但它没有图形用户界面，所以耗费的资源比较少；</p>
+<p>关于动态网站信息抓取的总结</p>
+<p>总的来说，我们的爬虫要尽量模拟的看起来就像是真正的用户在浏览器上访问服务器网站的行为。如果我们使用GET或POST的方式来模拟浏览器与服务器间通信的行为，成本比较低，但是应对复杂的网站或者服务器精心防御的网站来说是很难骗过服务器的。Electron+PhantomJS的方案则会让我们的程序看起来更像是普通的用户，但是它的效率相对而言会降低很多，速度也会慢很多。在大规模爬去数据时可能遇到许多新的挑战。（比如网站尺寸的设置，等待时间的设定等）</p>
+<p>Cookie 、session、</p>
+<p>终极武器</p>
+<p>Nightmare</p>
+<p>浏览器事件: goto,back,forward,refresh,</p>
+<p>用户事件: click,mousedown,mouseup,mouseover,type,insert,select,check,uncheck,selectscrollTo</p>
+<p>向网页注入脚本: .js .css的文件类型原理是跟油猴差不多，可以编写自己的js代码注入十分方便</p>
+<p>wait 函数可以按照延迟时间或者一个 dom 元素的出现</p>
+<p>evaluate 以浏览器的环境运行的脚本函数，然后返回一个 promise 函数</p>
+<p>需要加载全网站，一般无防护网站没必要。</p>
+<p>9高效率的爬取数据</p>
+<p>人多力量大，多人干事更快。多个爬虫一起干活效率也更高。</p>
+<p>随着爬虫抓取数据的提速，及数据量抓取的庞大，问题也会凸显。对方也会尝试用各种手段来禁止爬虫的行为。</p>
+<p>10反爬及应对反爬的策略</p>
+<p>随着抓取的数据量到一定程度，数据重复及爬取过程中的死链问题会凸显。怎么来解决反爬问题呢？</p>
+<p>网站如何发现爬虫</p>
+<p>一般来说，网站会有以下一些简单的策略发现爬虫程序：</p>
+<p>1）单一IP非常规的访问频次；</p>
+<p>2）单一IP非常规的数据流量；</p>
+<p>3）大量重复简单的网站浏览行为，只下载网页，没有后续的JS,CSS请求；</p>
+<p>5）通过一些陷阱来发现爬虫，例如一些通过CSS对用户隐藏的链接，只有爬虫才会访问；</p>
+<p>网站如何进行反爬</p>
+<p>一般来说网站会采用下面两个简单的策略来防止爬虫：</p>
+<p>1.大量使用动态网页，是的爬虫的爬取难度增加，重要数据都拿不到，即使爬虫采用了Web环境来渲染（内置浏览器），也会大大增加爬虫的负担和爬虫时间；（当然，采用动态加载的技术，对服务器的负担也会大大减轻）</p>
+<p>2.基于流量的拒绝：开启带宽限制模块，限制每个IP最多连接数，最大带宽等；</p>
+<p>爬虫如何发现自己可能被网站识别了</p>
+<p>如果爬取过程中出现以下情况，那么小心了，你的爬虫可能被网站发现了：</p>
+<p>1.验证码出现；</p>
+<p>2.Unusual content delivery delay 非常规的延时;</p>
+<p>3.Frequent response with HTTP 403, 404, 301 or 50x error;</p>
+<p>4.直接接口返回骂人的话……</p>
+<p>爬虫应对反爬的策略</p>
+<p>我们可以从以下几个方面来考虑应对反爬：</p>
+<p>1）User-Agent池；</p>
+<p>2）IP代理服务器池；</p>
+<p>3）CookieJar等的管理；</p>
+<p>4）协议的细节考虑，如：需要大量的实践经验总结的</p>
+<p>抓取数据时不处理CSS，JS等；</p>
+<p>nofollow属性；css的display属性；探测陷阱；</p>
+<p>验证refer locator等；</p>
+<p>5）使用分布式的多机策略；爬慢点，把爬虫放到访问频繁的主站IP子网下，如教育网；</p>
+<p>6）使用了规则来批量爬取，需对规则进行组合；</p>
+<p>7）验证码的搞定：机器学习，图像识别；</p>
+<p>8）尽可能遵守Robots协议；</p>
+<p>9）与所有方协调接口与时间段；</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/web" style=color:#ff7d73>
+                web
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/03/27.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+
+             
+<div class="page-current">
+
+    <div class="prev">
+        
+        <a href="/page/3/">
+            <span class="page-num">
+                <a-icon type="caret-left" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+    <div class="page-index">
+
+        
+        <span>
+
+            
+            <a href="/"><span class="page-num">1</span></a>
+            <span class="page-omit">...</span>
+            
+
+            
+
+            
+
+            
+            <a href="/page/2">
+                <span class="page-num">
+                    2
+                </span>
+            </a>
+            
+
+            
+            <a href="/page/3/">
+                <span class="page-num">
+                    3
+                </span>
+            </a>
+        </span>
+        
+
+        <span class="current">
+            4
+        </span>
+
+        
+        <span>
+            <a href="/page/5/">
+                <span class="page-num">
+                    5
+                </span>
+            </a>
+            
+            <a href="/page/6">
+                <span class="page-num">
+                    6
+                </span>
+            </a>
+            
+
+            
+
+        </span>
+        
+
+    </div>
+
+    <div class="next">
+        
+        <a href="/page/5/ ">
+            <span class="page-num">
+                <a-icon type="caret-right" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+</div>
+
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <a-affix :offset-top="card_top">
+    <a-card class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="https://imgs.521daigua.cn/blog/tx.jpeg " alt="头像">
+        </div>
+        <div class="name">
+            Ne-21
+        </div>
+        <div class="descriptions">
+            
+            <div class="description">
+                放弃不难，但坚持一定很酷。
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://github.com/ne-21">
+
+                    
+                    <a-icon type="github"
+                        theme="filled" />
+                    
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://twitter.com/">
+
+                    
+                    <a-icon type="twitter"
+                        theme="" />
+                    
+                </a>
+            </span>
+            
+        </div>
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="http://www.ily.plus">
+                    ILY
+                </a>
+            </div>
+            
+        </div>
+    </a-card>
+</a-affix>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2019 - 2021 云淡风轻
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Ne-21
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                <a target="_blank" href="https://www.beian.miit.gov.cn" rel="nofollow noopener">冀ICP备19031443号</a><br><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://imgs.521daigua.cn/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" width="300px" height="20px"></a><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?46c8202ccbfe91fef8f7d5fddc0ce94a";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

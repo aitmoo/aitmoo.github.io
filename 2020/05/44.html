@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云淡风轻 || 超简单个人网盘搭建教程，宝塔面板安装Cloudreve新版V3(Go版本)</title>
+    <meta name="author" content="Ne-21">
+    <meta name="description" content="放弃不难，但坚持一定很酷。 ">
+    <meta name="keywords" content="云淡风轻, hexo, various, python, html, 小刀娱乐网, 编程, 自学 ">
+    <link rel="icon" href="/https://imgs.521daigua.cn/blog/tx.jpeg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">云淡风轻</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>首页</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="about" theme="filled" />
+            </span>
+            <span>关于</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="archives" theme="filled" />
+            </span>
+            <span>归档</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="categories" theme="filled" />
+            </span>
+            <span>分类</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>标签</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>云淡风轻</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">首页</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="about" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">关于</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="archives" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">归档</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="categories" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">分类</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">标签</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>超简单个人网盘搭建教程，宝塔面板安装Cloudreve新版V3(Go版本) </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/5/15
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Linux" style=color:#879cff>
+                    Linux
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <blockquote>
+<p>最近百度网盘方面政策开始收缩，很多朋友怨声载道，当是时，Cloudreve 的作者肝了六个月更新发布了v3版本，用 Go 语言重构了一遍，除了修复 V2 版本被诟病很多的 Bug 外，还增加了很多令人兴奋的新特性，关键是免费用呀，朋友们。</p>
+</blockquote>
+<h1 id="Cloudreve-新版V3特性"><a href="#Cloudreve-新版V3特性" class="headerlink" title="Cloudreve 新版V3特性"></a>Cloudreve 新版V3特性</h1><ul>
+<li>☁️ 支持本机、从机、七牛、阿里云 OSS、腾讯云 COS、又拍云、OneDrive (包括世纪互联版) 作为存储端</li>
+<li>📤 上传/下载 支持客户端直传，支持下载限速</li>
+<li>💾 可对接 Aria2 离线下载</li>
+<li>📚 在线 压缩/解压缩、多文件打包下载</li>
+<li>💻 覆盖全部存储策略的 WebDAV 协议支持</li>
+<li>⚡ 拖拽上传、目录上传、流式上传处理</li>
+<li>🗃️ 文件拖拽管理</li>
+<li>👩‍👧‍👦 多用户、用户组</li>
+<li>🔗 创建文件、目录的分享链接，可设定自动过期</li>
+<li>👁️‍🗨️ 视频、图像、音频、文本、Office 文档在线预览</li>
+<li>🎨 自定义配色、黑暗模式、PWA 应用、全站单页应用</li>
+<li>🚀 All-In-One 打包，开箱即用</li>
+<li>🌈 … …</li>
+</ul>
+<h1 id="官方支持的网站和文档"><a href="#官方支持的网站和文档" class="headerlink" title="官方支持的网站和文档"></a>官方支持的网站和文档</h1><ul>
+<li>官网：<a target="_blank" rel="noopener" href="https://cloudreve.org/">https://cloudreve.org/</a></li>
+<li>github：<a target="_blank" rel="noopener" href="https://github.com/cloudreve/Cloudreve">https://github.com/cloudreve/Cloudreve</a></li>
+<li>下载：<a target="_blank" rel="noopener" href="https://github.com/cloudreve/Cloudreve/releases">https://github.com/cloudreve/Cloudreve/releases</a></li>
+<li>安装文档：<a target="_blank" rel="noopener" href="https://docs.cloudreve.org/getting-started/install">https://docs.cloudreve.org/getting-started/install</a></li>
+<li>演示：<a target="_blank" rel="noopener" href="https://demo.cloudreve.org/">https://demo.cloudreve.org</a></li>
+</ul>
+<h1 id="宝塔命令行输入代码查询内核参数"><a href="#宝塔命令行输入代码查询内核参数" class="headerlink" title="宝塔命令行输入代码查询内核参数"></a>宝塔命令行输入代码查询内核参数</h1><ul>
+<li><code>arch</code><br><img src="https://ae01.alicdn.com/kf/Haf1c3433d781486c8da75d21b5ea9fa6T.jpg" alt="1"><br>输出结果x86_64代表amd64；aarch64代表arm64</li>
+</ul>
+<h1 id="下载链接处找到对应的版本-复制链接地址"><a href="#下载链接处找到对应的版本-复制链接地址" class="headerlink" title="下载链接处找到对应的版本,复制链接地址"></a>下载链接处找到对应的版本,复制链接地址</h1><p><img src="https://ae01.alicdn.com/kf/H42c61ebfaed846fd95dc9c0fe2b419caF.jpg" alt="2"></p>
+<h1 id="宝塔安全添加5212端口"><a href="#宝塔安全添加5212端口" class="headerlink" title="宝塔安全添加5212端口"></a>宝塔安全添加5212端口</h1><p><img src="https://ae01.alicdn.com/kf/H2346f47d81424c788ca82982125e3708N.jpg" alt="3"></p>
+<h1 id="宝塔命令行逐行执行以下命令，对应链接处改为自己复制的："><a href="#宝塔命令行逐行执行以下命令，对应链接处改为自己复制的：" class="headerlink" title="宝塔命令行逐行执行以下命令，对应链接处改为自己复制的："></a>宝塔命令行逐行执行以下命令，对应链接处改为自己复制的：</h1><p><em>（当然你也可以把下边的改成自己的然后全部复制黏贴就完事了）</em></p>
+<pre><code>mkdir /www/wwwroot/cloudreve # 新建一个文件夹存放程序
+cd /www/wwwroot/cloudreve # 进入该文件夹
+wget https://github.com/cloudreve/Cloudreve/releases/download/3.0.0/cloudreve_3.0.0_linux_amd64.tar.gz # 下载你复制的链接
+tar -zxvf cloudreve_3.0.0_linux_amd64.tar.gz # 解压获取到的主程序
+chmod +x ./cloudreve # 赋予执行权限
+./cloudreve # 启动 Cloudreve
+</code></pre>
+<h1 id="安装完成，保存账户和登录密码，务必保存该密码，测试登录"><a href="#安装完成，保存账户和登录密码，务必保存该密码，测试登录" class="headerlink" title="安装完成，保存账户和登录密码，务必保存该密码，测试登录"></a>安装完成，保存账户和登录密码，务必保存该密码，测试登录</h1><p>登录地址为服务器ip:5212，比如<a target="_blank" rel="noopener" href="http://123.57.35.68:5212/">http://123.57.35.68:5212/</a><br><img src="https://ae01.alicdn.com/kf/Hcdea7884bb1e48fa9809e367f91cea253.jpg" alt="4"></p>
+<h1 id="原文链接（拓展设置）"><a href="#原文链接（拓展设置）" class="headerlink" title="原文链接（拓展设置）"></a>原文链接（拓展设置）</h1><p><a target="_blank" rel="noopener" href="https://www.dhzy.fun/archives/1811.html">https://www.dhzy.fun/archives/1811.html</a></p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2019 - 2021 云淡风轻
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Ne-21
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                <a target="_blank" href="https://www.beian.miit.gov.cn" rel="nofollow noopener">冀ICP备19031443号</a><br><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://imgs.521daigua.cn/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" width="300px" height="20px"></a><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?46c8202ccbfe91fef8f7d5fddc0ce94a";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

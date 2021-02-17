@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云淡风轻 || 【PYTHON】乐心健康刷微信支付宝步数</title>
+    <meta name="author" content="Ne-21">
+    <meta name="description" content="放弃不难，但坚持一定很酷。 ">
+    <meta name="keywords" content="云淡风轻, hexo, various, python, html, 小刀娱乐网, 编程, 自学 ">
+    <link rel="icon" href="/https://imgs.521daigua.cn/blog/tx.jpeg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">云淡风轻</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>首页</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="about" theme="filled" />
+            </span>
+            <span>关于</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="archives" theme="filled" />
+            </span>
+            <span>归档</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="categories" theme="filled" />
+            </span>
+            <span>分类</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>标签</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>云淡风轻</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">首页</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="about" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">关于</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="archives" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">归档</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="categories" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">分类</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">标签</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>【PYTHON】乐心健康刷微信支付宝步数 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/10/5
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/python" style=color:#00bcd4>
+                    python
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h1 id="lx-step"><a href="#lx-step" class="headerlink" title="lx-step"></a>lx-step</h1><p>【Python】腾讯云云函数配合乐心健康刷QQ、微信、支付宝步数(支持随机步数、微信QQ推送)</p>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><ol>
+<li>下载乐心健康APP：官方下载地址：<a target="_blank" rel="noopener" href="http://www.lifesense.com/app/">http://www.lifesense.com/app/</a></li>
+<li>从应用商店下载乐心健康App，打开软件并选择手机号登录</li>
+<li>登录之后，点击我的-&gt;设置-&gt;账号与安全-&gt;设置密码(修改密码)，设置你自己记得住的密码</li>
+<li>回到App首页，点击我的-&gt;数据共享，绑定你想同步数据的项目注：同步微信运动请按照要求关注【乐心运动】公众号。</li>
+<li>回到云函数代码，配置好下图参数，运行即可提交步数即可同步至你绑定的所有平台<br><img src="https://attach.52pojie.cn/forum/202009/26/220610s1ehd59u55uh5uce.png" alt="1"></li>
+<li>设置好云函数触发规则</li>
+</ol>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p><a target="_blank" rel="noopener" href="https://www.52pojie.cn/thread-1274977-1-1.html">https://www.52pojie.cn/thread-1274977-1-1.html</a></p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre><code># -*- coding: utf8 -*-
+import requests
+import hashlib
+import json
+import time
+import random
+
+def md5(code):
+    res=hashlib.md5()
+    res.update(code.encode(&quot;utf8&quot;))
+    return res.hexdigest()
+
+def get_information(mobile,password):
+    header = &#123;
+        &#39;Content-Type&#39;: &#39;application/json; charset=utf-8&#39;,
+        &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36&quot;
+    &#125;
+    url=&quot;http://sports.lifesense.com/sessions_service/login?systemType=2&amp;version=4.6.7&quot;
+    datas = &#123;
+        &quot;appType&quot;:6,
+        &quot;clientId&quot;:md5(&quot;5454&quot;),
+        &quot;loginName&quot;:str(mobile),
+        &quot;password&quot;:md5(str(password)),
+        &quot;roleType&quot;:0
+        &#125;
+    response =requests.post(url,headers=header,data=json.dumps(datas))
+    return response.text
+
+def update_step(step,information):
+    step =int(step)
+    url=&quot;http://sports.lifesense.com/sport_service/sport/sport/uploadMobileStepV2?version=4.5&amp;systemType=2&quot;
+    accessToken=json.loads(information)[&quot;data&quot;][&quot;accessToken&quot;]
+    userId=json.loads(information)[&quot;data&quot;][&quot;userId&quot;]
+    #print(accessToken)
+    #print(userId)
+    #获取当前时间和日期
+    timeStamp=time.time()
+    localTime = time.localtime(timeStamp)
+    strTime = time.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;, localTime)
+    print(strTime)
+    measureTime=strTime+&quot;,&quot;+str(int(timeStamp))
+
+    header = &#123;
+    &#39;Cookie&#39;: &#39;accessToken=&#39;+accessToken,
+    &#39;Content-Type&#39;: &#39;application/json; charset=utf-8&#39;,
+    &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36&quot;
+    &#125;
+    sport_datas = &#123;
+        &quot;list&quot;: [
+            &#123;
+                &quot;DataSource&quot;:2,
+                &quot;active&quot;:1,
+                &quot;calories&quot;:str(int(step/4)),
+                &quot;dataSource&quot;:2,
+                &quot;deviceId&quot;:&quot;M_NULL&quot;,
+                &quot;distance&quot;:str(int(step/3)),
+                &quot;exerciseTime&quot;:0,
+                &quot;isUpload&quot;:0,
+                &quot;measurementTime&quot;:measureTime,
+                &quot;priority&quot;:0,
+                &quot;step&quot;: str(step),
+                &quot;type&quot;:2,
+                &quot;updated&quot;:str(int(time.time()*1000)),
+                &quot;userId&quot;:str(userId)
+                &#125;]
+                &#125;
+    result=requests.post(url,headers=header,data=json.dumps(sport_datas))
+    return result.text
+
+def server_send(msg):
+    if sckey == &#39;&#39;:
+        return
+    server_url = &quot;https://sc.ftqq.com/&quot; + str(sckey) + &quot;.send&quot;
+    data = &#123;
+            &#39;text&#39;: msg,
+            &#39;desp&#39;: msg
+        &#125;
+    requests.post(server_url, data=data)
+
+def kt_send(msg):
+    if ktkey == &#39;&#39;:
+        return
+    kt_url = &#39;https://push.xuthus.cc/send/&#39;+str(ktkey)
+    data = (&#39;步数刷取完成，请查看详细信息~\n&#39;+str(msg)).encode(&quot;utf-8&quot;)
+    requests.post(kt_url, data=data)
+
+def execute_walk(phone,password,step):
+    information=get_information(phone,password)
+    update_result=update_step(step,information)
+    result=json.loads(update_result)[&quot;msg&quot;]
+    if result == &#39;成功&#39;:
+        msg = &quot;刷新步数成功！此次刷取&quot; + str(step) + &quot;步。&quot;
+        print(msg)
+        server_send(msg)
+        kt_send(msg)
+    else:
+        msg = &quot;刷新步数失败！请查看云函数日志。&quot;
+        print(msg)
+        server_send(msg)
+        kt_send(msg)
+    
+
+def main():
+    if phone and password and step != &#39;&#39;:
+        execute_walk(phone, password, step)
+    else:
+        print(&quot;参数不全,请指定参数。或者在调用中直接指定参数&quot;)
+
+# -- 配置 --
+# ------------------------------
+phone = &#39;&#39;  # 登陆账号
+password = &#39;&#39;  # 密码
+step = random.randint(30000,40000)  # 随机30000-40000步数
+sckey = &#39;&#39;  # server酱key(可空)
+ktkey = &#39;&#39;  # 酷推key(可空)
+# ------------------------------
+
+def main_handler(event, context):
+    return main()
+
+if __name__ == &#39;__main__&#39;:
+    main()
+</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2019 - 2021 云淡风轻
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Ne-21
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                <a target="_blank" href="https://www.beian.miit.gov.cn" rel="nofollow noopener">冀ICP备19031443号</a><br><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://imgs.521daigua.cn/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" width="300px" height="20px"></a><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?46c8202ccbfe91fef8f7d5fddc0ce94a";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

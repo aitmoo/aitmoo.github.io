@@ -1,0 +1,450 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云淡风轻 || Scrapy中选择器用法</title>
+    <meta name="author" content="Ne-21">
+    <meta name="description" content="放弃不难，但坚持一定很酷。 ">
+    <meta name="keywords" content="云淡风轻, hexo, various, python, html, 小刀娱乐网, 编程, 自学 ">
+    <link rel="icon" href="/https://imgs.521daigua.cn/blog/tx.jpeg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">云淡风轻</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>首页</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="about" theme="filled" />
+            </span>
+            <span>关于</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="archives" theme="filled" />
+            </span>
+            <span>归档</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="categories" theme="filled" />
+            </span>
+            <span>分类</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>标签</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>云淡风轻</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">首页</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="about" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">关于</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="archives" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">归档</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="categories" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">分类</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">标签</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>Scrapy中选择器用法 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/1/30
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/python" style=color:#ffa2c4>
+                    python
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <blockquote>
+<p>Scrapy提取数据有自己的一套机制，被称作选择器（selectors）,通过特定的Xpath或者CSS表达式来选择HTML文件的某个部分<br>Xpath是专门在XML文件中选择节点的语言，也可以用在HTML上。<br>CSS是一门将HTML文档样式化语言，选择器由它定义，并与特定的HTML元素的样式相关联。</p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>官方测试页面网址：<a target="_blank" rel="noopener" href="https://docs.scrapy.org/en/latest/_static/selectors-sample1.html">https://docs.scrapy.org/en/latest/_static/selectors-sample1.html</a></p>
+</blockquote>
+<ul>
+<li><p>三种选择器</p>
+<ul>
+<li>css</li>
+<li>xpath</li>
+<li>re</li>
+</ul>
+</li>
+<li><p>进入shell环境</p>
+<p><code>scrapy shell https://docs.scrapy.org/en/latest/_static/selectors-sample1.html</code></p>
+</li>
+</ul>
+<ul>
+<li><p>使用selector进行查询</p>
+<pre><code class="shell"># 直接执行selector
+&gt;&gt;&gt; response.selector
+&lt;Selector xpath=None data=&#39;&lt;html&gt;\n &lt;head&gt;\n  &lt;base href=&quot;http://e...&#39;&gt;
+
+# 调用selector的xpath选择器
+&gt;&gt;&gt; response.selector.xpath(&#39;//title/text()&#39;)
+[&lt;Selector xpath=&#39;//title/text()&#39; data=&#39;Example website&#39;&gt;]
+&gt;&gt;&gt; response.selector.xpath(&#39;//title/text()&#39;).extract_first()
+&#39;Example website&#39;
+
+# 调用selector的css选择器
+&gt;&gt;&gt; response.selector.css(&#39;title::text&#39;).extract_first()
+&#39;Example website&#39;
+
+# 其他调用方法（不写selector）
+&gt;&gt;&gt; response.xpath(&#39;//title/text()&#39;).extract_first()
+&#39;Example website&#39;
+&gt;&gt;&gt; response.css(&#39;title::text&#39;).extract_first()
+&#39;Example website&#39;
+</code></pre>
+<p>可以看出，无论是<code>xpath</code>还是<code>css</code>选择器，返回的数据都是一个<code>selector</code>的列表，这就说明，我们可以接着调用这两种方法进行层层的迭代的查询。</p>
+<pre><code class="shell">&gt;&gt;&gt; response.xpath(&#39;//div[@id=&quot;images&quot;]&#39;)
+[&lt;Selector xpath=&#39;//div[@id=&quot;images&quot;]&#39; data=&#39;&lt;div id=&quot;images&quot;&gt;\n   &lt;a href=&quot;image1....&#39;&gt;
+]
+# 迭代查询
+&gt;&gt;&gt; response.xpath(&#39;//div[@id=&quot;images&quot;]&#39;).css(&#39;img&#39;)
+[&lt;Selector xpath=&#39;descendant-or-self::img&#39; data=&#39;&lt;imgsrc=&quot;image1_thumb.jpg&quot;&gt;&#39;&gt;, 
+&lt;Selector xpath=&#39;descendant-or-self::img&#39; data=&#39;&lt;img src=&quot;image2_thumb.jpg&quot;&gt;&#39;&gt;,
+&lt;Selector xpath=&#39;descendant-or-self::img&#39; data=&#39;&lt;img src=&quot;image3_thumb.jpg&quot;&gt;&#39;&gt;, 
+&lt;Selector xpath=&#39;descendant-or-self::img&#39; data=&#39;&lt;img src=&quot;image4_thumb.jpg&quot;&gt;&#39;&gt;, 
+&lt;Selector xpath=&#39;descendant-or-self::img&#39; data=&#39;&lt;img src=&quot;image5_thumb.jpg&quot;&gt;&#39;&gt;]
+
+# 获取返回的所有图片链接
+&gt;&gt;&gt; response.xpath(&#39;//div[@id=&quot;images&quot;]&#39;).css(&#39;img::attr(src)&#39;)
+[&lt;Selector xpath=&#39;descendant-or-self::img/@src&#39; data=&#39;image1_thumb.jpg&#39;&gt;,  
+&lt;Selector xpath=&#39;descendant-or-self::img/@src&#39; data=&#39;image2_thumb.jpg&#39;&gt;, 
+&lt;Selector xpath=&#39;descendant-or-self::img/@src&#39; data=&#39;image3_thumb.jpg&#39;&gt;, 
+&lt;Selector xpath=&#39;descendant-or-self::img/@src&#39; data=&#39;image4_thumb.jpg&#39;&gt;, 
+&lt;Selector xpath=&#39;descendant-or-self::img/@src&#39; data=&#39;image5_thumb.jpg&#39;&gt;]
+# 再用extract()方法获取其所有内容
+&gt;&gt;&gt; response.xpath(&#39;//div[@id=&quot;images&quot;]&#39;).css(&#39;img::attr(src)&#39;).extract()
+[&#39;image1_thumb.jpg&#39;, 
+&#39;image2_thumb.jpg&#39;, 
+&#39;image3_thumb.jpg&#39;, 
+&#39;image4_thumb.jpg&#39;, 
+&#39;image5_thumb.jpg&#39;]
+# 再用extract_first()方法获取其第一条内容
+&gt;&gt;&gt; response.xpath(&#39;//div[@id=&quot;images&quot;]&#39;).css(&#39;img::attr(src)&#39;).extract_first()
+&#39;image1_thumb.jpg&#39;
+
+# extract_first(default=&#39;&#39;) 当查不到对应数据时返回defanlt的内容
+&gt;&gt;&gt;response.xpath(&#39;//div[@id=&quot;images&quot;]&#39;).css(&#39;img::attr(aaa)&#39;).extract_first(default=&#39;&#39;)
+&#39;&#39;
+
+# 获取所有a标签的链接
+&gt;&gt;&gt; response.xpath(&#39;//a/@href&#39;)
+[&lt;Selector xpath=&#39;//a/@href&#39; data=&#39;image1.html&#39;&gt;, 
+&lt;Selector xpath=&#39;//a/@href&#39; data=&#39;image2.html&#39;&gt;, 
+&lt;Selector xpath=&#39;//a/@href&#39; data=&#39;image3.html&#39;&gt;, 
+&lt;Selector xpath=&#39;//a/@href&#39;data=&#39;image4.html&#39;&gt;, 
+&lt;Selector xpath=&#39;//a/@href&#39; data=&#39;image5.html&#39;&gt;]
+&gt;&gt;&gt; response.css(&#39;a::attr(href)&#39;).extract()
+[&#39;image1.html&#39;, 
+&#39;image2.html&#39;, 
+&#39;image3.html&#39;, 
+&#39;image4.html&#39;, 
+&#39;image5.html&#39;]
+</code></pre>
+<p>xpath和css选择器返回的结果都差不多，所以说这个看自己的爱好，用哪一个选择器都可以，下面来说说怎么获取文本内容</p>
+<pre><code class="shell"># xpath获取本文内容（用/text()进行获取）
+&gt;&gt;&gt; response.xpath(&#39;//a/text()&#39;).extract()
+[&#39;Name: My image 1 &#39;,
+&#39;Name: My image 2 &#39;, 
+&#39;Name: My image 3 &#39;, 
+&#39;Name: My image 4 &#39;, 
+&#39;Name: My image 5 &#39;]
+# css获取文本内容（用::text进行获取)
+&gt;&gt;&gt; response.css(&#39;a::text&#39;).extract()
+[&#39;Name: My image 1 &#39;, 
+&#39;Name: My image 2 &#39;, 
+&#39;Name: My image 3 &#39;, 
+&#39;Name: My image 4 &#39;, 
+&#39;Name: My image 5 &#39;]
+</code></pre>
+</li>
+<li><p>其他的selector用法</p>
+<pre><code class="shell"># 查找属性名称包含某值的所有标签（contains）
+# xpath写法  //标签名[contains(@属性名,&quot;包含值&quot;)]
+#   例如：查找href中包含image的所有a标签
+&gt;&gt;&gt; response.xpath(&#39;//a[contains(@href,&quot;image&quot;)]&#39;).extract()
+[&#39;&lt;a href=&quot;image1.html&quot;&gt;Name: My image 1 &lt;br&gt;&lt;img src=&quot;image1_thumb.jpg&quot;&gt;&lt;/a&gt;&#39;, 
+&#39;&lt;a href=&quot;image2.html&quot;&gt;Name: My image 2 &lt;br&gt;&lt;img src=&quot;image2_thumb.jpg&quot;&gt;&lt;/a&gt;&#39;, 
+&#39;&lt;a href=&quot;image3.html&quot;&gt;Name: My image 3 &lt;br&gt;&lt;img src=&quot;image3_thumb.jpg&quot;&gt;&lt;/a&gt;&#39;, 
+&#39;&lt;a href=&quot;image4.html&quot;&gt;Name: My image 4 &lt;br&gt;&lt;img src=&quot;image4_thumb.jpg&quot;&gt;&lt;/a&gt;&#39;, 
+&#39;&lt;a href=&quot;image5.html&quot;&gt;Name: My image 5 &lt;br&gt;&lt;img src=&quot;image5_thumb.jpg&quot;&gt;&lt;/a&gt;&#39;]
+
+&gt;&gt;&gt; response.xpath(&#39;//a[contains(@href,&quot;image&quot;)]/@href&#39;).extract()
+[&#39;image1.html&#39;, &#39;image2.html&#39;, &#39;image3.html&#39;, &#39;image4.html&#39;, &#39;image5.html&#39;]
+
+# css写法  标签名[href*=image]
+&gt;&gt;&gt; response.css(&#39;a[href*=image]&#39;).extract()
+[&#39;&lt;a href=&quot;image1.html&quot;&gt;Name: My image 1 &lt;br&gt;&lt;img src=&quot;image1_thumb.jpg&quot;&gt;&lt;/a&gt;&#39;, 
+&#39;&lt;a href=&quot;image2.html&quot;&gt;Name: My image 2 &lt;br&gt;&lt;img src=&quot;image2_thumb.jpg&quot;&gt;&lt;/a&gt;&#39;, 
+&#39;&lt;a href=&quot;image3.html&quot;&gt;Name: My image 3 &lt;br&gt;&lt;img src=&quot;image3_thumb.jpg&quot;&gt;&lt;/a&gt;&#39;, 
+&#39;&lt;a href=&quot;image4.html&quot;&gt;Name: My image 4 &lt;br&gt;&lt;img src=&quot;image4_thumb.jpg&quot;&gt;&lt;/a&gt;&#39;, 
+&#39;&lt;a href=&quot;image5.html&quot;&gt;Name: My image 5 &lt;br&gt;&lt;img src=&quot;image5_thumb.jpg&quot;&gt;&lt;/a&gt;&#39;]
+
+&gt;&gt;&gt; response.css(&#39;a[href*=image]::attr(href)&#39;).extract()
+[&#39;image1.html&#39;, &#39;image2.html&#39;, &#39;image3.html&#39;, &#39;image4.html&#39;, &#39;image5.html&#39;]
+
+# 其他
+&gt;&gt;&gt; response.xpath(&#39;//a[contains(@href,&quot;image&quot;)]/img/@src&#39;).extract()
+[&#39;image1_thumb.jpg&#39;,&#39;image2_thumb.jpg&#39;,&#39;image3_thumb.jpg&#39;,&#39;image4_thumb.jpg&#39;,&#39;image5_thumb.jpg&#39;]
+
+&gt;&gt;&gt; response.css(&#39;a[href*=image] img::attr(src)&#39;).extract()
+[&#39;image1_thumb.jpg&#39;,&#39;image2_thumb.jpg&#39;,&#39;image3_thumb.jpg&#39;,&#39;image4_thumb.jpg&#39;,&#39;image5_thumb.jpg&#39;]
+</code></pre>
+</li>
+<li><p>selector正则表达式匹配</p>
+<pre><code class="shell"># .re(&quot;&quot;)  .re_first(&quot;&quot;)
+&gt;&gt;&gt; response.css(&#39;a::text&#39;).extract()
+[&#39;Name: My image 1 &#39;, &#39;Name: My image 2 &#39;, &#39;Name: My image 3 &#39;, &#39;Name: Myimage4 &#39;, &#39;Name: My image 5 &#39;]
+&gt;&gt;&gt; response.css(&#39;a::text&#39;).re(&#39;Name\:(.*)&#39;)
+[&#39; My image 1 &#39;, &#39; My image 2 &#39;, &#39; My image 3 &#39;, &#39; My image 4 &#39;, &#39; My image 5&#39;]
+&gt;&gt;&gt; response.css(&#39;a::text&#39;).re_first(&#39;Name\:(.*)&#39;)
+&#39; My image 1 &#39;
+&gt;&gt;&gt; response.css(&#39;a::text&#39;).re_first(&#39;Name\:(.*)&#39;).strip()
+&#39;My image 1&#39;
+</code></pre>
+</li>
+</ul>
+<ul>
+<li>需要了解的语法<ul>
+<li><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/css_selectors.ASP">css选择语法</a></li>
+<li>xpath语法<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/manongpengzai/article/details/77109600">https://blog.csdn.net/manongpengzai/article/details/77109600</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_27283619/article/details/88704479">https://blog.csdn.net/qq_27283619/article/details/88704479</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/xpath/xpath_syntax.asp">https://www.w3school.com.cn/xpath/xpath_syntax.asp</a></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/regexp/regexp-syntax.html">re语法</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2019 - 2021 云淡风轻
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Ne-21
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                <a target="_blank" href="https://www.beian.miit.gov.cn" rel="nofollow noopener">冀ICP备19031443号</a><br><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://imgs.521daigua.cn/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" width="300px" height="20px"></a><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?46c8202ccbfe91fef8f7d5fddc0ce94a";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

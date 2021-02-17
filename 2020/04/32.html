@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云淡风轻 || 表情包太少？利用Python爬取表情包</title>
+    <meta name="author" content="Ne-21">
+    <meta name="description" content="放弃不难，但坚持一定很酷。 ">
+    <meta name="keywords" content="云淡风轻, hexo, various, python, html, 小刀娱乐网, 编程, 自学 ">
+    <link rel="icon" href="/https://imgs.521daigua.cn/blog/tx.jpeg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">云淡风轻</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>首页</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="about" theme="filled" />
+            </span>
+            <span>关于</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="archives" theme="filled" />
+            </span>
+            <span>归档</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="categories" theme="filled" />
+            </span>
+            <span>分类</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>标签</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>云淡风轻</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">首页</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="about" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">关于</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="archives" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">归档</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="categories" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">分类</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">标签</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>表情包太少？利用Python爬取表情包 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/8
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/python" style=color:#1bccbc>
+                    python
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>前言：代码实现了下载动态 下载静态的识别！<br>当然代码还有很多需要完善的 比如下载完的弹窗 bug也有比如创建空文件夹  只能爬取带ID固定的地址栏的表情包等等<br>简简单单凑合用！</p>
+<a id="more"></a>
+<pre><code>import requests
+from bs4 import BeautifulSoup
+import webbrowser
+# -*- coding: utf-8 -*-
+from tkinter import *
+import os
+ 
+#下载并返回值网页源码的类
+def download_all_htmls(id):
+    #下载页面的HTML，用于分析
+    url = f&quot;https://www.fabiaoqing.com/bqb/detail/id/&quot;+id+&quot;.html&quot;
+    #读取网页
+    r = requests.get(url)
+    #获取它的全部源码并text 并返回
+    txtc = r.text
+    return txtc
+ 
+ 
+ 
+#先分析标签中的文件名      再将二进制流，名称，格式 并在各自的列表中进行追加
+def parse_single_html(html):
+    #解析HTML，得到数据
+    #[url=home.php?mod=space&amp;uid=155549]@Return[/url] list((img_title, img_url))
+    soup = BeautifulSoup(html,&quot;html.parser&quot;)
+    #声明一个文件名的函数 用网页的title标签作为文件名
+    global wenjian #声明为全局 方便下载时访问路劲
+    wenjian = soup.find(&#39;title&#39;).get_text()#查找title标签 并提取其中的内容
+    os.mkdir(wenjian)#调用文件操作 在当前文件下创建文件
+    #查找所有的图片的标签
+    img_divs = soup.find_all(&quot;div&quot;, class_=&quot;bqppdiv1&quot;)
+     
+    global datas  # 二进制流的列表
+    datas = []
+    global names
+    names = []  # 对应名字的列表
+    global geshi
+    geshi = []# 对应后缀名的列表
+ 
+    #循环查找
+    for img_div in img_divs:
+        img_node = img_div.find(&quot;img&quot;)
+        if not img_node: continue
+ 
+        #增加到二次流的列表里
+        liu = img_node[&quot;data-original&quot;]
+        datas.append(liu)
+        # 增加到格式的列表里
+        num=len(liu)
+        geshi.append(liu[num-4:])
+        #增加到对应的文件名的列表里
+        names.append(img_node[&quot;alt&quot;])
+#调用下载的类 并将它的返回 作为参数 再调用分析和生成列表的类
+ 
+ 
+#获取一下的长度
+ 
+ 
+ 
+def gif():
+    #调用获取网页源码和  再对源码处理成有图片名称 格式 二进制流的列表 两个类
+ 
+ 
+    parse_single_html(download_all_htmls(entry1.get()))
+    #提前知道一下我需要下载多少张照片 也就是循环多次
+    lens = len(datas)
+    for i in range(lens):
+ 
+        reponse = requests.get(datas[i])
+        # 获取网络图片二进制流
+        img_content = reponse.content
+ 
+        # 将二进制流保存到一个图片文件中就可以了
+        with open(&quot;./&quot;+wenjian+&quot;/&quot;+names[i]+geshi[i], &quot;wb&quot;) as f:
+            f.write(img_content)
+ 
+#打开链接
+def open_url(event):
+    webbrowser.open(&quot;https://www.fabiaoqing.com&quot;, new=0)
+ 
+ 
+ 
+ 
+#窗体的声明
+def window():
+    # 生成root主窗口
+    root=Tk(className = &quot;表情包下载器&quot;)
+    # 指定主框体大小
+    root.geometry(&#39;620x440&#39;)
+    # 框体大小可调性，分别表示x,y方向的可变性；
+    root.resizable(0, 0)
+    # 生成提示标签
+    labe1=Label(root,text = &#39;欢迎来到表情包下载器&#39;,fg = &quot;Olive&quot;,font = &quot;宋体 -25 bold&quot;,background = &quot;LightPink&quot;, height=2)
+    labe1.pack()
+    labe2=Label(root,text = &#39;表情包来源：https://www.fabiaoqing.com&#39;,fg = &quot;Olive&quot;,font = &quot;宋体 -25 bold&quot;,background = &quot;LightPink&quot;)
+    labe2.pack()
+    button2 = Button(root,text = &#39;打开表情包主页&#39;,fg = &quot;red&quot;,font = &#39;宋体 -30 bold&#39;,width=20,command = lambda : open_url(&quot;&lt;Button-1&gt;&quot;))#command = lambda :
+    button2.pack()
+    #button2.bind(&quot;&lt;Button-1&gt;&quot;, open_url)
+ 
+    labe3=Label(root,text = &#39;请在先在下方输入需要的表情包的地址&#39;,fg = &quot;Olive&quot;,font = &quot;宋体 -25 bold&quot;,background = &quot;LightPink&quot;)
+    labe3.place(x=90,y=200)
+ 
+    #单行文本框让用户输入表情包ID
+    # 声明为全局变量可以访问
+    global entry1
+    entry1=Entry(root,fg = &quot;red&quot;,font = &#39;宋体 -30 bold&#39;,width=10)
+    entry1.place(x=230, y=230)
+    #单击按钮后调用下载表情包的类并开始下载
+    button2 = Button(root,text = &#39;下载文件请点击&#39;,fg = &quot;red&quot;,font = &#39;宋体 -30 bold&#39;,command = lambda :gif(),width=20, height=2)#command = lambda :
+    button2.place(x=140, y=300)
+ 
+    # 进入消息循环（必需组件）
+    root.mainloop()
+ 
+ 
+window()#整个程序的调用！
+</code></pre>
+<p>程序封装成.exe方法<br>需要用 pip 安装一个  pyinstaller 模块<br>【详细安装可自查百度】<br>第一步准备一个 .ico格式 的图标 和.py 文件<br>复制你准备好的两个文件放入自己安装的 pyinstaller的目录中；</p>
+<p>第二步<br>复制你的  pyinstaller.exe的路径<br>在win+r 输入 cmd<br>在cmd命令窗口输入 cd 右键粘贴你的路径 回车</p>
+<p>第三步（注图标必须为ico格式）<br>输入你的命令<br>pyinstaller -F py文件 -i 图标<br>第四步<br>pyinstaller的同级目录中会有个dist的文件夹<br>打开里面就有生成的exe文件</p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2019 - 2021 云淡风轻
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Ne-21
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                <a target="_blank" href="https://www.beian.miit.gov.cn" rel="nofollow noopener">冀ICP备19031443号</a><br><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://imgs.521daigua.cn/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" width="300px" height="20px"></a><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?46c8202ccbfe91fef8f7d5fddc0ce94a";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

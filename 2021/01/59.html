@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云淡风轻 || Selenium模拟淘宝登陆的一次尝试</title>
+    <meta name="author" content="Ne-21">
+    <meta name="description" content="放弃不难，但坚持一定很酷。 ">
+    <meta name="keywords" content="云淡风轻, hexo, various, python, html, 小刀娱乐网, 编程, 自学 ">
+    <link rel="icon" href="/https://imgs.521daigua.cn/blog/tx.jpeg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">云淡风轻</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>首页</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="about" theme="filled" />
+            </span>
+            <span>关于</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="archives" theme="filled" />
+            </span>
+            <span>归档</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="categories" theme="filled" />
+            </span>
+            <span>分类</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>标签</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>云淡风轻</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">首页</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="about" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">关于</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="archives" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">归档</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="categories" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">分类</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">标签</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>Selenium模拟淘宝登陆的一次尝试 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/1/25
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/python" style=color:#ffa2c4>
+                    python
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <blockquote>
+<p>最近在研究python爬虫，因为教程是前几年的，所以随着网站的迭代，实战部分出现了很多新的问题。出现问题解决问题go~</p>
+</blockquote>
+<a id="more"></a>
+
+<p>今天先说说selenium被识别如何解决？</p>
+<h1 id="解决Selenium被识别"><a href="#解决Selenium被识别" class="headerlink" title="解决Selenium被识别"></a>解决Selenium被识别</h1><ul>
+<li>Selenium被监测出来一般是在JS代码里判断，加上execute_cdp_cmd后面的这句话就好了<pre><code>from selenium import webdriver
+</code></pre>
+</li>
+</ul>
+<h1 id="实例化driver"><a href="#实例化driver" class="headerlink" title="实例化driver"></a>实例化driver</h1><p>driver = webdriver.Chrome()</p>
+<h1 id="防止被监测"><a href="#防止被监测" class="headerlink" title="防止被监测"></a>防止被监测</h1><p>driver.execute_cdp_cmd(“Page.addScriptToEvaluateOnNewDocument”, {<br>  “source”: “””<br>    Object.defineProperty(navigator, ‘webdriver’, {<br>      get: () =&gt; undefined<br>    })<br>  “””<br>})</p>
+<pre><code>
+# Selenium的options配置
+</code></pre>
+<p>from selenium import webdriver<br>chrome_options = webdriver.ChromeOptions()<br>chrome_options.add_argument(‘–no-sandbox’)  # 解决DevToolsActivePort文件不存在的报错<br>chrome_options.add_argument(‘window-size=1920x1080’)  # 指定浏览器分辨率<br>chrome_options.add_argument(‘–disable-gpu’)  # 谷歌文档提到需要加上这个属性来规避bug<br>chrome_options.add_argument(‘–hide-scrollbars’)  # 隐藏滚动条, 应对一些特殊页面<br>chrome_options.add_argument(‘blink-settings=imagesEnabled=false’)  # 不加载图片, 提升速度<br>chrome_options.add_argument(‘–headless’)  # 浏览器不提供可视化页面. linux下如果系统不支持可视化不加这条会启动失败</p>
+<pre><code>
+# 爬虫上线的Selenium配置
+</code></pre>
+<p>from selenium import webdriver</p>
+<p>chrome_options = webdriver.ChromeOptions()<br>chrome_options.add_argument(‘–no-sandbox’)<br>chrome_options.add_argument(‘–disable-gpu’)<br>chrome_options.add_argument(‘blink-settings=imagesEnabled=false’)<br>chrome_options.add_argument(‘–headless’) </p>
+<p>driver = webdriver.Chrome(<br>    executable_path=’C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe’, # 不是Window不需要加<br>    options = chrome_options,<br>)</p>
+<p>driver.execute_cdp_cmd(“Page.addScriptToEvaluateOnNewDocument”, {<br>  “source”: “””<br>    Object.defineProperty(navigator, ‘webdriver’, {<br>      get: () =&gt; undefined<br>    })<br>  “””<br>})</p>
+<pre><code>- 上述内容来自https://blog.csdn.net/kzl_knight/article/details/106613495
+
+---
+
+# 模拟登陆实现
+- 知道了上面的内容（其实不是很懂，复制粘贴就完了），实现模拟登陆就比较容易了
+</code></pre>
+<h1 id="coding-utf-8"><a href="#coding-utf-8" class="headerlink" title="-- coding: utf-8 --"></a>-<em>- coding: utf-8 -</em>-</h1><p>“””<br>@Time ： 2021/1/25 19:28<br>@Auth ： Ne-21<br>@File ：taobao_login.py<br>@IDE ：PyCharm<br>@Motto：Another me.</p>
+<p>“””<br>from selenium import webdriver<br>from selenium.webdriver.common.by import By<br>from selenium.webdriver.support.ui import WebDriverWait<br>from selenium.webdriver.support import expected_conditions as EC<br>from selenium.webdriver import ActionChains<br>import time</p>
+<p>options = webdriver.ChromeOptions()<br>browser = webdriver.Chrome(options=options)</p>
+<h1 id="防止被监测-1"><a href="#防止被监测-1" class="headerlink" title="防止被监测"></a>防止被监测</h1><p>browser.execute_cdp_cmd(“Page.addScriptToEvaluateOnNewDocument”, {<br>    “source”: ‘’’<br>            Object.defineProperty(navigator, ‘webdriver’, {<br>              get: () =&gt; undefined<br>            })<br>          ‘’’<br>})<br>wait = WebDriverWait(browser, 5)</p>
+<p>def do_slider():<br>    “””<br>    处理滑动验证码，没有测试<br>    :return:<br>    “””<br>    slider_go = wait.until(<br>        EC.presence_of_element_located((By.CSS_SELECTOR, ‘#nc_1_n1z’))<br>    )<br>    # 实例化一个动作链关联游览器<br>    action = ActionChains(browser)<br>    action.reset_actions()<br>    # 使用鼠标动作链进行点击并悬浮<br>    action.click_and_hold(slider_go)<br>    # 滑动验证码<br>    action.move_by_offset(xoffset=258, yoffset=0).perform()<br>    time.sleep(1)</p>
+<p>def login(username, password):<br>    browser.get(‘<a target="_blank" rel="noopener" href="https://login.taobao.com/member/login.jhtml&#39;">https://login.taobao.com/member/login.jhtml&#39;</a>)<br>    input_username = wait.until(<br>        EC.presence_of_element_located((By.CSS_SELECTOR, ‘#fm-login-id’))<br>    )<br>    input_password = wait.until(<br>        EC.presence_of_element_located((By.CSS_SELECTOR, ‘#fm-login-password’))<br>    )<br>    submit = wait.until(<br>        EC.element_to_be_clickable((By.CSS_SELECTOR, ‘#login-form &gt; div.fm-btn &gt; button’))<br>    )<br>    input_username.send_keys(username)<br>    time.sleep(2)<br>    input_password.send_keys(password)<br>    time.sleep(2)<br>    submit.click()<br>    time.sleep(3)  # 等待检验滑块</p>
+<pre><code># 判断有无滑块验证
+try:
+    slider = wait.until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, &#39;#nc_1__scale_text &gt; span&#39;))
+    )
+    if bool(slider):
+        print(&#39;发现滑块验证码&#39;)
+        time.sleep(2)
+        do_slider()
+        submit.click()
+    else:
+        print(&#39;未发现滑块&#39;)
+        pass
+except:
+    print(&#39;未发现滑块&#39;)
+finally:
+    print(&#39;登录成功&#39;)
+</code></pre>
+<p>def main():<br>    login(username=’’, password=’’)</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    main()</p>
+<p>```</p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2019 - 2021 云淡风轻
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Ne-21
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                <a target="_blank" href="https://www.beian.miit.gov.cn" rel="nofollow noopener">冀ICP备19031443号</a><br><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://imgs.521daigua.cn/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" width="300px" height="20px"></a><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?46c8202ccbfe91fef8f7d5fddc0ce94a";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

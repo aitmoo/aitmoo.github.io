@@ -1,0 +1,1053 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云淡风轻 || The future is you, the future can be expected.</title>
+    <meta name="author" content="Ne-21">
+    <meta name="description" content="放弃不难，但坚持一定很酷。 ">
+    <meta name="keywords" content="云淡风轻, hexo, various, python, html, 小刀娱乐网, 编程, 自学 ">
+    <link rel="icon" href="/https://imgs.521daigua.cn/blog/tx.jpeg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">云淡风轻</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>首页</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="about" theme="filled" />
+            </span>
+            <span>关于</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="archives" theme="filled" />
+            </span>
+            <span>归档</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="categories" theme="filled" />
+            </span>
+            <span>分类</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>标签</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>云淡风轻</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">首页</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="about" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">关于</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="archives" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">归档</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="categories" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">分类</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">标签</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                    <div id="home-head" style=background-image:url('home.jpg')>
+    <script>
+        var menu = document.getElementById("menu")
+        menu.className += " menu-color"
+    </script>
+     
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>云淡风轻</h1>
+                <h3>The future is you, the future can be expected.</h3>
+                <h5>放弃不难，但坚持一定很酷。</h5>
+            </div>
+        </span>
+    </div>
+     
+</div>
+
+
+
+<div id="home-posts-wrap" class=>
+    <div id="home-posts">
+
+        <div id="posts">
+            
+
+<div class="post">
+
+    <a href="/2020/03/26.html">
+        <h2>
+            CDN是什么？谈谈有关CDN的小知识
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/3/25
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <ol>
+<li>什么是CDN：</li>
+</ol>
+<p>CDN的全称是Content Delivery Network，即内容分发网络。CDN是构建在网络之上的内容分发网络，依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。CDN的关键技术主要有内容存储和分发技术。 基本原理 CDN的基本原理是广泛采用各种缓存服务器，将这些缓存服务器分布到用户访问相对集中的地区或网络中，在用户访问网站时，利用全局负载技术将用户的访问指向距离最近的工作正常的缓存服务器上，由缓存服务器直接响应用户请求。</p>
+<ol start="2">
+<li>CDN的特点</li>
+</ol>
+<p>（1）提升网站的性能</p>
+<p>使用CDN最大的益处是为你的服务器提供“分流”，节省了你的带宽，减少了服务器的压力，很多CDN厂商提供的资源访问服务加载速度还是比较快的（墙内除外）。</p>
+<p>（2）文件缓存</p>
+<p>对于那些被普遍使用的资源文件（比如j q u e r y），如果用户在访问你网站之前已经访问过其他使用该CDN的网站，那么在用户浏览器中已经对该资源文件做了缓存，对于你的网站来说，这是个不错的性能提升！</p>
+<p>（3）高可用</p>
+<p>相信微软、谷歌、雅虎的服务器相对于你自身的服务器来说更加可靠些，他们提供了高可用、低网络延迟，降低了数据包的丢失几率。你无需担心服务器宕机或者网络延迟的问题。</p>
+<ol start="3">
+<li>CDN支持4种调度类型</li>
+</ol>
+<p>（1）智能DNS</p>
+<p>智能计算，就近最佳节点为网民提供服务。</p>
+<p>（2）HTTP DNS：</p>
+<p>客户端直接调用HttpDNS接口获取缓存服务器IP组，再择优向IP组中的缓存服务器发送请求，替代常规DNS调度策略，适用于客户端，且客户端需稍作修改进行HttpDNS接口调用。</p>
+<p>（3）边缘302：</p>
+<p>针对因用户LocalDNS配置错误引起的解析错误，缓存服务器可根据终端IP进行判断，并通过302方式响应终端最优缓存服务器IP供终端访问。适用于大文件下载</p>
+<p>（4）中心302：</p>
+<p>调度服务器接受终端Http请求，可根据终端IP及url请求热度，将用户请求通过302方式调度至最优的缓存服务器上进行响应。</p>
+<ol start="4">
+<li>CDN纠错小常识</li>
+</ol>
+<p>用户使用KS3中java的sdk时出现403报错，并返回“SignatureDoesNotMatch”的错误码，该怎么办？</p>
+<p>处理：如果返回“SignatureDoesNotMatch”的错误码，说明签名出现错误</p>
+<p>（1）确认AccessKey是否多写了空格;</p>
+<p>（2）当请求的header中包含Content-MD5时，StringToSign中需要包含请求内容数据的MD5值, 使用Base64编码;</p>
+<p>（3）Content-Type 表示请求内容的类型，取HTTP header中的Content-Type;</p>
+<p>（4）Date 取HTTP Header中的Date，且必须为 HTTP1.1 中支持的 GMT 格式，请注意，您发送请求的时间（客户端系统时间）与服务端收到请求的时间，间隔前后不得超出15分钟，否则该请求将被认为无效并返回错误，请检查发送请求设备的系统时间与标准时间是否一致;</p>
+<p>（5）CanonicalizedKssHeaders 取HTTP请求中的以x-kss开头的Header组合;</p>
+<p>（6）CanonicalizedResource 取用户访问的资源;</p>
+<p>（7）签名构造规则见API接口文档中的签名。</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/knowledge" style=color:#1bccbc>
+                knowledge
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/03/26.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/03/25.html">
+        <h2>
+            如何自己实现 JavaScript 的 new 操作符？
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/3/25
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><code>new</code> 大家肯定都不陌生，单身没有对象的时候就 <code>new</code> 一个，很方便。那么它在创建实例的时候，具体做了哪些操作呢？今天我们就来一起分析一下</p>
+<h1 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h1><p>在介绍 <code>new</code>之前，必须要知道什么是构造函数。</p>
+<p>构造函数和普通函数在写法上没有任何区别，当一个函数通过 <code>new Fun()</code> 调用时，就叫做构造函数，构造函数首字母通常大写。</p>
+<pre><code>function User(name) &#123;
+    this.name = name;
+&#125;
+
+let u = new User(&#39;leo&#39;);
+</code></pre>
+<p>这里，<code>User</code> 就是构造函数，当然你也可以直接调用 <code>User()</code>，但是这样就起不到创建实例的作用，在非严格模式下，会把 <code>name</code> 属性挂在 <code>window</code> 上。</p>
+<h1 id="new-操作符"><a href="#new-操作符" class="headerlink" title="new 操作符"></a>new 操作符</h1><p>那么 <code>new</code> 操作符到底做了什么事情呢，可以创建出一个实例？</p>
+<blockquote>
+<p><code>new</code> 运算符创建一个用户定义的对象类型的实例或具有构造函数的内置对象的实例。new关键字会进行如下的操作：</p>
+</blockquote>
+<ul>
+<li>1.创建一个空的简单JavaScript对象（即<code>**&#123;&#125;**</code>）；</li>
+<li>2.链接该对象（即设置该对象的构造函数）到另一个对象 ；</li>
+<li>3.将步骤1新创建的对象作为<code>**this**</code>的上下文 ；</li>
+<li>4.如果该函数没有返回对象，则返回<code>**this**</code>。</li>
+</ul>
+<p>以上引用自<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new">new 操作符 - MDN</a></p>
+<p>可能第 2、4 步大家看的不是很明白，这里我重新总结一下这 4 个步骤：</p>
+<p>1.创建一个空对象 <code>u = &#123;&#125;</code><br>2.绑定原型，<code>u.__proto__ = User.prototype</code><br>3.调用 <code>User()</code> 函数，并把空对象 <code>u</code> 当做 <code>this</code> 传入，即 <code>User.call(u)</code><br>4.如果 <code>User()</code> 函数执行完自己 <code>return</code> 一个 <code>object</code> 类型，那么返回此变量，否则返回 <code>this</code>，注意：如果构造函数返回基本类型值，则不影响，还是返回 <code>this</code></p>
+<h1 id="自己实现一个-new"><a href="#自己实现一个-new" class="headerlink" title="自己实现一个 new"></a>自己实现一个 new</h1><p>知道了 <code>new</code> 操作符的原理，下面我们自己来实现一个 <code>FakeNew</code> 函数。</p>
+<pre><code>function FakeNew() &#123;
+    let obj = &#123;&#125;;
+  
+    // 将类数组 arguments 转为数组，同时将第一个参数也就是构造函数 shift 出来
+    let Constructor = [].shift.apply(arguments);  
+
+    // 绑定原型
+    obj.__proto__ = Constructor.prototype;    
+  
+    // 调用构造函数，将 obj 当做 this 传入
+    let res = Constructor.apply(obj, arguments);    
+
+    // 返回
+    return typeof res === &#39;object&#39; ? res : obj;   
+&#125;
+
+function User(name) &#123;
+    this.name = name;
+&#125;
+
+User.prototype.getName = function() &#123;
+    return this.name;
+&#125;
+
+let u = FakeNew(User, &#39;leo&#39;);
+console.log(u);
+console.log(u.getName());
+</code></pre>
+<p>相应关键步骤的注释已经附在代码里面了，这样我们就实现了一个 <code>new</code> 操作，相信大家以后再看到 <code>new</code>，会有一种通透的感觉了。</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/web" style=color:#879cff>
+                web
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/03/25.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/03/24.html">
+        <h2>
+            博客图片加载？多种解决方案供您选择
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/3/23
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="ImgURL"><a href="#ImgURL" class="headerlink" title="ImgURL"></a>ImgURL</h1><p>ImgURL 是由国内独立开发者制作的图床工具，已在 GitHub 开源。ImgURL 支持拖拽、粘贴等多种上传方式。在上传测试中，GIF 耗时 5 秒，PNG 实现秒传，处于可接受的范围内。</p>
+<p>ImgURL 的图片编辑功能着实让人眼前一亮。在你上传了一张图片后，你可以对其进行裁切、压缩，甚至是添加水印的操作。除了可以将图片导出为 URL 外，ImgURL 还支持选择 HTML、Markdown 等格式。</p>
+<p>官网地址：<a target="_blank" rel="noopener" href="https://imgurl.org/">https://imgurl.org/</a></p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/web" style=color:#ffa2c4>
+                web
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/03/24.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/03/23.html">
+        <h2>
+            学习通下载老师后台的作业统计
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/3/23
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p><strong>学习通下载老师后台的作业统计</strong></p>
+<p>1.首先打开学习通个人中心：<a target="_blank" rel="noopener" href="http://i.chaoxing.com/">http://i.chaoxing.com/</a>，点击选择的课程<br><img src="https://s1.ax1x.com/2020/03/23/87AP2Q.png" alt="1"></p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/web" style=color:#879cff>
+                web
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/03/23.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/03/22.html">
+        <h2>
+            Nodejs - 在阿里云轻量服务器上部署Node环境
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/3/20
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>前往根目录 :<br><code>cd /</code><br>下载Node :<br><code>wget -c https://nodejs.org/dist/v12.1...</code><br>解压 :<br><code>tar -xvf node-v12.16.1-linux-x64.tar.xz</code><br>重命名 :<br><code>mv node-v12.16.1-linux-x64 nodejs</code><br>建立软连接, 这样方便在全局使用相关命令 :</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/web" style=color:#879cff>
+                web
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/03/22.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/03/21.html">
+        <h2>
+            Python字符串格式化
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/3/19
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>Python2.6 开始，新增了一种格式化字符串的函数 str.format()，它增强了字符串格式化的功能。相对于老版的%格式方法，它有很多优点。</p>
+<p>1.在%方法中%s只能替代字符串类型，而在format中不需要理会数据类型；<br>2.单个参数可以多次输出，参数顺序可以不相同；<br>3.填充方式十分灵活，对齐方式十分强大；<br>4.官方推荐用的方式，%方式将会在后面的版本被淘汰。</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/python" style=color:#ffa2c4>
+                python
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/03/21.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/03/20.html">
+        <h2>
+            前端安全之 xss 攻击
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/3/15
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="什么是-xss？"><a href="#什么是-xss？" class="headerlink" title="什么是 xss？"></a>什么是 xss？</h1><p>XSS 攻击指通过巧妙的方法注入恶意指令代码到网页，使<strong>用户加载并执行</strong>攻击者恶意制造的代码。</p>
+<h1 id="危害有什么？"><a href="#危害有什么？" class="headerlink" title="危害有什么？"></a>危害有什么？</h1><p>1.跳转到广告页面，页面注入广告等等。<br>2.导致公司域名被其他平台拉黑，从而使业务受损。<br>3.用户的财产受到威胁，他注入的代码可以在网页中任意请求接口。</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/web" style=color:#1bccbc>
+                web
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/03/20.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/03/19.html">
+        <h2>
+            智慧树刷课代码
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/3/12
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>功能： 检测章节  自动静音  自动下一节  1.5倍速<br>而且重要的一点就是，跳出来的问题，会随机作答，而不是全部选第一个。<br>代码来源网络。<br>使用方法： 打开正在看的视频 按F12打开控制台，找到Console那一栏，直接粘贴此处代码 按回车就好了。</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/web" style=color:#879cff>
+                web
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/03/19.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/03/18.html">
+        <h2>
+            Python中for和while循环的区别及用法
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/3/7
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="两者的区别"><a href="#两者的区别" class="headerlink" title="两者的区别"></a>两者的区别</h1><p>1,使用场景不同：<br><code>知道执行次数</code>的时候一般用<code>for</code>，<code>条件循环</code>时一般用<code>while</code>。</p>
+<p>2,两种循环在构造死循环时的区别：<br>while循环里的条件被看成<code>表达式</code>，因此，当用while构造死循环时，里面的<code>TRUE</code>实际上被看成永远为真的表达式，这种情况容易产生混淆，有些工具软件如PC-Lint就会认为出错了，因此构造死循环时，最好使用for(;;)来进行。</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/python" style=color:#00bcd4>
+                python
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/03/18.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/03/17.html">
+        <h2>
+            Python学习之路（四）
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/3/5
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="神奇的小海龟"><a href="#神奇的小海龟" class="headerlink" title="神奇的小海龟"></a>神奇的小海龟</h1><h2 id="和小海龟做朋友"><a href="#和小海龟做朋友" class="headerlink" title="和小海龟做朋友"></a>和小海龟做朋友</h2><ul>
+<li>Python中的<code>turtle</code>模块是一个简单的画图工具。它在屏幕上提供一 个小海龟，这只小海龟可以在屏幕上爬来爬去，并在爬过的地方 留下五颜六色的痕迹</li>
+<li>使用<code>import turtle</code>命令即可导入小海龟的功能模块<pre><code>#引入画笔工具
+import turtle
+</code></pre>
+</li>
+</ul>
+<pre><code>&lt;!--more--&gt;
+## 小海龟的常见命令:
+|功能|命令|
+|-|-|
+|设置海龟的外形|`turtle.shape()`|
+|设置痕迹的颜色|`turtle.color()`|
+|海龟向前移动|`turtle.forward()`或者`turtle.fd()`|
+|海龟向后移动|`turtle.backward()`或者`turtle.bk()`|
+|海龟向左转|`turtle.left()`或者`turtle.lt()`|
+|海龟向右转|`turtle.right()`或者`turtle.rt()`|
+|让海龟离开屏幕（此时海龟爬过 的地方不留痕迹）|`turtle.up()`|
+|让海龟回到屏幕|`turtle.down()`|
+|设置海龟爬行的速度|`turtle.speed()`|
+|让海龟画圆|`turtle.circle()`|
+|开始填充|`turtle.begin_fill()`|
+|结束填充|`turtle.end_fill()`|
+</code></pre>
+<p>import turtle<br>turtle.speed(0)</p>
+<p>turtle.shape(“turtle”)<br>turtle.color(“red”)<br>turtle.left(90)<br>turtle.forward(200)<br>turtle.right(90)<br>turtle.forward(200)<br>turtle.right(90)<br>turtle.forward(200)<br>turtle.right(90)<br>turtle.forward(200)</p>
+<p>turtle.begin_fill()<br>turtle.circle(100)<br>turtle.end_fill()</p>
+<pre><code>
+# 用小海龟画正多边形
+- 计算机给我们提供了一种将代码中相同部分重复执行的有效方法， 这种方法叫做循环
+- for循环是Python循环的一种，其语法格式为： 
+ - 
+</code></pre>
+<p>   for 循环变量 in 循环变量取值范围:<br>         需要循环的程序代码</p>
+<pre><code>- 在`for`循环中，紧跟`for`语句的变量`i`被称之为循环变量，该变量的 值在循环的过程中会不断地变化，它的变化受限于关键字`in`之后 的内容
+- 在`for`语句之后被循环执行的语句块我们称之为循环体，即真正被 循环执行的部分，我们在循环体前方添加一个缩进（4个空格） 来表示它们之间的所属关系
+</code></pre>
+<p>import turtle</p>
+<p>turtle.shape(“turtle”)<br>turtle.color(“red”)<br>#for循环开始<br>for i in [0,1,2,3,4]:<br>    turtle.right(144)<br>    turtle.forward(200)<br>#for循环结束</p>
+<pre><code>
+# 用函数化简程序
+- `函数`：使用一个名字定义一段实现特定功能的代码组合的工作机 制，使用该函数的名字，即可让计算机执行函数内预先定义好的 程序
+- 函数定义的语法格式：
+ - 
+</code></pre>
+<p> def 函数名(参数列表):<br>        函数体</p>
+<pre><code>- 程序的函数必须是`先定义再调用`的
+</code></pre>
+<p>#请进小海龟，并设置小海龟的外形和颜色<br>import turtle<br>turtle.shape(“turtle”)<br>turtle.color(“red”)<br>#定义函数并设置参数（x,y,color)<br>def drawstar(x,y,color):<br>    turtle.up()<br>    turtle.goto(x,y)<br>    turtle.down()<br>    turtle.color(color)<br>    for i in [0,1,2,3,4]:<br>        turtle.right(144)<br>        turtle.forward(100)<br>#定义结束<br>#设置小海龟的位置和朝向</p>
+<p>#绘制第一个五角星<br>drawstar(-200,200,”blue”)</p>
+<p>#再一次设置小海龟的位置和朝向</p>
+<p>#绘制第二个五角星<br>drawstar(300,200,”green”)</p>
+<p>#继续设置小海龟的位置和朝向，并绘制第三、第四个五角星<br>drawstar(-200,-200,”red”)</p>
+<p>drawstar(300,-200,”yellow”)</p>
+<p>turtle.up()<br>turtle.home()</p>
+<pre><code>
+
+# 函数的参数
+- 函数的参数：即函数的输入部分，用来存放函数调用时传递来的 初始内容，函数的参数增加了函数的灵活性，允许函数应对不同 的处理情况
+- 调用函数时，参数的格式必须与函数定义中完全一致
+</code></pre>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/python" style=color:#1bccbc>
+                python
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/03/17.html " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+
+             
+<div class="page-current">
+
+    <div class="prev">
+        
+        <a href="/page/4/">
+            <span class="page-num">
+                <a-icon type="caret-left" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+    <div class="page-index">
+
+        
+        <span>
+
+            
+            <a href="/"><span class="page-num">1</span></a>
+            <span class="page-omit">...</span>
+            
+
+            
+
+            
+
+            
+            <a href="/page/3">
+                <span class="page-num">
+                    3
+                </span>
+            </a>
+            
+
+            
+            <a href="/page/4/">
+                <span class="page-num">
+                    4
+                </span>
+            </a>
+        </span>
+        
+
+        <span class="current">
+            5
+        </span>
+
+        
+        <span>
+            <a href="/page/6/">
+                <span class="page-num">
+                    6
+                </span>
+            </a>
+            
+
+            
+
+        </span>
+        
+
+    </div>
+
+    <div class="next">
+        
+        <a href="/page/6/ ">
+            <span class="page-num">
+                <a-icon type="caret-right" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+</div>
+
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <a-affix :offset-top="card_top">
+    <a-card class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="https://imgs.521daigua.cn/blog/tx.jpeg " alt="头像">
+        </div>
+        <div class="name">
+            Ne-21
+        </div>
+        <div class="descriptions">
+            
+            <div class="description">
+                放弃不难，但坚持一定很酷。
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://github.com/ne-21">
+
+                    
+                    <a-icon type="github"
+                        theme="filled" />
+                    
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://twitter.com/">
+
+                    
+                    <a-icon type="twitter"
+                        theme="" />
+                    
+                </a>
+            </span>
+            
+        </div>
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="http://www.ily.plus">
+                    ILY
+                </a>
+            </div>
+            
+        </div>
+    </a-card>
+</a-affix>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2019 - 2021 云淡风轻
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Ne-21
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                <a target="_blank" href="https://www.beian.miit.gov.cn" rel="nofollow noopener">冀ICP备19031443号</a><br><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://imgs.521daigua.cn/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" width="300px" height="20px"></a><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?46c8202ccbfe91fef8f7d5fddc0ce94a";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

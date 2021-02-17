@@ -1,0 +1,504 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云淡风轻 || 使用代理池处理反爬抓取微信文章</title>
+    <meta name="author" content="Ne-21">
+    <meta name="description" content="放弃不难，但坚持一定很酷。 ">
+    <meta name="keywords" content="云淡风轻, hexo, various, python, html, 小刀娱乐网, 编程, 自学 ">
+    <link rel="icon" href="/https://imgs.521daigua.cn/blog/tx.jpeg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">云淡风轻</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>首页</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="about" theme="filled" />
+            </span>
+            <span>关于</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="archives" theme="filled" />
+            </span>
+            <span>归档</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="categories" theme="filled" />
+            </span>
+            <span>分类</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>标签</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>云淡风轻</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">首页</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="about" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">关于</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="archives" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">归档</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="categories" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">分类</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">标签</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>使用代理池处理反爬抓取微信文章 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/1/27
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/python" style=color:#879cff>
+                    python
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <blockquote>
+<p>搜狗（<a target="_blank" rel="noopener" href="http://weixin.sogou.com/%EF%BC%89%E5%B7%B2%E7%BB%8F%E4%B8%BA%E6%88%91%E4%BB%AC%E5%81%9A%E4%BA%86%E4%B8%80%E5%B1%82%E5%BE%AE%E4%BF%A1%E6%96%87%E7%AB%A0%E7%9A%84%E7%88%AC%E5%8F%96%EF%BC%8C%E9%80%9A%E8%BF%87%E5%AE%83%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E8%8E%B7%E5%8F%96%E4%B8%80%E4%BA%9B%E5%BE%AE%E4%BF%A1%E6%96%87%E7%AB%A0%E7%9A%84%E5%88%97%E8%A1%A8%E4%BB%A5%E5%8F%8A%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BF%A1%E6%81%AF%EF%BC%8C">http://weixin.sogou.com/）已经为我们做了一层微信文章的爬取，通过它我们可以获取一些微信文章的列表以及微信公众号的一些信息，</a><br>但是它有很多反爬虫的措施，可以检测到你的IP异常，然后把你封掉。<br>本文采用代理的方法处理反爬来抓取微信文章。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="用到的"><a href="#用到的" class="headerlink" title="用到的"></a>用到的</h1><ul>
+<li>urllib</li>
+<li>lxml</li>
+<li>pyquery</li>
+<li>requests</li>
+<li>re</li>
+<li>pymongo</li>
+<li>sys</li>
+</ul>
+<h1 id="代理池"><a href="#代理池" class="headerlink" title="代理池"></a>代理池</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/Python3WebSpider/ProxyPool">https://github.com/Python3WebSpider/ProxyPool</a></li>
+</ul>
+<h1 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h1><p><img src="https://p.pstatp.com/origin/137fe00030644a02199da"></p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><pre><code># -*- coding: utf-8 -*-
+&quot;&quot;&quot;
+@Time ： 2021/1/27 12:29
+@Auth ： Ne-21
+@File ：weixin_spider.py
+@IDE ：PyCharm
+@Motto：Another me.
+
+&quot;&quot;&quot;
+from urllib.parse import urlencode
+from lxml.etree import XMLSyntaxError
+from pyquery import PyQuery as pq
+import requests
+import re
+import pymongo
+import sys
+
+sys.setrecursionlimit(3000)  # 将默认的递归深度修改为3000
+
+base_url = &#39;https://weixin.sogou.com/weixin?&#39;
+headers = &#123;
+    &#39;Referer&#39;: &#39;https://weixin.sogou.com/weixin?query=%E9%A3%8E%E6%99%AF&amp;type=2&amp;page=1&amp;ie=utf8&#39;,
+    &#39;Sec-Fetch-Dest&#39;: &#39;document&#39;,
+    &#39;Sec-Fetch-Mode&#39;: &#39;navigate&#39;,
+    &#39;Sec-Fetch-Site&#39;: &#39;same-origin&#39;,
+    &#39;Sec-Fetch-User&#39;: &#39;?1&#39;,
+    &#39;Upgrade-Insecure-Requests&#39;: &#39;1&#39;,
+    &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 &#39;
+                  &#39;Safari/537.36&#39;,
+    &#39;Host&#39;: &#39;weixin.sogou.com&#39;,
+    &#39;Cookie&#39;: &#39;&#39;
+    &#125;
+keyword = &#39;云计算&#39;
+
+# 获取、设置全局代理
+proxy_pool_url = &#39;http://127.0.0.1:5555/random&#39;
+proxy = None
+
+# 最大请求次数
+max_count = 5
+
+# MongoDB
+MONGO_URL = &#39;localhost&#39;
+MONGO_DB = &#39;weixin&#39;
+MONGO_TABLE = &#39;articles&#39;
+
+client = pymongo.MongoClient(MONGO_URL)
+db = client[MONGO_DB]
+
+# 获取代理信息
+def get_proxy():
+    try:
+        response = requests.get(proxy_pool_url)
+        if response.status_code == 200:
+            return response.text
+        return None
+    except ConnectionError:
+        return None
+
+
+# 搜索
+def get_index(keyword, page):
+    data = &#123;
+        &#39;query&#39;: keyword,
+        &#39;page&#39;: page,
+        &#39;type&#39;: &#39;2&#39;
+    &#125;
+    queries = urlencode(data)
+    url = base_url + queries
+    html = get_html(url)
+    return html
+
+
+# 获取搜索页面信息
+def get_html(url, count=1):
+    print(&#39;请求目标网址&#39;, url)
+    print(&#39;当前请求次数&#39;, count)
+    global proxy
+    # 判断请求次数
+    if count == max_count:
+        print(&#39;请求次数过多&#39;)
+        return None
+    try:
+        # 是否有代理
+        if proxy:
+            proxies = &#123;
+                &#39;http&#39;: &#39;http://&#39; + proxy
+            &#125;
+            response = requests.get(url, headers=headers, allow_redirects=False, proxies=proxies)
+        else:
+            # allow_redirects=False 不处理自动跳转
+            response = requests.get(url, headers=headers, allow_redirects=False)
+        if response.status_code == 200:
+            return response.text
+        if response.status_code == 302:
+            # need proxy
+            print(&#39;302&#39;)
+            proxy = get_proxy()
+            if proxy:
+                print(&#39;Using Proxy&#39;, proxy)
+                # count += 1
+                return get_html(url)
+            else:
+                print(&#39;Get Proxy Failed&#39;)
+                return None
+    except ConnectionError as e:
+        print(&#39;Error&#39;, e.args)
+        proxy = get_proxy()
+        count += 1
+        return get_html(url, count)
+
+
+# 解析搜索页面
+def parse_index(html):
+    doc = pq(html)
+    items = doc(&#39;.news-box .news-list li .txt-box h3 a&#39;).items()
+    for item in items:
+        yield str(&#39;https://weixin.sogou.com&#39;) + item.attr(&#39;href&#39;)
+
+
+# 获取真实的文章地址
+def get_detail_true_url(url):
+    global proxy
+    try:
+        if proxy:
+            proxies = &#123;
+                &#39;http&#39;: &#39;http://&#39; + str(proxy)
+            &#125;
+            response = requests.get(url, headers=headers, allow_redirects=False, proxies=proxies)
+        else:
+            # allow_redirects=False 不处理自动跳转
+            response = requests.get(url, headers=headers, allow_redirects=False)
+        if response.status_code == 200:
+            response = response.text
+            url_param = re.compile(&quot;url \+= &#39;(.*?)&#39;;&quot;, re.S).findall(response)
+            true_url = &#39;&#39;
+            for i in url_param:
+                true_url += i
+            true_url.replace(&#39;@&#39;, &#39;&#39;)
+            return true_url
+    except:
+        return get_detail_true_url(url)
+
+
+# 获取文章详情
+def get_detail(true_url):
+    try:
+        response = requests.get(true_url)
+        if response.status_code == 200:
+            response = response.text
+            return response
+        return None
+    except ConnectionError:
+        return None
+
+
+# 解析文章
+def parse_detail(html):
+    try:
+        doc = pq(html)
+        title = doc(&#39;.rich_media_title&#39;).text()
+        content = doc(&#39;.rich_media_content&#39;).text()
+        date = doc(&#39;#publish_time&#39;).text()
+        nickname = doc(&#39;#js_name&#39;).text()
+        wechat = doc(&#39;#js_profile_qrcode &gt; div &gt; p:nth-child(3) &gt; span&#39;).text()
+        return &#123;
+            &#39;title&#39;: title,
+            &#39;content&#39;: content,
+            &#39;date&#39;: date,
+            &#39;nickname&#39;: nickname,
+            &#39;wechat&#39;: wechat
+        &#125;
+    except XMLSyntaxError:
+        return None
+
+
+
+def save_to_mongo(data):
+    # 如果有一样的，更新，没有，插入
+    if db[MONGO_TABLE].update(&#123;&#39;title&#39;: data[&#39;title&#39;]&#125;, &#123;&#39;$set&#39;: data&#125;, True):
+        print(&#39;存储到数据库成功&#39;, data[&#39;title&#39;])
+    else:
+        print(&#39;存储失败&#39;, data[&#39;title&#39;])
+
+def main():
+    for page in range(1, 100):
+        html = get_index(keyword, page)
+        if html:
+            article_urls = parse_index(html)
+            for article_url in article_urls:
+                article_html = get_detail_true_url(article_url)
+                article_true_html = get_detail(article_html)
+                if article_true_html:
+                    article_data = parse_detail(article_true_html)
+                    print(article_data)
+                    if article_data:
+                        save_to_mongo(article_data)
+
+
+if __name__ == &#39;__main__&#39;:
+    main()
+</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2019 - 2021 云淡风轻
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Ne-21
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                <a target="_blank" href="https://www.beian.miit.gov.cn" rel="nofollow noopener">冀ICP备19031443号</a><br><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://imgs.521daigua.cn/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" width="300px" height="20px"></a><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?46c8202ccbfe91fef8f7d5fddc0ce94a";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

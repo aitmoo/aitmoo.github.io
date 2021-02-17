@@ -59,23 +59,16 @@
         
         <a href="/about">
             <span>
-                <a-icon type="about" theme="filled" />
+                <a-icon type="user" theme="filled" />
             </span>
             <span>关于</span>
         </a>
         
         <a href="/archives">
             <span>
-                <a-icon type="archives" theme="filled" />
+                <a-icon type="bars" theme="filled" />
             </span>
             <span>归档</span>
-        </a>
-        
-        <a href="/categories">
-            <span>
-                <a-icon type="categories" theme="filled" />
-            </span>
-            <span>分类</span>
         </a>
         
         <a href="/tags">
@@ -108,7 +101,7 @@
             <a href="/about">
                 <div class="item">
                     <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="about" theme="filled" />
+                        <a-icon type="user" theme="filled" />
                     </div>
                     <div style="min-width:100px;max-width: 150%;width: 20%;">关于</div>
                 </div>
@@ -117,18 +110,9 @@
             <a href="/archives">
                 <div class="item">
                     <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="archives" theme="filled" />
+                        <a-icon type="bars" theme="filled" />
                     </div>
                     <div style="min-width:100px;max-width: 150%;width: 20%;">归档</div>
-                </div>
-            </a>
-            
-            <a href="/categories">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="categories" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">分类</div>
                 </div>
             </a>
             
@@ -203,86 +187,11 @@
     <div class="excerpt">
         <div class="content" v-pre>
             
-            
             <blockquote>
 <p>Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。</p>
 </blockquote>
 <p><img src="https://p.pstatp.com/origin/138ea000055afa9a4fa5a"></p>
-<h1 id="安装要求"><a href="#安装要求" class="headerlink" title="安装要求"></a>安装要求</h1><ul>
-<li>Linux内核  &gt; <code>3.1</code></li>
-</ul>
-<pre><code class="shell">#查看Linux内核版本
-uanme -r
-</code></pre>
-<ul>
-<li>不是<code>OpenVZ</code>虚拟化架构</li>
-</ul>
-<pre><code class="shell">#CentOS安装virt-what
-yum -y install virt-what
-#Debian or Ubuntu安装virt-what
-apt-get install -y virt-what
-#查看虚拟化架构
-virt-what
-</code></pre>
-<h1 id="CentOS-7-安装-Docker"><a href="#CentOS-7-安装-Docker" class="headerlink" title="CentOS 7 安装 Docker"></a>CentOS 7 安装 Docker</h1><ul>
-<li>卸载旧版Docker</li>
-</ul>
-<pre><code class="shell">sudo yum remove docker \
-                  docker-client \
-                  docker-client-latest \
-                  docker-common \
-                  docker-latest \
-                  docker-latest-logrotate \
-                  docker-logrotate \
-                  docker-engine
-</code></pre>
-<p><img src="https://p.pstatp.com/origin/ff0100033c402b50bf48"></p>
-<ul>
-<li>设置Docker存储库</li>
-</ul>
-<pre><code class="shell">sudo yum -y install -y yum-utils
-sudo yum-config-manager \
-    --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
-</code></pre>
-<p><img src="https://p.pstatp.com/origin/137ec00025ea1b6ed4d3b"></p>
-<ul>
-<li>安装最新版Docker 引擎和容器</li>
-</ul>
-<pre><code class="shell">sudo yum -y install docker-ce docker-ce-cli containerd.io
-</code></pre>
-<ul>
-<li>启动Docker</li>
-</ul>
-<pre><code class="shell">#启动Docker
-sudo systemctl start docker
-#开机启动
-sudo systemctl enable docker
-</code></pre>
-<blockquote>
-<p>更多说明可参考：<a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/centos/">https://docs.docker.com/engine/install/centos/</a></p>
-</blockquote>
-<h1 id="验证与测试"><a href="#验证与测试" class="headerlink" title="验证与测试"></a>验证与测试</h1><p>安装顺利可以使用<code>docker -v</code>可查看到当前版本：</p>
-<pre><code class="shell">[root@iZe0754mxynaalZ ~]# docker -v
-Docker version 20.10.3, build 48d30b5
-</code></pre>
-<h1 id="Docker镜像加速"><a href="#Docker镜像加速" class="headerlink" title="Docker镜像加速"></a>Docker镜像加速</h1><p>Docker镜像在海外，国内拉取速度非常缓慢，可以使用网易Docker镜像源来加速,新建一个文件<code>/etc/docker/daemon.json</code>添加以下内容：</p>
-<pre><code class="shell">&#123;
- &quot;registry-mirrors&quot;: [&quot;http://hub-mirror.c.163.com&quot;]
-&#125;
-</code></pre>
-<h1 id="Docker常用命令"><a href="#Docker常用命令" class="headerlink" title="Docker常用命令"></a>Docker常用命令</h1><ul>
-<li>查看运行中的Docker进程：<code>docker ps</code></li>
-<li>启动容器：<code>docker start id</code></li>
-<li>停止指定docker进程：<code>docker stop id</code></li>
-<li>查找镜像：<code>docker search name</code></li>
-<li>查看已安装的镜像：<code>docker images</code></li>
-<li>删除某个镜像：<code>docker rm &lt;image id&gt;</code></li>
-</ul>
-<blockquote>
-<p>实际过程中可能遇到其它问题，仅供各位参考，更多说明建议参考Docker官方文档。</p>
-</blockquote>
-
+            
             
         </div>
     </div>
@@ -296,7 +205,7 @@ Docker version 20.10.3, build 48d30b5
         
         <span class="tag">
             
-            <a href="/tags/Linux" style=color:#ffa2c4>
+            <a href="/tags/Linux" style=color:#879cff>
                 Linux
             </a>
         </span>
@@ -349,7 +258,7 @@ Docker version 20.10.3, build 48d30b5
         
         <span class="tag">
             
-            <a href="/tags/python" style=color:#00bcd4>
+            <a href="/tags/python" style=color:#ff7d73>
                 python
             </a>
         </span>
@@ -402,7 +311,7 @@ Docker version 20.10.3, build 48d30b5
         
         <span class="tag">
             
-            <a href="/tags/python" style=color:#1bccbc>
+            <a href="/tags/python" style=color:#ff7d73>
                 python
             </a>
         </span>
@@ -455,7 +364,7 @@ Docker version 20.10.3, build 48d30b5
         
         <span class="tag">
             
-            <a href="/tags/python" style=color:#ffa2c4>
+            <a href="/tags/python" style=color:#879cff>
                 python
             </a>
         </span>
@@ -603,7 +512,7 @@ d:\python\venv\lib\site-packages\pyspider\libs\utils.py:196: FutureWarning: time
         
         <span class="tag">
             
-            <a href="/tags/python" style=color:#ffa2c4>
+            <a href="/tags/python" style=color:#879cff>
                 python
             </a>
         </span>
@@ -709,7 +618,7 @@ d:\python\venv\lib\site-packages\pyspider\libs\utils.py:196: FutureWarning: time
         
         <span class="tag">
             
-            <a href="/tags/python" style=color:#00bcd4>
+            <a href="/tags/python" style=color:#ff7d73>
                 python
             </a>
         </span>
@@ -762,7 +671,7 @@ d:\python\venv\lib\site-packages\pyspider\libs\utils.py:196: FutureWarning: time
         
         <span class="tag">
             
-            <a href="/tags/python" style=color:#00bcd4>
+            <a href="/tags/python" style=color:#ffa2c4>
                 python
             </a>
         </span>
@@ -828,7 +737,7 @@ d:\python\venv\lib\site-packages\pyspider\libs\utils.py:196: FutureWarning: time
         
         <span class="tag">
             
-            <a href="/tags/Linux" style=color:#ffa2c4>
+            <a href="/tags/Linux" style=color:#879cff>
                 Linux
             </a>
         </span>

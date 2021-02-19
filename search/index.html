@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>  Nodejs - 在阿里云轻量服务器上部署Node环境 |    云淡风轻</title>
+  <title>   云淡风轻</title>
   <meta name="description" content="The future is you, the future can be expected.">
   <!-- 标签页图标 -->
   
@@ -117,72 +117,45 @@
 <div class="body-outer">
   <div class="body-inner">
     
+
 <article class="post-inner">
-  <div class="post-content-outer">
-    <div class="post-intro">
-      <div class="post-title animate__animated  animate__fadeInUp">Nodejs - 在阿里云轻量服务器上部署Node环境</div>
-      <div class="meta-intro animate__animated  animate__fadeInUp">3月 20 2020</div>
-      
-    </div>
-    <div class="post-content-inner">
-      <div class="post-content-inner-space">
+    <div class="post-content-outer">
+      <div class="post-intro">
 
       </div>
-      <div class="post-content-main animate__animated  animate__fadeInUp">
-        <!-- top型目录 -->
-        
-        <p>前往根目录 :<br><code>cd /</code><br>下载Node :<br><code>wget -c https://nodejs.org/dist/v12.1...</code><br>解压 :<br><code>tar -xvf node-v12.16.1-linux-x64.tar.xz</code><br>重命名 :<br><code>mv node-v12.16.1-linux-x64 nodejs</code><br>建立软连接, 这样方便在全局使用相关命令 :</p>
-<a id="more"></a>
-<p><code>ln -s /nodejs/bin/npm /usr/bin/npm</code><br><code>ln -s /nodejs/bin/node /usr/bin/node</code></p>
-<p>参考资料 :<br>Node官网 : <a target="_blank" rel="noopener" href="https://nodejs.org/en/">https://nodejs.org/en/</a><br>查看服务器版本信息 : <a target="_blank" rel="noopener" href="https://blog.csdn.net/pansanday/article/details/79697562">https://blog.csdn.net/pansanday/article/details/79697562</a><br>linux服务器安装node环境及项目部署 : <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/49741341">https://zhuanlan.zhihu.com/p/49741341</a></p>
-
-        <!-- 分类文章 -->
-        
-      </div>
-      <div class="post-content-inner-space">
-        
-      </div>
-   </div>
-    <!-- 评论 -->
-    
-    <div class="bottom-comments-outer">
-      <div class="bottom-comments-inner">
-        <!-- valine -->
-        
-          <section id="comments" class="comments" style="margin-top: 150px;">
-            <style>
-              .comments{background:#fff}
-              @media screen and (max-width:900px){.comments{margin:auto;padding:10px;background:#fff}}
-            </style>
-            <div id="vcomment" class="comment"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-    var notify = 'true' == true ? true : false;
-    var verify = 'true' == true ? true : false;
-    new Valine({
-        av: AV,
-        el: '#vcomment',
-        notify: notify,
-        app_id: "oLziw6ntaHtCC9A0HLYYu5OE-gzGzoHsz",
-        app_key: "KjHsec1b3kguAMPQ7io7JlFs",
-        placeholder: "留下你来过的痕迹~",
-        avatar:"robohash",
-    });
-</script>
-
-          </section>
-        
-        <!-- Gitalk -->
-        
-        <!-- livere -->
-        
+      <div class="post-content-inner">
+        <div class="post-content-inner-space">
+  
         </div>
-      </div>
-    
-  </div>
-</article>
+        <div class="post-content-main animate__animated  animate__fadeInUp">
+            <div class="search">
+                <div class="search-input-outer">
+                    <form>
+                        <input type="text" placeholder="想要搜些什么呢..." id="local-search-input" name="q" results="0">
+                        <button type="submit"><i class="ri-search-line"></i></button>
+                    </form>
+                </div>
+                <div id="local-search-result">
+                    
+                </div>
+            </div>
+
+        </div>
+        <div class="post-content-inner-space">
+        </div>
+     </div>
+    </div>
+  </article>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+<script src="/js/search.js"></script>
+
+<script type="text/javascript">      
+    var search_path = "search.xml";
+    var path = "/" + search_path;
+    searchFunc(path, 'local-search-input', 'local-search-result');
+</script>
   </div>
 </div>
 

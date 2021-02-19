@@ -166,22 +166,32 @@
       <div class="bottom-comments-inner">
         <!-- valine -->
         
-        <!-- Gitalk -->
-        
-          <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<div id="gitalk-container" style="margin-top: 100px;"></div>
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-    var gitalk = new Gitalk({
-        clientID: '75e341b0c2bb077bb6c6',
-        clientSecret: '840aa249eea9ff87183e6fae3ed2114094e7d27c',
-        id: window.location.pathname,
-        repo: 'aitmoo.github.io',
-        owner: 'aitmoo',
-        admin: 'aitmoo'
-    })
-    gitalk.render('gitalk-container')
+          <section id="comments" class="comments" style="margin-top: 150px;">
+            <style>
+              .comments{background:#fff}
+              @media screen and (max-width:900px){.comments{margin:auto;padding:10px;background:#fff}}
+            </style>
+            <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'true' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "oLziw6ntaHtCC9A0HLYYu5OE-gzGzoHsz",
+        app_key: "KjHsec1b3kguAMPQ7io7JlFs",
+        placeholder: "留下你来过的痕迹~",
+        avatar:"robohash",
+    });
 </script>
+
+          </section>
+        
+        <!-- Gitalk -->
         
         <!-- livere -->
         

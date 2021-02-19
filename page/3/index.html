@@ -1,1163 +1,395 @@
 
-<!DOCTYPE html>
-<html lang="zh-CN ">
 
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>云淡风轻 || The future is you, the future can be expected.</title>
-    <meta name="author" content="Ne-21">
-    <meta name="description" content="放弃不难，但坚持一定很酷。 ">
-    <meta name="keywords" content="云淡风轻, hexo, various, python, html, 小刀娱乐网, 编程, 自学 ">
-    <link rel="icon" href="/https://imgs.521daigua.cn/blog/tx.jpeg">
-    <link rel="stylesheet" href="/css/antd.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>   云淡风轻</title>
+  <meta name="description" content="The future is you, the future can be expected.">
+  <!-- 标签页图标 -->
+  
+
+  <!-- 图标库 -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+  <!-- 动画库 -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/css/animate.css"/>
+  
+  <!-- css文件 -->
+  
+<link rel="stylesheet" href="/css/white.css">
+
+  <!-- 代码高亮 -->
+  
     
-    <link rel="stylesheet" href="/css/maiden-theme.css">
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.1.1/styles/github.css">
+
     
-    <script src="/js/vue.js"></script>
-    <script src="/js/antd.min.js"></script>
+  
 <meta name="generator" content="Hexo 5.3.0"></head>
+
 
 <body>
 
-    <div id="loading"
-        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
-        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
-        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
-        <div
-            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
-            <div id="loadcontent"
-                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
-                <div>
-                    <h2>LOADING...</h2>
-                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
-                    <div>
-                        <img src="/dancingkitty.gif" alt="loading">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="layout">
-        <transition name="into">
-            <div v-show="show_page" style="display: none;">
-                <div id="menu_show">
-                     
-<nav id="menu">
-    <div class="desktop-menu">
+<div class="menu-outer">
+    <div class="menu-inner">
+      <div class="menu-site-name  animate__animated  animate__fadeInUp">
         <a href="/">
-            <span class="title">云淡风轻</span>
+          云淡风轻
         </a>
         
-        <a href="/">
-            <span>
-                <a-icon type="home" theme="filled" />
-            </span>
-            <span>首页</span>
+      </div>
+      <div class="menu-group">
+        <ul class="menu-ul">
+        
+          <a href="/" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              HOME
+            </li>
+          </a>
+        
+          <a href="/archives" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              BLOG
+            </li>
+          </a>
+        
+        
+        
+        <a href="/search">
+          <li class="menu-li  animate__animated  animate__fadeInUp">
+            <i class="ri-search-line"></i>
+          </li>
         </a>
         
-        <a href="/about">
-            <span>
-                <a-icon type="user" theme="filled" />
-            </span>
-            <span>关于</span>
-        </a>
+          <li class="menu-li animate__animated  animate__fadeInUp" id="mobile-menu">
+            <i class="ri-menu-line"></i>
+          </li>
         
-        <a href="/archives">
-            <span>
-                <a-icon type="bars" theme="filled" />
-            </span>
-            <span>归档</span>
-        </a>
-        
-        <a href="/tags">
-            <span>
-                <a-icon type="tags" theme="filled" />
-            </span>
-            <span>标签</span>
-        </a>
-        
-    </div>
+        </ul>
 
-    <div :class="'phone-menu ' + menu_show" id="phone-menu">
-        <div :class="'title'" @click="menu_show=!menu_show">
-            <span style="margin-right: 10px;">
-                <a-icon type="appstore" theme="filled" />
-            </span>
-            <span>云淡风轻</span>
-        </div>
-        <div class="items" v-show="menu_show">
-            
-            <a href="/">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="home" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">首页</div>
-                </div>
-            </a>
-            
-            <a href="/about">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="user" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">关于</div>
-                </div>
-            </a>
-            
-            <a href="/archives">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="bars" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">归档</div>
-                </div>
-            </a>
-            
-            <a href="/tags">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="tags" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">标签</div>
-                </div>
-            </a>
-            
-        </div>
-        <div class="curtain" v-show="menu_show"></div>
-    </div>
+      </div>
 
-</nav>
-                </div>
-
-                <div id="main">
-                    <div id="home-head" style=background-image:url('home.jpg')>
-    <script>
-        var menu = document.getElementById("menu")
-        menu.className += " menu-color"
-    </script>
-     
-    <div id="home-info" class="home-info" @click="home_click">
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="info">
-            <div class="wrap">
-                <h1>云淡风轻</h1>
-                <h3>The future is you, the future can be expected.</h3>
-                <h5>放弃不难，但坚持一定很酷。</h5>
-            </div>
-        </span>
     </div>
-     
 </div>
+<div id="mobile-main" class="animate__animated  animate__fadeIn">
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-site-name animate__animated  animate__fadeInUp">
+      <a href="/">
+        云淡风轻
+      </a>
+    </div>
+    <div class="mobile-menu-group" id="mobile-close">
+      <i class="ri-close-line"></i>
+    </div>
 
+  </div>
 
-
-<div id="home-posts-wrap" class=>
-    <div id="home-posts">
-
-        <div id="posts">
-            
-
-<div class="post">
-
-    <a href="/2020/06/46.html">
-        <h2>
-            通过JS跳过青年大学习的实现原理
-        </h2>
+  <div class="mobile-menu-div">
+  
+    <a href="/" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>HOME</span>
+      </div>
     </a>
-
-    <div class="category-and-date">
-
-        
-
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2020/6/2
-        </span>
-
-    </div>
-
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <blockquote>
-<p>富强、民主、文明、和谐，自由、平等、公正、法治， 爱国、敬业、诚信、友善。<br>富强、民主、文明、和谐，自由、平等、公正、法治， 爱国、敬业、诚信、友善。<br>富强、民主、文明、和谐，自由、平等、公正、法治， 爱国、敬业、诚信、友善。<br>爱我中华！！！！！！！！！！！！！！！！！</p>
-</blockquote>
-            
-            
-        </div>
-    </div>
-
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/web" style=color:#ffa2c4>
-                web
-            </a>
-        </span>
-        
-    </div>
-
-    <a href="/2020/06/46.html " class="go-post">
-        阅读全文
+  
+    <a href="/archives" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>BLOG</span>
+      </div>
     </a>
-</div>
-
-<div class="post">
-
-    <a href="/2020/05/45.html">
-        <h2>
-            批改网解决“禁止粘贴”的几种方法
-        </h2>
+  
+  
+    <a href="/search">  
+      <div class="mobile-menu-child  animate__animated  animate__fadeInUp">
+        <i class="ri-search-line"></i>
+      </div>
     </a>
-
-    <div class="category-and-date">
-
-        
-
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2020/5/17
-        </span>
-
-    </div>
-
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            
-            <blockquote>
-<p>今天上午考完试就沉浸在了过！的喜悦中，但是下午打开手机的备忘录却发现还有一篇作文还没写，在批改网上，慌啊，要到截止时间了！！！！<br>问题不大，还好有她。嗯…就当我拿到写完的作文后去打开批改网提交的时候，出现了下面这个令人不开心的弹窗。<br><img src="https://ae01.alicdn.com/kf/H62965929a3314526a506ec7d35a4a21f4.jpg" alt="1"></p>
-</blockquote>
-<p>啊！！！！！！！！！！！！难道让我手敲吗？不可能，这辈子都不可能！怎么办呢？安排他。</p>
-<h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><p>移除监听事件即可开启<br>在浏览器中打开，鼠标右键选择检查，或者按快捷键F12打开调试窗口<br>点击Console<br><img src="https://ae01.alicdn.com/kf/H890408c25c104ddeacf94b8688f092b7p.jpg" alt="2"><br>输入以下代码：<br><code>$(&#39;#contents&#39;).unbind();</code><br>然后回车就可以复制粘贴啦！<br><img src="https://ae01.alicdn.com/kf/H10e4c55695774063b8590a83395a42f4W.jpg" alt="3"></p>
-<h1 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h1><p>这种方法长期有效，除非作文批改网修改了标签的名字（这时候只需要修改相应的名字就好啦），增加一个可以粘贴的对话框，还是重复上面的步骤，在控制台（Console）输入一下代码：<br><code>$(&quot;#titleW&quot;).append(&#39;&lt;textarea id=&quot;rslyycm&quot; rows=&quot;100&quot; cols=&quot;50&quot;&gt;&lt;/textarea&gt;&#39;);</code><br>回车执行完之后会出现一个输入框，可以调整大小的输入框，将文章粘贴进去就好，然后执行下面的代码：<br><code>$(&quot;#contents&quot;).val($(&quot;#rslyycm&quot;).val());</code><br>按回车执行这样就ok啦！</p>
-
-            
-        </div>
-    </div>
-
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/web" style=color:#1bccbc>
-                web
-            </a>
-        </span>
-        
-    </div>
-
-    <a href="/2020/05/45.html " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-
-    <a href="/2020/05/44.html">
-        <h2>
-            超简单个人网盘搭建教程，宝塔面板安装Cloudreve新版V3(Go版本)
-        </h2>
-    </a>
-
-    <div class="category-and-date">
-
-        
-
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2020/5/15
-        </span>
-
-    </div>
-
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            
-            <blockquote>
-<p>最近百度网盘方面政策开始收缩，很多朋友怨声载道，当是时，Cloudreve 的作者肝了六个月更新发布了v3版本，用 Go 语言重构了一遍，除了修复 V2 版本被诟病很多的 Bug 外，还增加了很多令人兴奋的新特性，关键是免费用呀，朋友们。</p>
-</blockquote>
-<h1 id="Cloudreve-新版V3特性"><a href="#Cloudreve-新版V3特性" class="headerlink" title="Cloudreve 新版V3特性"></a>Cloudreve 新版V3特性</h1><ul>
-<li>☁️ 支持本机、从机、七牛、阿里云 OSS、腾讯云 COS、又拍云、OneDrive (包括世纪互联版) 作为存储端</li>
-<li>📤 上传/下载 支持客户端直传，支持下载限速</li>
-<li>💾 可对接 Aria2 离线下载</li>
-<li>📚 在线 压缩/解压缩、多文件打包下载</li>
-<li>💻 覆盖全部存储策略的 WebDAV 协议支持</li>
-<li>⚡ 拖拽上传、目录上传、流式上传处理</li>
-<li>🗃️ 文件拖拽管理</li>
-<li>👩‍👧‍👦 多用户、用户组</li>
-<li>🔗 创建文件、目录的分享链接，可设定自动过期</li>
-<li>👁️‍🗨️ 视频、图像、音频、文本、Office 文档在线预览</li>
-<li>🎨 自定义配色、黑暗模式、PWA 应用、全站单页应用</li>
-<li>🚀 All-In-One 打包，开箱即用</li>
-<li>🌈 … …</li>
-</ul>
-<h1 id="官方支持的网站和文档"><a href="#官方支持的网站和文档" class="headerlink" title="官方支持的网站和文档"></a>官方支持的网站和文档</h1><ul>
-<li>官网：<a target="_blank" rel="noopener" href="https://cloudreve.org/">https://cloudreve.org/</a></li>
-<li>github：<a target="_blank" rel="noopener" href="https://github.com/cloudreve/Cloudreve">https://github.com/cloudreve/Cloudreve</a></li>
-<li>下载：<a target="_blank" rel="noopener" href="https://github.com/cloudreve/Cloudreve/releases">https://github.com/cloudreve/Cloudreve/releases</a></li>
-<li>安装文档：<a target="_blank" rel="noopener" href="https://docs.cloudreve.org/getting-started/install">https://docs.cloudreve.org/getting-started/install</a></li>
-<li>演示：<a target="_blank" rel="noopener" href="https://demo.cloudreve.org/">https://demo.cloudreve.org</a></li>
-</ul>
-<h1 id="宝塔命令行输入代码查询内核参数"><a href="#宝塔命令行输入代码查询内核参数" class="headerlink" title="宝塔命令行输入代码查询内核参数"></a>宝塔命令行输入代码查询内核参数</h1><ul>
-<li><code>arch</code><br><img src="https://ae01.alicdn.com/kf/Haf1c3433d781486c8da75d21b5ea9fa6T.jpg" alt="1"><br>输出结果x86_64代表amd64；aarch64代表arm64</li>
-</ul>
-<h1 id="下载链接处找到对应的版本-复制链接地址"><a href="#下载链接处找到对应的版本-复制链接地址" class="headerlink" title="下载链接处找到对应的版本,复制链接地址"></a>下载链接处找到对应的版本,复制链接地址</h1><p><img src="https://ae01.alicdn.com/kf/H42c61ebfaed846fd95dc9c0fe2b419caF.jpg" alt="2"></p>
-<h1 id="宝塔安全添加5212端口"><a href="#宝塔安全添加5212端口" class="headerlink" title="宝塔安全添加5212端口"></a>宝塔安全添加5212端口</h1><p><img src="https://ae01.alicdn.com/kf/H2346f47d81424c788ca82982125e3708N.jpg" alt="3"></p>
-<h1 id="宝塔命令行逐行执行以下命令，对应链接处改为自己复制的："><a href="#宝塔命令行逐行执行以下命令，对应链接处改为自己复制的：" class="headerlink" title="宝塔命令行逐行执行以下命令，对应链接处改为自己复制的："></a>宝塔命令行逐行执行以下命令，对应链接处改为自己复制的：</h1><p><em>（当然你也可以把下边的改成自己的然后全部复制黏贴就完事了）</em></p>
-<pre><code>mkdir /www/wwwroot/cloudreve # 新建一个文件夹存放程序
-cd /www/wwwroot/cloudreve # 进入该文件夹
-wget https://github.com/cloudreve/Cloudreve/releases/download/3.0.0/cloudreve_3.0.0_linux_amd64.tar.gz # 下载你复制的链接
-tar -zxvf cloudreve_3.0.0_linux_amd64.tar.gz # 解压获取到的主程序
-chmod +x ./cloudreve # 赋予执行权限
-./cloudreve # 启动 Cloudreve
-</code></pre>
-<h1 id="安装完成，保存账户和登录密码，务必保存该密码，测试登录"><a href="#安装完成，保存账户和登录密码，务必保存该密码，测试登录" class="headerlink" title="安装完成，保存账户和登录密码，务必保存该密码，测试登录"></a>安装完成，保存账户和登录密码，务必保存该密码，测试登录</h1><p>登录地址为服务器ip:5212，比如<a target="_blank" rel="noopener" href="http://123.57.35.68:5212/">http://123.57.35.68:5212/</a><br><img src="https://ae01.alicdn.com/kf/Hcdea7884bb1e48fa9809e367f91cea253.jpg" alt="4"></p>
-<h1 id="原文链接（拓展设置）"><a href="#原文链接（拓展设置）" class="headerlink" title="原文链接（拓展设置）"></a>原文链接（拓展设置）</h1><p><a target="_blank" rel="noopener" href="https://www.dhzy.fun/archives/1811.html">https://www.dhzy.fun/archives/1811.html</a></p>
-
-            
-        </div>
-    </div>
-
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/Linux" style=color:#879cff>
-                Linux
-            </a>
-        </span>
-        
-    </div>
-
-    <a href="/2020/05/44.html " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-
-    <a href="/2020/05/43.html">
-        <h2>
-            基于OBS虚拟摄像头欺骗超星考试系统的原理与实现
-        </h2>
-    </a>
-
-    <div class="category-and-date">
-
-        
-
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2020/5/13
-        </span>
-
-    </div>
-
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            
-            <blockquote>
-<p>因为疫情的原因吧，这个学期开学是不存在的了，我们直接迎接考试吧！！！<br>这几天浏览网页的时候发现了这个消息–超星要出考试系统了，看着很厉害的样子。</p>
-</blockquote>
-<p>我们先到知乎这个帖子看看怎么回事然后加入讨论，讨论讨论这个几个大神提出的问题：<br><em>帖子链接<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/394116356">https://www.zhihu.com/question/394116356</a></em></p>
-<ul>
-<li>全国那么多人同时考试，超星的服务器崩溃怎么办？</li>
-<li>那么多学生考试，有学生家里断电、断网、网络不稳定而自动交卷怎么办？</li>
-<li>监控开麦克风吗？如果不开，有人监控电脑屏幕，在学生旁边念答案作弊怎么办？</li>
-<li>家里熊孩子拔掉WIFI网线后系统自动交卷怎么办怎么办？学生是不是很冤，因此导致学生挂科，会不会导致学生暴打家里熊孩子，甚至引发家暴和刑事案件？</li>
-</ul>
-<p>个人感觉，这最后一个问题很是值得思考啊!!!!</p>
-<p><strong>在此声明下，以下内容来源于网络，博主只是农夫山泉的搬运工（毕竟自己也是需要的嘛）</strong></p>
-<h1 id="前言（废话）"><a href="#前言（废话）" class="headerlink" title="前言（废话）"></a>前言（废话）</h1><p>听闻超星更新智慧考试系统，一时间学生群体舆论哗然，超星那几张来源不明真假难辨的截图属实吓到了不少的后浪们，社交平台纷纷转发和中国青年报、共青团中央等团学媒体报道引发了一场现象级的大讨论。这一切的背后是人性的险恶还是道德的沦丧我们不得而知，然而等不及超星智慧考试系统正式官宣上线，各路网友已经开始了探索解决方案——只要思想不滑坡，方法总比困难多！</p>
-<h1 id="原理与实现（1-0版本）"><a href="#原理与实现（1-0版本）" class="headerlink" title="原理与实现（1.0版本）"></a>原理与实现（1.0版本）</h1><p>首先我们基于网络上流传的几张超星智慧考试系统的图片来研究他是如何监控我们监考的。面对的几张不到2MB的图片，我翻来翻去一看这图片没有详细内容，歪歪斜斜的每个控件都写着人脸识别，动态监考的这八个字，我横竖睡不着，仔细看了半夜才从字缝里看出字来，满图片都写着八个字是”端正考风，严肃考纪！”作为新世纪的新新人类，没有长辈比我们更了解电子产品。我们都玩过与别人视频通话的把戏，录视频，拍照将自己的盛世美颜转达另一头使用电子产品的知己，而这一切的背后，我们都离不开一个东西，叫做色相头。色像头——罪恶根源的源头。</p>
-<p>超星不是喜欢看脸吗？好，我们就如愿以偿给他一个“自己的脸”。所有的实时视频监控都仰赖于摄像头硬件设备的输入，改变一个视频输入源，利用obs studio软件建立一个虚拟的摄像头作为超星考试平台的视频输入源，对软件进行简单地调试和设置。提前录制好一个几十秒的考试姿势的视频，表情和动作完全模拟考试时的状态且符合超星智慧考试系统动态监控要求，然后循环播放！！！在考试过程中，超星将一直看到这样端正考试的我们。由于目前超星智慧考试系统还没推出，对声音是否有要求还不知道，声音输入源要么禁用，要么给它一个超星想要的声音，超星要什么，我们给什么，满足超星的一切“合理”的诉求。最后，考试加油！！！</p>
-<h1 id="相关信息"><a href="#相关信息" class="headerlink" title="相关信息"></a>相关信息</h1><p>原文地址<a target="_blank" rel="noopener" href="https://shimo.im/docs/8tdRgR38dqhjD6yr/read">https://shimo.im/docs/8tdRgR38dqhjD6yr/read</a><br>OBS下载地址<a target="_blank" rel="noopener" href="https://obsproject.com/">https://obsproject.com/</a></p>
-
-            
-        </div>
-    </div>
-
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/daily" style=color:#879cff>
-                daily
-            </a>
-        </span>
-        
-    </div>
-
-    <a href="/2020/05/43.html " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-
-    <a href="/2020/05/42.html">
-        <h2>
-            超星学习通自动答题脚本
-        </h2>
-    </a>
-
-    <div class="category-and-date">
-
-        
-
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2020/5/10
-        </span>
-
-    </div>
-
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            
-            <blockquote>
-<p>超星学习通助手自作者宣布停止维护后，我就慌了，还有好多课没看呢。心情沉闷，内心焦急，不知道该怎么办，不过恰巧我的手中还有几台母鸡没用，那就不妨自己整个题库吧。经过了一个星期的搭建与维护，目前来说，可以满足自己的日常所需了。今天就分享出来，拯救下大家。</p>
-</blockquote>
-<h1 id="脚本主要功能"><a href="#脚本主要功能" class="headerlink" title="脚本主要功能"></a>脚本主要功能</h1><p>自动挂机看尔雅MOOC，支持视频、音频、文档、图书自动完成，章节测验自动答题提交，支持自动切换任务点、挂机阅读时长、自动登录等，解除各类功能限制，开放自定义参数</p>
-<h1 id="脚本代码（原作者wyn-我只是修改了题库接口）"><a href="#脚本代码（原作者wyn-我只是修改了题库接口）" class="headerlink" title="脚本代码（原作者wyn,我只是修改了题库接口）"></a>脚本代码（原作者wyn,我只是修改了题库接口）</h1><ul>
-<li>油猴链接<a target="_blank" rel="noopener" href="https://greasyfork.org/zh-CN/scripts/402536">https://greasyfork.org/zh-CN/scripts/402536</a></li>
-<li>源代码<pre><code>// ==UserScript==
-// @name         超星网课助手(修改接口，查题可用)--致敬原作者wyn
-// @namespace    nawlgzs@163.com
-// @version      1.0.7
-// @description  自动挂机看尔雅MOOC，支持视频、音频、文档、图书自动完成，章节测验自动答题提交，支持自动切换任务点、挂机阅读时长、自动登录等，解除各类功能限制，开放自定义参数
-// @author       Vices
-// @match        *://*.chaoxing.com/*
-// @match        *://*.edu.cn/*
-// @connect      ydfq.52msr.cn
-// @run-at       document-end
-// @grant        unsafeWindow
-// @grant        GM_xmlhttpRequest
-// @grant        GM_setClipboard
-// @supportURL   https://greasyfork.org/zh-CN/scripts/402536
-// @license      MIT
-// ==/UserScript==
-
-</code></pre>
-</li>
-</ul>
-<p>// 设置修改后，需要刷新或重新打开网课页面才会生效<br>var setting = {<br>    // 8E3 == 8000，科学记数法，表示毫秒数<br>    time: 8E3 // 默认响应速度为8秒，不建议小于5秒<br>    ,review: 0 // 复习模式，完整挂机视频(音频)时长，支持挂机任务点已完成的视频和音频，默认关闭<br>    ,queue: 1 // 队列模式，开启后任务点逐一完成，关闭则单页面所有任务点同时进行，默认开启</p>
-<pre><code>// 1代表开启，0代表关闭
-,video: 1 // 视频支持后台、切换窗口不暂停，支持多视频，默认开启
-,work: 1 // 自动答题功能(章节测验)，作业需要手动开启查询，高准确率，默认开启
-,audio: 1 // 音频自动播放，与视频功能共享vol和rate参数，默认开启
-,book: 1 // 图书阅读任务点，非课程阅读任务点，默认开启
-,docs: 1 // 文档阅读任务点，PPT类任务点自动完成阅读任务，默认开启
-// 本区域参数，上方为任务点功能，下方为独立功能
-,jump: 1 // 自动切换任务点、章节、课程(需要配置course参数)，默认开启
-,read: &#39;65&#39; // 挂机课程阅读时间，单位是分钟，&#39;65&#39;代表挂机65分钟，请手动打开阅读页面，默认&#39;65&#39;分钟
-,face: 0 // 解除面部识别(不支持二维码类面部采集)，此功能仅为临时解除，默认关闭
-,total: 0 // 显示课程进度的统计数据，在学习进度页面的上方展示，默认关闭
-
-// 仅开启video(audio)时，修改此处才会生效
-,line: &#39;公网1&#39; // 视频播放的默认资源线路，此功能适用于系统默认线路无资源，默认&#39;公网1&#39;
-,http: &#39;标清&#39; // 视频播放的默认清晰度，无效参数则使用系统默认清晰度，默认&#39;标清&#39;
-// 本区域参数，上方为video功能独享，下方为audio功能共享
-,vol: &#39;0&#39; // 默认音量的百分数，设定范围：[0,100]，&#39;0&#39;为静音，默认&#39;0&#39;
-,rate: &#39;1&#39; // 视频播放默认倍率，参数范围0∪[0.0625,16]，&#39;0&#39;为秒过，默认&#39;1&#39;倍
-
-// 仅开启work时，修改此处才会生效
-,auto: 1 // 答题完成后自动提交，默认关闭
-,none: 1 // 无匹配答案时执行默认操作，关闭后若题目无匹配答案则会暂时保存已作答的题目，默认开启
-,scale: 0 // 富文本编辑器高度自动拉伸，用于文本类题目，答题框根据内容自动调整大小，默认关闭
-
-// 仅开启jump时，修改此处才会生效
-,course: 0 // 当前课程完成后自动切换课程，仅支持按照根目录课程顺序切换，默认开启
-,lock: 1 // 跳过未开放(图标是锁)的章节，即闯关模式或定时发放的任务点，默认开启
-
-// 自动登录功能配置区
-,school: &#39;账号为手机号可以不修改此参数&#39; // 学校/单位/机构码，要求完整有效可查询，例如&#39;清华大学&#39;
-,username: &#39;&#39; // 学号/工号/借书证号(邮箱/手机号/账号)，例如&#39;2018010101&#39;，默认&#39;&#39;
-,password: &#39;&#39; // 密码，例如&#39;123456&#39;，默认&#39;&#39;
-</code></pre>
-<p>},<br>_self = unsafeWindow,<br>url = location.pathname,<br>top = _self;</p>
-<p>if (url != ‘/studyApp/studying’ &amp;&amp; top != _self.top) document.domain = location.host.replace(/.+?./, ‘’);</p>
-<p>try {<br>    while (top != _self.top) {<br>        top = top.parent.document ? top.parent : _self.top;<br>        if (top.location.pathname == ‘/mycourse/studentstudy’) break;<br>    }<br>} catch (err) {<br>    // console.log(err);<br>    top = _self;<br>}</p>
-<p>var $ = _self.jQuery || top.jQuery,<br>parent = _self == top ? self : _self.parent,<br>Ext = _self.Ext || parent.Ext || {},<br>UE = _self.UE,<br>vjs = _self.videojs;</p>
-<p>String.prototype.toCDB = function() {<br>    return this.replace(/\s/g, ‘’).replace(/[\uff01-\uff5e]/g, function(str) {<br>        return String.fromCharCode(str.charCodeAt(0) - 65248);<br>    }).replace(/[“”]/g, ‘“‘).replace(/[‘’]/g, “‘“).replace(/。/g, ‘.’);<br>};</p>
-<p>setting.normal = ‘’; // ‘:visible’<br>// setting.time += Math.ceil(setting.time * Math.random()) - setting.time / 2;<br>setting.job = [‘:not(*)’];</p>
-<p>setting.video &amp;&amp; setting.job.push(‘iframe[src*=”/video/index.html”]’);<br>setting.work &amp;&amp; setting.job.push(‘iframe[src*=”/work/index.html”]’);<br>setting.audio &amp;&amp; setting.job.push(‘iframe[src*=”/audio/index.html”]’);<br>setting.book &amp;&amp; setting.job.push(‘iframe[src*=”/innerbook/index.html”]’);<br>setting.docs &amp;&amp; setting.job.push(‘iframe[src*=”/ppt/index.html”]’, ‘iframe[src*=”/pdf/index.html”]’);</p>
-<p>setting.tip = !setting.queue || top != _self &amp;&amp; jobSort($ || Ext.query);</p>
-<p>if (url == ‘/mycourse/studentstudy’) {<br>    _self.checkMobileBrowerLearn = $.noop;<br>    var classId = location.search.match(/cla[zs]{2}id=(\d+)/i)[1] || 0,<br>    courseId = _self.courseId || location.search.match(/courseId=(\d+)/i)[1] || 0;<br>    setting.lock || $(‘#coursetree’).on(‘click’, ‘[onclick*=void], [href*=void]’, function() {<br>        _self.getTeacherAjax(courseId, classId, $(this).parent().attr(‘id’).slice(3));<br>    });<br>} else if (url == ‘/ananas/modules/video/index.html’ &amp;&amp; setting.video) {<br>    if (setting.review) _self.greenligth = Ext.emptyFn;<br>    checkPlayer(_self.supportH5Video());<br>} else if (url == ‘/work/doHomeWorkNew’ || url == ‘/api/work’ || url == ‘/work/addStudentWorkNewWeb’) {<br>    if (!UE) {<br>        var len = ($ || Ext.query || Array)(‘font:contains(未登录)’, document).length;<br>        setTimeout(len == 1 ? top.location.reload : parent.greenligth, setting.time);<br>    } else if (setting.work) {<br>        setTimeout(relieveLimit, 0);<br>        beforeFind();<br>    }<br>} else if (url == ‘/ananas/modules/audio/index.html’ &amp;&amp; setting.audio) {<br>    if (setting.review) _self.greenligth = Ext.emptyFn;<br>    _self.videojs = hookAudio;<br>    hookAudio.xhr = vjs.xhr;<br>} else if (url == ‘/ananas/modules/innerbook/index.html’ &amp;&amp; setting.book &amp;&amp; setting.tip) {<br>    setTimeout(function() {<br>        _self.setting ? _self.top.onchangepage(_self.getFrameAttr(‘end’)) : _self.greenligth();<br>    }, setting.time);<br>} else if (url.match(/^/ananas/modules/(ppt|pdf)/index.html$/) &amp;&amp; setting.docs &amp;&amp; setting.tip) {<br>    setTimeout(function() {<br>        _self.setting ? _self.finishJob() : _self.greenligth();<br>    }, setting.time);<br>    frameElement.setAttribute(‘download’, 1);<br>} else if (url == ‘/knowledge/cards’) {<br>    $ &amp;&amp; checkToNext();<br>} else if (url.match(/^/(course|zt)/\d+.html$/)) {<br>    setTimeout(function() {<br>        +setting.read &amp;&amp; _self.sendLogs &amp;&amp; $(‘.course_section:eq(0) .chapterText’).click();<br>    }, setting.time);<br>} else if (url == ‘/ztnodedetailcontroller/visitnodedetail’) {<br>    setting.read *= 60 / $(‘.course_section’).length;<br>    setting.read &amp;&amp; _self.sendLogs &amp;&amp; autoRead();<br>} else if (url == ‘/mycourse/studentcourse’) {<br>    var gv = location.search.match(/d=\d+&amp;/g);<br>    setting.total &amp;&amp; $(‘<a>‘, {<br>        href: ‘/moocAnalysis/chapterStatisticByUser?classI’ + gv[1] + ‘courseI’ + gv[0] + ‘userId=’ + _self.getCookie(‘_uid’) + ‘&amp;ut=s’,<br>        target: ‘_blank’,<br>        title: ‘点击查看章节统计’,<br>        style: ‘margin: 0 25px;’,<br>        html: ‘本课程共’ + $(‘.icon’).length + ‘节，剩余’ + $(‘em:not(.openlock)’).length + ‘节未完成’<br>    }).appendTo(‘.zt_logo’).parent().width(‘auto’);<br>} else if (url.match(/^/visit/(courses|interaction)$/)) {<br>    setting.face &amp;&amp; $(‘.zmodel’).on(‘click’, ‘[onclick^=openFaceTip]’, DisplayURL);<br>} else if (location.host.match(/^passport2/)) {<br>    setting.username &amp;&amp; getSchoolId();<br>} else if (location.hostname == ‘i.mooc.chaoxing.com’) {<br>    _self.layui.use(‘layer’, function() {<br>        this.layer.open({content: ‘拖动进度条、倍速播放、秒过会导致不良记录！题库在慢慢补充，搜不到的题目系统会在次日进行自动补充’, title: ‘超星网课助手提示’, btn: ‘我已知悉’, offset: ‘t’, closeBtn: 0});<br>    });<br>} else if (url == ‘/widget/pcvote/goStudentVotePage’) {<br>    $(‘:checked’).click();<br>    $(‘.StudentTimu’).each(function(index) {<br>        var ans = _self.questionlist[index].answer;<br>        $(‘:radio, :checkbox’, this).each(function(num) {<br>            ans[num].isanswer &amp;&amp; this.click();<br>        });<br>        $(‘:text’, this).val(function(num) {<br>            return $(ans[num].content).text().trim();<br>        });<br>    });<br>} else if (url == ‘/work/selectWorkQuestionYiPiYue’) {<br>    submitAnswer(getIframe().parent(), $.extend(true, [], parent._data));<br>}</p>
-<p>function getIframe(tip, win, job) {<br>    if (!$) return Ext.get(frameElement || []).parent().child(‘.ans-job-icon’) || Ext.get([]);<br>    do {<br>        win = win ? win.parent : _self;<br>        job = $(win.frameElement).prevAll(‘.ans-job-icon’);<br>    } while (!job.length &amp;&amp; win.parent.frameElement);<br>    return tip ? win : job;<br>}</p>
-<p>function jobSort($) {<br>    var fn = $.fn ? [getIframe(1), ‘length’] : [self, ‘dom’],<br>    sel = setting.job.join(‘, :not(.ans-job-finished) &gt; .ans-job-icon’ + setting.normal + ‘ ~ ‘);<br>    if ($(sel, fn[0].parent.document)[0] == fn[0].frameElement) return true;<br>    if (!getIframe()[fn[1]] || getIframe().parent().is(‘.ans-job-finished’)) return null;<br>    setInterval(function() {<br>        $(sel, fn[0].parent.document)[0] == fn[0].frameElement &amp;&amp; fn[0].location.reload();<br>    }, setting.time);<br>}</p>
-<p>function checkPlayer(tip) {<br>    _self.videojs = hookVideo;<br>    hookVideo.xhr = vjs.xhr;<br>    Ext.isSogou = Ext.isIos = Ext.isAndroid = false;<br>    var data = Ext.decode(_self.config(‘data’)) || {};<br>    delete data.danmaku;<br>    data.doublespeed = 1;<br>    frameElement.setAttribute(‘data’, Ext.encode(data));<br>    if (tip) return;<br>    _self.supportH5Video = function() {return true;};<br>    alert(‘此浏览器不支持html5播放器，请更换浏览器’);<br>}</p>
-<p>function hookVideo() {<br>    <em>self.alert = console.log;<br>    var config = arguments[1],<br>    line = Ext.Array.filter(Ext.Array.map(config.playlines, function(value, index) {<br>        return value.label == setting.line &amp;&amp; index;<br>    }), function(value) {<br>        return Ext.isNumber(value);<br>    })[0] || 0,<br>    http = Ext.Array.filter(config.sources, function(value) {<br>        return value.label == setting.http;<br>    })[0];<br>    config.playlines.unshift(config.playlines[line]);<br>    config.playlines.splice(line + 1, 1);<br>    config.plugins.videoJsResolutionSwitcher.default = http ? http.res : 360;<br>    config.plugins.studyControl.enableSwitchWindow = 1;<br>    config.plugins.timelineObjects.url = ‘/richvideo/initdatawithviewer?’;<br>    config.plugins.seekBarControl.enableFastForward = 1;<br>    if (!setting.queue) delete config.plugins.studyControl;<br>    // config.preload = setting.tip ? ‘auto’ : ‘none’;<br>    var player = vjs.apply(this, arguments),<br>    a = ‘<a href="https://d0.ananas.chaoxing.com/download/' + _self.config('objectid') + '" target="_blank">‘,<br>    img = ‘<img src="https://d0.ananas.chaoxing.com/download/e363b256c0e9bc5bd8266bf99dd6d6bb" style="margin: 6px 0 0 6px;">‘;<br>    player.volume(Math.round(setting.vol) / 100 || 0);<br>    Ext.get(player.controlBar.addChild(‘Button’).el</em>).setHTML(a + img + ‘</a>‘).dom.title = ‘下载视频’;<br>    player.on(‘loadstart’, function() {<br>        setting.tip &amp;&amp; this.play().catch(Ext.emptyFn);<br>        this.playbackRate(setting.rate &gt; 16 || setting.rate &lt; 0.0625 ? 1 : setting.rate);<br>    });<br>    player.one([‘loadedmetadata’, ‘firstplay’], function() {<br>        setting.two = setting.rate === ‘0’ &amp;&amp; setting.two &lt; 1;<br>        setting.two &amp;&amp; config.plugins.seekBarControl.sendLog(this.children_[0], ‘ended’, Math.floor(this.cache_.duration));<br>    });<br>    player.on(‘ended’, function() {<br>        Ext.fly(frameElement).parent().addCls(‘ans-job-finished’);<br>    });<br>    return player;<br>}</p>
-<p>function hookAudio() {<br>    <em>self.alert = console.log;<br>    var config = arguments[1];<br>    config.plugins.studyControl.enableSwitchWindow = 1;<br>    config.plugins.seekBarControl.enableFastForward = 1;<br>    if (!setting.queue) delete config.plugins.studyControl;<br>    var player = vjs.apply(this, arguments),<br>    a = ‘<a href="https://d0.ananas.chaoxing.com/download/' + _self.config('objectid') + '" target="_blank">‘,<br>    img = ‘<img src="https://d0.ananas.chaoxing.com/download/e363b256c0e9bc5bd8266bf99dd6d6bb" style="margin: 6px 0 0 6px;">‘;<br>    player.volume(Math.round(setting.vol) / 100 || 0);<br>    player.playbackRate(setting.rate &gt; 16 || setting.rate &lt; 0.0625 ? 1 : setting.rate);<br>    Ext.get(player.controlBar.addChild(‘Button’).el_).setHTML(a + img + ‘</a>‘).dom.title = ‘下载音频’;<br>    player.on(‘loadeddata’, function() {<br>        setting.tip &amp;&amp; this.play().catch(Ext.emptyFn);<br>    });<br>    player.one(‘firstplay’, function() {<br>        setting.rate === ‘0’ &amp;&amp; config.plugins.seekBarControl.sendLog(this.children</em>[0], ‘ended’, Math.floor(this.cache_.duration));<br>    });<br>    player.on(‘ended’, function() {<br>        Ext.fly(frameElement).parent().addCls(‘ans-job-finished’);<br>    });<br>    return player;<br>}</p>
-<p>function relieveLimit() {<br>    if (setting.scale) _self.UEDITOR_CONFIG.scaleEnabled = false;<br>    $.each(UE.instants, function() {<br>        var key = this.key;<br>        this.ready(function() {<br>            this.destroy();<br>            UE.getEditor(key);<br>        });<br>    });<br>}</p>
-<p>function beforeFind() {<br>    setting.regl = parent.greenligth || $.noop;<br>    if ($.type(parent._data) == ‘array’) return setting.regl();<br>    setting.div = $(<br>        ‘<div style="border: 2px dashed rgb(0, 85, 68); width: 330px; position: fixed; top: 0; right: 0; z-index: 99999; background-color: rgba(70, 196, 38, 0.6); overflow-x: auto;">‘ +<br>            ‘<span style="font-size: medium;"></span>‘ +<br>            ‘<div style="font-size: medium;">正在搜索答案…</div>‘ +<br>            ‘<button style="margin-right: 10px;">暂停答题</button>‘ +<br>            ‘<button style="margin-right: 10px;">‘ + (setting.auto ? ‘取消本次自动提交’ : ‘开启本次自动提交’) + ‘</button>‘ +<br>            ‘<button style="margin-right: 10px;">重新查询</button>‘ +<br>            ‘<button>折叠面板</button>‘ +<br>            ‘<div style="max-height: 300px; overflow-y: auto;">‘ +<br>                ‘<table border="1" style="font-size: 12px;">‘ +<br>                    ‘<thead>‘ +<br>                        ‘<tr>‘ +<br>                            ‘<th style="width: 25px; min-width: 25px;">题号</th>‘ +<br>                            ‘<th style="width: 60%; min-width: 130px;">题目（点击可复制）</th>‘ +<br>                            ‘<th style="min-width: 130px;">答案（点击可复制）</th>‘ +<br>                        ‘</tr>‘ +<br>                    ‘</thead>‘ +<br>                    ‘<tfoot style="display: none;">‘ +<br>                        ‘<tr>‘ +<br>                            ‘<th colspan="3">答案提示框 已折叠</th>‘ +<br>                        ‘</tr>‘ +<br>                    ‘</tfoot>‘ +<br>                    ‘<tbody>‘ +<br>                        ‘<tr>‘ +<br>                            ‘<td colspan="3" style="display: none;"></td>‘ +<br>                        ‘</tr>‘ +<br>                    ‘</tbody>‘ +<br>                ‘</table>‘ +<br>            ‘</div>‘ +<br>        ‘</div>‘<br>    ).appendTo(‘body’).on(‘click’, ‘button, td’, function() {<br>        var len = $(this).prevAll(‘button’).length;<br>        if (this.nodeName == ‘TD’) {<br>            $(this).prev().length &amp;&amp; GM_setClipboard($(this).text());<br>        } else if (!$(this).siblings().length) {<br>            $(this).parent().text(‘正在搜索答案…’);<br>            setting.num++;<br>        } else if (len === 0) {<br>            if (setting.loop) {<br>                clearInterval(setting.loop);<br>                delete setting.loop;<br>                len = [‘已暂停搜索’, ‘继续答题’];<br>            } else {<br>                setting.loop = setInterval(findAnswer, setting.time);<br>                len = [‘正在搜索答案…’, ‘暂停答题’];<br>            }<br>            setting.div.children(‘div:eq(0)’).html(function() {<br>                return $(this).data(‘html’) || len[0];<br>            }).removeData(‘html’);<br>            $(this).html(len[1]);<br>        } else if (len == 1) {<br>            setting.auto = !setting.auto;<br>            $(this).html(setting.auto ? ‘取消本次自动提交’ : ‘开启本次自动提交’);<br>        } else if (len == 2) {<br>            parent.location.reload();<br>        } else if (len == 3) {<br>            setting.div.find(‘tbody, tfoot’).toggle();<br>        }<br>    }).find(‘table, td, th’).css(‘border’, ‘1px solid’).end();<br>    setting.lose = setting.num = 0;<br>    setting.data = parent._data = [];<br>    setting.over = ‘<button style="margin-right: 10px;">跳过此题</button>‘;<br>    setting.curs = $(‘script:contains(courseName)’, top.document).text().match(/courseName:&#39;(.+?)&#39;|$/)[1] || $(‘h1’).text().trim() || ‘无’;<br>    setting.loop = setInterval(findAnswer, setting.time);<br>    var tip = ({undefined: ‘任务点排队中’, null: ‘等待切换中’})[setting.tip];<br>    tip &amp;&amp; setting.div.children(‘div:eq(0)’).data(‘html’, tip).siblings(‘button:eq(0)’).click();<br>}</p>
-<p>function findAnswer() {<br>    if (setting.num &gt;= $(‘.TiMu’).length) {<br>        var arr = setting.lose ? [‘共有 <font color="red">‘ + setting.lose + ‘</font> 道题目待完善（已深色标注）’, saveThis] : [‘答题已完成’, submitThis];<br>        setting.div.children(‘div:eq(0)’).data(‘html’, arr[0]).siblings(‘button:eq(0)’).hide().click();<br>        return setTimeout(arr[1], setting.time);<br>    }<br>    var $TiMu = $(‘.TiMu’).eq(setting.num),<br>    question = filterImg($TiMu.find(‘.Zy_TItle:eq(0) .clearfix’)).replace(/^【.<em>?】\s</em>/, ‘’).replace(/\s<em>（\d+.\d+分）$/, ‘’).replace(/[(]\s</em>[)]。$/,’’).replace(/（\s<em>）。$/,’’).replace(/[(]\s</em>[)]$/,’’).replace(/（\s*）$/,’’).replace(/。$/,’’),<br>    type = $TiMu.find(‘input[name^=answertype]:eq(0)’).val() || ‘-1’;</p>
-<pre><code>//setting.div.children(&#39;div:eq(0)&#39;).text(encodeURIComponent(question)+&#39;正在搜索答案...&#39;);
-
-
-GM_xmlhttpRequest(&#123;
-    method: &#39;POST&#39;,
-    url: &#39;http://ydfq.52msr.cn/chati.php&#39;,
-    headers: &#123;
-        &#39;Content-type&#39;: &#39;application/x-www-form-urlencoded&#39;,
-    &#125;,
-    data: &#39;question=&#39; + encodeURIComponent(question),
-    timeout: setting.time,
-    onload: function(xhr) &#123;
-        if (!setting.loop) &#123;
-        &#125; else if (xhr.status == 200) &#123;
-            var obj = $.parseJSON(xhr.responseText.replace(/^操作数据失败！/,&#39;&#39;)) || &#123;&#125;;
-            obj.answer = obj.data;
-            if (obj.code) &#123;
-                setting.div.children(&#39;div:eq(0)&#39;).text(&#39;正在搜索答案...&#39;);
-                var td = &#39;&lt;td style=&quot;border: 1px solid;&#39;,
-                answer = String(obj.answer).replace(/&amp;/g, &#39;&amp;amp;&#39;).replace(/&lt;(?!img)/g, &#39;&amp;lt;&#39;);
-                obj.answer = /^http/.test(answer) ? &#39;&lt;img src=&quot;&#39; + obj.answer + &#39;&quot;&gt;&#39; : obj.answer;
-                $(
-                    &#39;&lt;tr&gt;&#39; +
-                        td + &#39; text-align: center;&quot;&gt;&#39; + $TiMu.find(&#39;.Zy_TItle:eq(0) i&#39;).text().trim() + &#39;&lt;/td&gt;&#39; +
-                        td + &#39;&quot; title=&quot;点击可复制&quot;&gt;&#39; + (question.match(&#39;&lt;img&#39;) ? question : question.replace(/&amp;/g, &#39;&amp;amp;&#39;).replace(/&lt;/g, &#39;&amp;lt&#39;)) + &#39;&lt;/td&gt;&#39; +
-                        td + &#39;&quot; title=&quot;点击可复制&quot;&gt;&#39; + (/^http/.test(answer) ? obj.answer : &#39;&#39;) + answer + &#39;&lt;/td&gt;&#39; +
-                    &#39;&lt;/tr&gt;&#39;
-                ).appendTo(setting.div.find(&#39;tbody&#39;)).css(&#39;background-color&#39;, fillAnswer($TiMu.find(&#39;ul:eq(0)&#39;).find(&#39;li&#39;), obj, type) ? &#39;&#39; : &#39;rgba(0, 150, 136, 0.6)&#39;);
-                setting.data[setting.num++] = &#123;
-                    code: obj.code &gt; 0 ? 1 : 0,
-                    question: question,
-                    option: obj.answer,
-                    type: Number(type)
-                &#125;;
-            &#125; else &#123;
-                setting.div.children(&#39;div:eq(0)&#39;).html(obj.answer || setting.over + &#39;服务器繁忙，正在重试...&#39;);
-            &#125;
-            setting.div.children(&#39;span&#39;).html(obj.msg || &#39;&#39;);
-        &#125; else if (xhr.status == 403) &#123;
-            var html = xhr.responseText.indexOf(&#39;&#123;&#39;) ? &#39;请求过于频繁，建议稍后再试&#39; : $.parseJSON(xhr.responseText).data;
-            setting.div.children(&#39;div:eq(0)&#39;).data(&#39;html&#39;, html).siblings(&#39;button:eq(0)&#39;).click();
-        &#125; else &#123;
-            setting.div.children(&#39;div:eq(0)&#39;).html(&#39;题库异常，明天再来试试吧...&#39;);
-        &#125;
-    &#125;,
-    ontimeout: function() &#123;
-        setting.loop &amp;&amp; setting.div.children(&#39;div:eq(0)&#39;).html(setting.over + &#39;服务器超时，正在重试...&#39;);
-    &#125;
-&#125;);
-</code></pre>
-<p>}</p>
-<p>function fillAnswer($li, obj, type) {<br>    var $input = $li.find(‘:radio, :checkbox’),<br>    str = String(obj.answer).toCDB() || new Date().toString(),<br>    data = str.split(/#|\x01||/),<br>    opt = obj.opt || str,<br>    state = setting.lose;<br>    // $li.find(‘:radio:checked’).prop(‘checked’, false);<br>    obj.code &gt; 0 &amp;&amp; $input.each(function(index) {<br>        if (this.value == ‘true’) {<br>            data.join().match(/(^|,)(正确|是|对|√|T|ri)(,|$)/) &amp;&amp; this.click();<br>        } else if (this.value == ‘false’) {<br>            data.join().match(/(^|,)(错误|否|错|×|F|wr)(,|$)/) &amp;&amp; this.click();<br>        } else {<br>            var tip = filterImg($li.eq(index).find(‘.after’)).toCDB() || new Date().toString();<br>            Boolean($.inArray(tip, data) + 1 || (type == ‘1’ &amp;&amp; str.indexOf(tip) + 1)) == this.checked || this.click();<br>        }<br>    }).each(function() {<br>        if (!/^A?B?C?D?E?F?G?$/.test(opt)) return false;<br>        Boolean(opt.match(this.value)) == this.checked || this.click();<br>    });<br>    if (type.match(/^[013]$/)) {<br>        $input.is(‘:checked’) || (setting.none ? ($input[Math.floor(Math.random() * $input.length)] || $()).click() : setting.lose++);<br>    } else if (type.match(/^(2|[4-9]|1[08])$/)) {<br>        data = String(obj.answer).split(/#|\x01||/);<br>        str = $li.end().find(‘textarea’).each(function(index) {<br>            index = (obj.code &gt; 0 &amp;&amp; data[index]) || ‘’;<br>            UE.getEditor(this.name).setContent(index.trim());<br>        }).length;<br>        (obj.code &gt; 0 &amp;&amp; data.length == str) || setting.none || setting.lose++;<br>    } else {<br>        setting.none || setting.lose++;<br>    }<br>    return state == setting.lose;<br>}</p>
-<p>function saveThis() {<br>    if (!setting.auto) return setTimeout(saveThis, setting.time);<br>    setting.div.children(‘button:lt(3)’).hide().eq(1).click();<br>    _self.alert = console.log;<br>    $(‘#tempsave’).click();<br>    setting.regl();<br>}</p>
-<p>function submitThis() {<br>    if (!setting.auto) {<br>    } else if (!$(‘.Btn_blue_1:visible’).length) {<br>        setting.div.children(‘button:lt(3)’).hide().eq(1).click();<br>        return setting.regl();<br>    } else if ($(‘#confirmSubWin:visible’).length) {<br>        var btn = $(‘#tipContent + * &gt; a’).offset() || {top: 0, left: 0},<br>        mouse = document.createEvent(‘MouseEvents’);<br>        btn = [btn.left + Math.ceil(Math.random() * 46), btn.top + Math.ceil(Math.random() * 26)];<br>        mouse.initMouseEvent(‘click’, true, true, document.defaultView, 0, 0, 0, btn[0], btn[1], false, false, false, false, 0, null);<br>        _self.event = $.extend(true, {}, mouse);<br>        delete _self.event.isTrusted;<br>        _self.form1submit();<br>    } else {<br>        $(‘.Btn_blue_1’)[0].click();<br>    }<br>    setTimeout(submitThis, Math.ceil(setting.time * Math.random()) * 2);<br>}</p>
-<p>function checkToNext() {<br>    var $tip = $(setting.job.join(‘, ‘), document).prevAll(‘.ans-job-icon’ + setting.normal);<br>    setInterval(function() {<br>        $tip.parent(‘:not(.ans-job-finished)’).length || setting.jump &amp;&amp; toNext();<br>    }, setting.time);<br>}</p>
-<p>function toNext() {<br>    var $cur = $(‘#cur’ + $(‘#chapterIdid’).val()),<br>    $tip = $(‘span.currents ~ span’),<br>    sel = setting.review ? ‘html’ : ‘.blue’;<br>    if (!$cur.has(sel).length &amp;&amp; $tip.length) return $tip.eq(0).click();<br>    $tip = $(‘.roundpointStudent, .roundpoint’).parent();<br>    $tip = $tip.slice($tip.index($cur) + 1).not(‘:has(‘ + sel + ‘)’);<br>    $tip.not(setting.lock ? ‘:has(.lock)’ : ‘html’).find(‘span’).eq(0).click();<br>    $tip.length || setting.course &amp;&amp; switchCourse();<br>}</p>
-<p>function switchCourse() {<br>    GM_xmlhttpRequest({<br>        method: ‘GET’,<br>        url: ‘/visit/courses/study?isAjax=true&amp;fileId=0&amp;debug=’,<br>        headers: {<br>            ‘Referer’: location.origin + ‘/visit/courses’,<br>            ‘X-Requested-With’: ‘XMLHttpRequest’<br>        },<br>        onload: function(xhr) {<br>            var list = $(‘h3 a[target]’, xhr.responseText).map(function() {<br>                return $(this).attr(‘href’);<br>            }),<br>            index = list.map(function(index) {<br>                return this.match(top.courseId) &amp;&amp; index;<br>            }).filter(function() {<br>                return $.isNumeric(this);<br>            })[0] + 1 || 0;<br>            setting.course = list[index] ? goCourse(list[index]) : 0;<br>        }<br>    });<br>}</p>
-<p>function goCourse(url) {<br>    GM_xmlhttpRequest({<br>        method: ‘GET’,<br>        url: url,<br>        onload: function(xhr) {<br>            $.globalEval(‘location.href = “‘ + $(‘.articlename a[href]’, xhr.responseText).attr(‘href’) + ‘“;’);<br>        }<br>    });<br>}</p>
-<p>function autoRead() {<br>    $(‘html, body’).animate({<br>        scrollTop: $(document).height() - $(window).height()<br>    }, Math.round(setting.read) * 1E3, function() {<br>        $(‘.nodeItem.r i’).click();<br>    }).one(‘click’, ‘#top’, function(event) {<br>        $(event.delegateTarget).stop();<br>    });<br>}</p>
-<p>function DisplayURL() {<br>    _self.WAY.box.hide();<br>    var $li = $(this).closest(‘li’);<br>    $.get(‘/visit/goToCourseByFace’, {<br>        courseId: $li.find(‘input[name=courseId]’).val(),<br>        clazzId: $li.find(‘input[name=classId]’).val()<br>    }, function(data) {<br>        $li.find(‘[onclick^=openFaceTip]’).removeAttr(‘onclick’).attr({<br>            target: ‘_blank’,<br>            href: $(data).filter(‘script:last’).text().match(/n(“(.+?)”/)[1]<br>        });<br>        alert(‘本课程已临时解除面部识别’);<br>    }, ‘html’);<br>}</p>
-<p>function getSchoolId() {<br>    var school = /^1\d{10}$/.test(setting.username) ? ‘’ : setting.school;<br>    if (!isNaN(school)) return setTimeout(toLogin, setting.time, school);<br>    if (school == ‘账号为手机号可以不修改此参数’) return alert(‘请修改school参数’);<br>    $.getJSON(‘/org/searchUnis?filter=’ + encodeURI(school) + ‘&amp;product=44’, function(data) {<br>        if (!data.result) return alert(‘学校查询错误’);<br>        var msg = $.grep(data.froms, function(value) {<br>            return value.name == school;<br>        })[0];<br>        msg ? setTimeout(toLogin, setting.time, msg.schoolid) : alert(‘学校名称不完整’);<br>    });<br>}</p>
-<p>function toLogin(fid) {<br>    GM_xmlhttpRequest({<br>        method: ‘GET’,<br>        url: ‘/api/login?name=’ + setting.username + ‘&amp;pwd=’ + setting.password + ‘&amp;schoolid=’ + fid + ‘&amp;verify=0’,<br>        onload: function(xhr) {<br>            var obj = $.parseJSON(xhr.responseText) || {};<br>            obj.result ? location.href = decodeURIComponent($(‘#ref, #refer_0x001’).val()) : alert(obj.errorMsg || ‘Error’);<br>        }<br>    });<br>}</p>
-<p>function submitAnswer($job, data) {<br>    $job.removeClass(‘ans-job-finished’);<br>    data = data.length ? $(data) : $(‘.TiMu’).map(function() {<br>        var title = filterImg($(‘.Zy_TItle .clearfix’, this));<br>        return {<br>            question: title.replace(/^【.<em>?】\s</em>/, ‘’),<br>            type: ({单选题: 0, 多选题: 1, 填空题: 2, 判断题: 3})[title.match(/^【(.*?)】|$/)[1]]<br>        };<br>    });<br>    data = $.grep(data.map(function(index) {<br>        var $TiMu = $(‘.TiMu’).eq(index);<br>        if (!($.isPlainObject(this) &amp;&amp; this.type &lt; 4 &amp;&amp; $TiMu.find(‘.fr’).length)) {<br>            return false;<br>        } else if (this.type == 2) {<br>            var $ans = $TiMu.find(‘.Py_tk, .Py_answer’).eq(0);<br>            if (!$TiMu.find(‘.cuo’).length &amp;&amp; this.code) {<br>                return false;<br>            } else if (!$ans.find(‘.cuo’).length) {<br>                this.option = $ans.find(‘.clearfix’).map(function() {<br>                    return $(this).text().trim();<br>                }).get().join(‘#’) || ‘无’;<br>            } else if (this.code) {<br>                this.code = -1;<br>            } else {<br>                return false;<br>            }<br>        } else if (this.type == 3) {<br>            var ans = $TiMu.find(‘.font20:last’).text();<br>            if ($TiMu.find(‘.cuo’).length) {<br>                this.option = ({‘√’: ‘错误’, ‘×’: ‘正确’})[ans] || ‘无’;<br>            } else if (!this.code) {<br>                this.option = ({‘√’: ‘正确’, ‘×’: ‘错误’})[ans] || ‘无’;<br>            } else {<br>                return false;<br>            }<br>        } else {<br>            var text = $TiMu.find(‘.Py_answer &gt; span:eq(0)’).text();<br>            if ($TiMu.find(‘.dui’).length &amp;&amp; this.code &amp;&amp; !/^A?B?C?D?E?F?G?$/.test(this.option)) {<br>                return false;<br>            } else if ($TiMu.find(‘.dui’).length || text.match(‘正确答案’)) {<br>                text = text.match(/[A-G]/gi) || [];<br>                this.option = $.map(text, function(value) {<br>                    return filterImg($TiMu.find(‘.fl:contains(‘ + value + ‘) + a’));<br>                }).join(‘#’) || ‘无’;<br>                this.key = text.join(‘’);<br>            } else if (this.code) {<br>                this.code = -1;<br>            } else {<br>                return false;<br>            }<br>        }<br>        return this;<br>    }), function(value) {<br>        return value &amp;&amp; value.option != ‘无’;<br>    });<br>    setting.curs = $(‘script:contains(courseName)’, top.document).text().match(/courseName:&#39;(.+?)&#39;|$/)[1] || $(‘h1’).text().trim() || ‘无’;<br>    data.length &amp;&amp; GM_xmlhttpRequest({<br>        method: ‘POST’,<br>        url: ‘<a target="_blank" rel="noopener" href="http://ydfq.52msr.cn/chati.php&#39;">http://ydfq.52msr.cn/chati.php&#39;</a>,<br>        headers: {<br>            ‘Content-type’: ‘application/x-www-form-urlencoded’,<br>        },<br>        data: ‘question=’ + encodeURIComponent(setting.curs) + ‘&amp;data=’ + encodeURIComponent((Ext.encode || JSON.stringify)(data)) + ‘&amp;id=’ + $(‘#jobid’).val().slice(5)<br>    });<br>    $job.addClass(‘ans-job-finished’);<br>}</p>
-<p>function filterImg(dom) {<br>    return $(dom).clone().find(‘img[src]’).replaceWith(function() {<br>        return $(‘<p></p>‘).text(‘<img src="' + $(this).attr('src') + '">‘);<br>    }).end().find(‘iframe[src]’).replaceWith(function() {<br>        return $(‘<p></p>‘).text(‘<iframe src="' + $(this).attr('src') + '"></irame>‘);<br>    }).end().text().trim();<br>}</p>
-<pre><code>
-# 后记
-如果没有你所需要的答案，你可以把课程名发送到邮箱nawlgzs@163.com
-我们会尽快收录
-
-服务器费用有我个人承担，题库具体使用时长暂不确定。
-
-服务器设置了安全策略，一分钟内访问12次以上就会触发。五分钟自动解封，惩罚规则是累计的
-
-
-**此题库仅用于分享给大家免费使用，请勿用于商业用途！**
-</code></pre>
-
-            
-        </div>
-    </div>
-
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/web" style=color:#ffa2c4>
-                web
-            </a>
-        </span>
-        
-    </div>
-
-    <a href="/2020/05/42.html " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-
-    <a href="/2020/05/41.html">
-        <h2>
-            有哪些是因为年轻才会犯的错误？
-        </h2>
-    </a>
-
-    <div class="category-and-date">
-
-        
-
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2020/5/10
-        </span>
-
-    </div>
-
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            
-            <p>1、对人性有过高的期望。</p>
-<p>年轻人总是容易对人性有不切实际的期望,比如谈一次恋爱，自己付出了，对对方真心了，对方就会有多珍惜自己。</p>
-<p>比如以前帮个别人，等自己出事了就觉得对方一定会帮自己。比如对方答应了自己- -件事，就以为对方绝对不会变卦。因为期望不切实际，自然容易受伤。</p>
-<p>一个人的受伤程度等于他的期望和现实的距离。</p>
-<p>2、对爱情有过高的期望。</p>
-<p>年轻人总觉得爱情有多么多么的神圣，总觉得爱情可以解决他们人生中的种种问题。</p>
-<p>然而，真的把爱情解剖一下，你会发现爱情可以很俗。女人足够漂亮，走到哪里都是真爱。</p>
-<p>男人足够牛逼，走到哪里都会得到女人的崇拜。爱情是锦上添花而不是雪中送炭，那些把爱情放在第一-位,放在自己前面的人，总是吃亏的一方，总是被人嘲笑,被另一半看不起的人，这是这个世界上最大的讽刺。</p>
-<p>3、太急于求成。</p>
-<p>每个年轻.人都做过逆袭上清华，翻身上北大的梦，然而真正脚踏实地，把每一堂课听懂，每个知识点掌握，不浪费每一分钟的人少之又少。</p>
-<p>大家看:重的都是结果，忽略的都是过程。然而没有正确的过程，好的结果只能是黄粱一梦。</p>
-<p>4、喜欢怼人，和别人杠，纠缠。</p>
-<p>年轻的时候，针尖对麦芒，别人说-句不开心的话就摆在脸.上。</p>
-<p>别人说你一-句不是，你就要辩解回来。然而却不知道，老是做无畏的纠缠，只是暴露了自己缺少底气的沉稳。</p>
-<p>5、不珍惜时间。</p>
-<p>年轻的时候，真的不知道时间的宝贵，可以一觉睡到大中午，可以把大把的时间浪费在电子游戏上而不觉得心疼。</p>
-<p>等到工作了，才发现，时间是如此的稀缺,如果把以前浪费的时间用来提升自己，自己可以变得多么优秀!</p>
-<p>6、没有规划。</p>
-<p>不仅仅不知道自己想做什么，很多人根本没有去思考这个问题，就是随波逐流，看别人考研就考研，看别人去考公务员就也凑个热闹。</p>
-<p>于是他们不了解自己也不了解这个社会，等着出了社会，他们面临的是一-个又- -个坑,一条又- 条的弯路。很大一部分人的青春就浪费在弯路上了，等回过神来，青春已经过去了。</p>
-<p>7、太重视利益,太轻视情义。</p>
-<p>不少年轻人为了成功，为了资源，混迹于各个圈子，和各种成功人士在一起。然而他们忽视了和他们一-起吃，-起住的同窗，同龄的好友。</p>
-<p>人生匆匆，如白驹过隙，你会发现，钱并不稀罕，可贵的是超越物质的情义。个只认利益的人是难以成大器的，因为关键的时候，他没有靠得住的人可以仰仗，没有可以不计较利益同舟共济的人。</p>
-<p>8、对选择太过轻率。</p>
-<p>在选择学校的时候，选择专业的时候，选择第一份工作的时候，选择另-半的时候，这些关乎你一辈子道路的选择上，年轻人实在是太过轻率，大部分人都是拍着自己的脑子就选择了，靠感觉就选了，没有做过任何细致的调研，也没有去咨询一下过来人，如此，选错才是大概率事件。很多事情- - 旦选错，就回不了头了。</p>
-<p>9、藏不住事情。</p>
-<p>遇到别人一点点温暖，及没有防备的倾诉，什么话都说，以为别人的关系和你有多好。</p>
-<p>殊不知，你今天刚把秘密告诉别人，第二天就所有人都知道了。做人需要城府，需要能胸中藏得住秘密，这样才称得上沉稳，称得上成熟。</p>
-
-            
-        </div>
-    </div>
-
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/daily" style=color:#00bcd4>
-                daily
-            </a>
-        </span>
-        
-    </div>
-
-    <a href="/2020/05/41.html " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-
-    <a href="/2020/05/40.html">
-        <h2>
-            拦截数据包实现超星学习通APP考试安全切屏（新）
-        </h2>
-    </a>
-
-    <div class="category-and-date">
-
-        
-
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2020/5/5
-        </span>
-
-    </div>
-
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
-<li>适用平台：Android、iOS（未测试）</li>
-<li>安装软件：AdGuard（Android）/ Fiddler（Win）</li>
-<li>实现功能：超星学习通考试切屏（离开考试）记录不上报，老师端无记录。</li>
-<li>底层原理：拦截数据包。</li>
-</ul>
-<p><strong>网页考试不存在任何检测，本文只针对客户端研究。</strong></p>
-<blockquote>
-<p>本文没什么技术含量，都是软件的基本操作。<br><code>请注意：可能超星更新了更多反人类的检测，所以在正式考试之前务必自行建课测试。</code></p>
-</blockquote>
-<p>由于学习通App考试页面为内嵌WebView，协议均为HTTP/HTTPS，于是我们可以很方便的使用代理/VPN方式拦截考试切屏上报请求，从而达到不可描述的目的。</p>
-            
-            
-        </div>
-    </div>
-
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/knowledge" style=color:#879cff>
-                knowledge
-            </a>
-        </span>
-        
-    </div>
-
-    <a href="/2020/05/40.html " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-
-    <a href="/2020/04/39.html">
-        <h2>
-            超星慕课小助手(cxmooc-tools)跑路 - 互联网怎么了？
-        </h2>
-    </a>
-
-    <div class="category-and-date">
-
-        
-
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2020/4/20
-        </span>
-
-    </div>
-
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <blockquote>
-<p>就在上周六，大学生一代的神器作者宣布停止脚本维护并且关停题库服务器。<br>不排除校领导钓鱼提问！！然后禁止抬杠！不要道德绑架！超星的网课什么水平，大家看不看自己心里肯定有数。看到这个声名的时候，我第一反应是 woc我捐钱！我给钱！求你了！类比pd吧，超星网课助手从大一陪伴到我即将考研，每当我教给别人怎么用这两个软件的时候，“牛逼啊！X哥！”之类的话也随之而来。说实话我接触脚本也是从这两个软件开始的，到现在装了很多便利的脚本。“清爽助手”“xx会员”“Bxlx下载”“护眼”等等。借用开发者的结尾吧，“送君千里，终须一别。今日的分别是为了明日更好的相聚。江湖再见“</p>
-</blockquote>
-            
-            
-        </div>
-    </div>
-
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/daily" style=color:#1bccbc>
-                daily
-            </a>
-        </span>
-        
-    </div>
-
-    <a href="/2020/04/39.html " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-
-    <a href="/2020/04/38.html">
-        <h2>
-            百度云盘不限速下载神器 PanDownload 作者被抓获
-        </h2>
-    </a>
-
-    <div class="category-and-date">
-
-        
-
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2020/4/15
-        </span>
-
-    </div>
-
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            
-            <blockquote>
-<p>唉，这么好的技术为啥非要走上违法犯罪的道路上呢？金钱的诱惑就那么大吗？可惜了PanDownload这个神器了，以后又得享用百度云盘龟速下载了！唉！何必呢？</p>
-</blockquote>
-<p>据蓝点网消息：百度云盘不限速下载神器 PanDownload 作者被警察抓获，经查: 2017 年，犯罪嫌疑人在家中编写可以通过百度网盘官方服务器的客户端身份认证，实现以非会员权限突破百度网盘官方设定，高速下载“Pandownload”软件，并在互联网.上发布。期间犯罪嫌疑人租用网络服务器进行更新维护并发布接受捐赠的收款码，同时建立 QQ 群”，向进群人员收取 1 至 10 元不等的进群费，群内提供更稳定的“Pandownload”内测版本。截至案发,犯罪嫌疑人非法获利 30 万余元。</p>
-<p><img src="https://ae01.alicdn.com/kf/He9182f4892c04321b30d05045f7ea9e6Z.jpg" alt="1"></p>
-<p>目前实测 PanDownload 客户端已经无法打开和运行了</p>
-<p>唉，这么好的技术为啥非要走上违法犯罪的道路上呢？金钱的诱惑就那么大吗？可惜了 PanDownload 这个神器了，以后又得享用百度云盘龟速下载了！唉！何必呢？</p>
-
-            
-        </div>
-    </div>
-
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/daily" style=color:#00bcd4>
-                daily
-            </a>
-        </span>
-        
-    </div>
-
-    <a href="/2020/04/38.html " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-
-    <a href="/2020/04/37.html">
-        <h2>
-            U校园听力识别（Ulistenhelper)使用文档及相关问题
-        </h2>
-    </a>
-
-    <div class="category-and-date">
-
-        
-
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2020/4/13
-        </span>
-
-    </div>
-
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            
-            <blockquote>
-<p>本程序完全使用Python开发，仅供学习和交流使用，切勿用于其他非法用途。否则后果自负。本人不负任何责任。</p>
-</blockquote>
-<p><strong>请查看新的文档 -&gt; <a href="https://gocos.cn/2020/07/51.html">Ulistenhelper - 基于腾讯云语音识别的U校园听力识别工具</a></strong></p>
-<h1 id="开发由来"><a href="#开发由来" class="headerlink" title="开发由来"></a>开发由来</h1><p>本人刚开始学习python，是一名听力十级障碍患者，所以为了平时不挂科，检验自己自学的成果，写了这个小工具，第二点就是，我看U这个平台很不爽，非常喜欢套娃啊，之前写脚本就觉得很恶心。不过也感觉很。。。，嗯~总之就是写了这个程序了。用来拯救我，还有服务爱学(tou)习(lan)的大学生。</p>
-<h1 id="程序用到的python库"><a href="#程序用到的python库" class="headerlink" title="程序用到的python库"></a>程序用到的python库</h1><p>1.腾讯云python SDK<br>2.resquests<br>3.json<br>4.time<br>5.pyinstaller</p>
-<h1 id="程序界面"><a href="#程序界面" class="headerlink" title="程序界面"></a>程序界面</h1><p>由于刚学吗，UI啥的还没接触。界面丑陋。<br><img src="https://ae01.alicdn.com/kf/Hd7fd71395e46465ab2388338228042b5x.png" alt="1"></p>
-<h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><p>1.获取QQ群机器人的webhook地址——<a href="https://gocos.cn/2020/04/36.html">获取教程</a> 已经没用了<br>2.抓取听力音频——<a href="https://gocos.cn/2020/04/34.html">获取教程</a><br>3.QQ群查看识别内容</p>
-<h1 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h1><p>腾讯云提供的API服务<br>腾讯Hoo!k机器人服务</p>
-<h1 id="问题解答"><a href="#问题解答" class="headerlink" title="问题解答"></a>问题解答</h1><p>测试中，暂无问题，后期会更新</p>
-
-            
-        </div>
-    </div>
-
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/python" style=color:#879cff>
-                python
-            </a>
-        </span>
-        
-    </div>
-
-    <a href="/2020/04/37.html " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-
-             
-<div class="page-current">
-
-    <div class="prev">
-        
-        <a href="/page/2/">
-            <span class="page-num">
-                <a-icon type="caret-left" theme="filled" />
-            </span>
-        </a>
-        
-    </div>
-
-    <div class="page-index">
-
-        
-        <span>
-
-            
-
-            
-
-            
-            <a href="/">
-                <span class="page-num">1</span>
-            </a>
-            
-
-            
-
-            
-            <a href="/page/2/">
-                <span class="page-num">
-                    2
-                </span>
-            </a>
-        </span>
-        
-
-        <span class="current">
-            3
-        </span>
-
-        
-        <span>
-            <a href="/page/4/">
-                <span class="page-num">
-                    4
-                </span>
-            </a>
-            
-            <a href="/page/5">
-                <span class="page-num">
-                    5
-                </span>
-            </a>
-            
-
-            
-            <span class="page-omit">...</span>
-            <a href="/page/6">
-                <span class="page-num">
-                    6
-                </span>
-            </a>
-            
-
-        </span>
-        
-
-    </div>
-
-    <div class="next">
-        
-        <a href="/page/4/ ">
-            <span class="page-num">
-                <a-icon type="caret-right" theme="filled" />
-            </span>
-        </a>
-        
-    </div>
-
-</div>
-
-        </div>
-    </div>
     
-    <div id="home-card">
-        <a-affix :offset-top="card_top">
-    <a-card class="card-style" style="width: 300px">
-        <div class="avatar">
-            <img src="https://imgs.521daigua.cn/blog/tx.jpeg " alt="头像">
-        </div>
-        <div class="name">
-            Ne-21
-        </div>
-        <div class="descriptions">
-            
-            <div class="description">
-                放弃不难，但坚持一定很酷。
-            </div>
-            
-        </div>
-        <div class="icon-links">
-            
-            <span class="icon-link">
-                <a target="_blank" rel="noopener" href="https://github.com/ne-21">
+  </div>
 
-                    
-                    <a-icon type="github"
-                        theme="filled" />
-                    
-                </a>
-            </span>
-            
-            <span class="icon-link">
-                <a target="_blank" rel="noopener" href="https://twitter.com/">
 
-                    
-                    <a-icon type="twitter"
-                        theme="" />
-                    
-                </a>
-            </span>
-            
-        </div>
-        <div class="friend-links">
-            
-            <div class="friend-link">
-                <a target="_blank" rel="noopener" href="http://www.ily.plus">
-                    ILY
-                </a>
-            </div>
-            
-        </div>
-    </a-card>
-</a-affix>
-    </div>
-    
 </div>
-                     
-<footer id="footer">
-    <div class="footer-wrap">
-        <div>
-            © 2019 - 2021 云淡风轻
-            <span class="footer-icon">
-                <a-icon type="flag" theme="filled" /></span>
-            @Ne-21
-        </div>
-        <div></div>
-        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
-                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
-        
-        <div>
-            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
-                <a target="_blank" href="https://www.beian.miit.gov.cn" rel="nofollow noopener">冀ICP备19031443号</a><br><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://imgs.521daigua.cn/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" width="300px" height="20px"></a><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?46c8202ccbfe91fef8f7d5fddc0ce94a";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
-            </a>
-        </div>
-        
-    </div>
 
-</footer>
+<div class="body-outer">
+  <div class="body-inner">
+    
 
-<script src="/js/highlight.min.js"></script>
-<script src="/js/particle.js"></script>
-                </div>
+    
+<section class="img-show-outer">
+    <section class="img-show-inner">
+          
+          
+          <div class="img-show-post">
+            <div class="img-show-post-cover">
+              <span class="lazyload-img-span">
+              <a  href="/2020/06/46.html">
+              
+                
+                <img data-src="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/cover/01.jpg" class="img-show-post-cover-class">
+              
+              </a>
+              </span>
             </div>
-        </transition>
-    </div>
+            <div class="img-show-post-intro">
+             <a  href="/2020/06/46.html">
+            <div class="img-show-post-title animate__animated  animate__fadeInUp">通过JS跳过青年大学习的实现原理</div>
+            </a>
+            <div class="img-show-post-date animate__animated  animate__fadeInUp">6月 02 2020 </div>
+            </div>
+          </div>
+          
+         
+          <div class="img-show-post">
+            <div class="img-show-post-cover">
+              <span class="lazyload-img-span">
+              <a  href="/2020/05/45.html">
+              
+                
+                <img data-src="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/cover/02.jpg" class="img-show-post-cover-class">
+              
+              </a>
+              </span>
+            </div>
+            <div class="img-show-post-intro">
+             <a  href="/2020/05/45.html">
+            <div class="img-show-post-title animate__animated  animate__fadeInUp">批改网解决“禁止粘贴”的几种方法</div>
+            </a>
+            <div class="img-show-post-date animate__animated  animate__fadeInUp">5月 17 2020 </div>
+            </div>
+          </div>
+          
+         
+          <div class="img-show-post">
+            <div class="img-show-post-cover">
+              <span class="lazyload-img-span">
+              <a  href="/2020/05/44.html">
+              
+                
+                <img data-src="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/cover/03.jpg" class="img-show-post-cover-class">
+              
+              </a>
+              </span>
+            </div>
+            <div class="img-show-post-intro">
+             <a  href="/2020/05/44.html">
+            <div class="img-show-post-title animate__animated  animate__fadeInUp">超简单个人网盘搭建教程，宝塔面板安装Cloudreve新版V3(Go版本)</div>
+            </a>
+            <div class="img-show-post-date animate__animated  animate__fadeInUp">5月 15 2020 </div>
+            </div>
+          </div>
+          
+         
+          <div class="img-show-post">
+            <div class="img-show-post-cover">
+              <span class="lazyload-img-span">
+              <a  href="/2020/05/43.html">
+              
+                
+                <img data-src="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/cover/04.jpg" class="img-show-post-cover-class">
+              
+              </a>
+              </span>
+            </div>
+            <div class="img-show-post-intro">
+             <a  href="/2020/05/43.html">
+            <div class="img-show-post-title animate__animated  animate__fadeInUp">基于OBS虚拟摄像头欺骗超星考试系统的原理与实现</div>
+            </a>
+            <div class="img-show-post-date animate__animated  animate__fadeInUp">5月 13 2020 </div>
+            </div>
+          </div>
+          
+         
+          <div class="img-show-post">
+            <div class="img-show-post-cover">
+              <span class="lazyload-img-span">
+              <a  href="/2020/05/42.html">
+              
+                
+                <img data-src="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/cover/05.jpg" class="img-show-post-cover-class">
+              
+              </a>
+              </span>
+            </div>
+            <div class="img-show-post-intro">
+             <a  href="/2020/05/42.html">
+            <div class="img-show-post-title animate__animated  animate__fadeInUp">超星学习通自动答题脚本</div>
+            </a>
+            <div class="img-show-post-date animate__animated  animate__fadeInUp">5月 10 2020 </div>
+            </div>
+          </div>
+          
+         
+          <div class="img-show-post">
+            <div class="img-show-post-cover">
+              <span class="lazyload-img-span">
+              <a  href="/2020/05/41.html">
+              
+                
+                <img data-src="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/cover/06.jpg" class="img-show-post-cover-class">
+              
+              </a>
+              </span>
+            </div>
+            <div class="img-show-post-intro">
+             <a  href="/2020/05/41.html">
+            <div class="img-show-post-title animate__animated  animate__fadeInUp">有哪些是因为年轻才会犯的错误？</div>
+            </a>
+            <div class="img-show-post-date animate__animated  animate__fadeInUp">5月 10 2020 </div>
+            </div>
+          </div>
+          
+         
+          <div class="img-show-post">
+            <div class="img-show-post-cover">
+              <span class="lazyload-img-span">
+              <a  href="/2020/05/40.html">
+              
+                
+                <img data-src="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/cover/07.jpg" class="img-show-post-cover-class">
+              
+              </a>
+              </span>
+            </div>
+            <div class="img-show-post-intro">
+             <a  href="/2020/05/40.html">
+            <div class="img-show-post-title animate__animated  animate__fadeInUp">拦截数据包实现超星学习通APP考试安全切屏（新）</div>
+            </a>
+            <div class="img-show-post-date animate__animated  animate__fadeInUp">5月 05 2020 </div>
+            </div>
+          </div>
+          
+         
+          <div class="img-show-post">
+            <div class="img-show-post-cover">
+              <span class="lazyload-img-span">
+              <a  href="/2020/04/39.html">
+              
+                
+                <img data-src="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/cover/08.jpg" class="img-show-post-cover-class">
+              
+              </a>
+              </span>
+            </div>
+            <div class="img-show-post-intro">
+             <a  href="/2020/04/39.html">
+            <div class="img-show-post-title animate__animated  animate__fadeInUp">超星慕课小助手(cxmooc-tools)跑路 - 互联网怎么了？</div>
+            </a>
+            <div class="img-show-post-date animate__animated  animate__fadeInUp">4月 20 2020 </div>
+            </div>
+          </div>
+          
+         
+          <div class="img-show-post">
+            <div class="img-show-post-cover">
+              <span class="lazyload-img-span">
+              <a  href="/2020/04/38.html">
+              
+                
+                <img data-src="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/cover/09.jpg" class="img-show-post-cover-class">
+              
+              </a>
+              </span>
+            </div>
+            <div class="img-show-post-intro">
+             <a  href="/2020/04/38.html">
+            <div class="img-show-post-title animate__animated  animate__fadeInUp">百度云盘不限速下载神器 PanDownload 作者被抓获</div>
+            </a>
+            <div class="img-show-post-date animate__animated  animate__fadeInUp">4月 15 2020 </div>
+            </div>
+          </div>
+          
+         
+          <div class="img-show-post">
+            <div class="img-show-post-cover">
+              <span class="lazyload-img-span">
+              <a  href="/2020/04/37.html">
+              
+                
+                <img data-src="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/cover/10.jpg" class="img-show-post-cover-class">
+              
+              </a>
+              </span>
+            </div>
+            <div class="img-show-post-intro">
+             <a  href="/2020/04/37.html">
+            <div class="img-show-post-title animate__animated  animate__fadeInUp">U校园听力识别（Ulistenhelper)使用文档及相关问题</div>
+            </a>
+            <div class="img-show-post-date animate__animated  animate__fadeInUp">4月 13 2020 </div>
+            </div>
+          </div>
+          
+         
+    </section>
+    
+      <nav class="paginator animate__animated  animate__fadeInUp">
+        <a class="extend prev" rel="prev" href="/page/2/">prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">next</a>
+      </nav>
+    
+</section>
 
-    <script>
-    new Vue({
-        el: "#layout",
-        data: {
-            show_page: false,
-            onload_menu: false,
-            menu_show: false,
-            card_top: 100
-        },
-        created: function () {
-            var that = this
-            window.onload = function () {
-                that.show_page = true
-                document.getElementById("loadcontent").style.opacity = 0
-                setTimeout(function () {
-                    document.getElementById("loadleft").style.width = 0
-                    document.getElementById("loadright").style.width = 0
-                }, 300)
-                setTimeout(function () {
-                    document.getElementById("loading").style = "display:none"
-                }, 600)
-            }
-        },
-        mounted: function () {
-            var that = this
-            window.addEventListener('scroll', function (e) {
-                that.menu_show = false
-            })
-        },
-        methods: {
-            home_click: function () {
-                window.scrollTo({
-                    top: window.innerHeight - 80,
-                    behavior: "smooth",
-                });
-            }
-        }
-    })
-</script>
+
+
+  </div>
+</div>
+
+
+
+<!-- 如果是home模式的话，不在首页就显示footer，如果不是home模式的话 所有都显示footer -->
+
+  <div class="footer-outer animate__animated  animate__fadeInUp">
+    <div class="footer-inner">
+    <div class="footer-text">
+    <p>© 2021 云淡风轻|<a target="_blank" rel="noopener" href="https://www.beian.miit.gov.cn/">冀ICP备19031443号</a><br><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://imgs.521daigua.cn/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" width="300px" height="20px"></a></p>
+
+    </div>
+    <div class="footer-contact">
+    <ul class="footer-ul">
+        
+        <li class="footer-li">
+            <a href="https://github.com/ne-21" target="_blank">
+                <i class="ri-github-line"></i>
+            </a>
+        </li>
+        
+        <li class="footer-li">
+            <a href="mailto:nawlgzs@gmail.com" target="_blank">
+                <i class="ri-mail-line"></i>
+            </a>
+        </li>
+        
+    </ul>
+    </div>
+    </div>
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?46c8202ccbfe91fef8f7d5fddc0ce94a";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</div>
+
+
+
+
+
+
+<script src="/js/white.js"></script>
+
+
+
+    
+      
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
 
 </body>
-
 </html>

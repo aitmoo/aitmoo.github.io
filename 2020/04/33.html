@@ -1,179 +1,172 @@
 
-<!DOCTYPE html>
-<html lang="zh-CN ">
 
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>云淡风轻 || Python语音识别折腾记</title>
-    <meta name="author" content="Ne-21">
-    <meta name="description" content="放弃不难，但坚持一定很酷。 ">
-    <meta name="keywords" content="云淡风轻, hexo, various, python, html, 小刀娱乐网, 编程, 自学 ">
-    <link rel="icon" href="/https://imgs.521daigua.cn/blog/tx.jpeg">
-    <link rel="stylesheet" href="/css/antd.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>  Python语音识别折腾记 |    云淡风轻</title>
+  <meta name="description" content="The future is you, the future can be expected.">
+  <!-- 标签页图标 -->
+  
+
+  <!-- 图标库 -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+  <!-- 动画库 -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/css/animate.css"/>
+  
+  <!-- css文件 -->
+  
+<link rel="stylesheet" href="/css/white.css">
+
+  <!-- 代码高亮 -->
+  
     
-    <link rel="stylesheet" href="/css/maiden-theme.css">
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.1.1/styles/github.css">
+
     
-    <script src="/js/vue.js"></script>
-    <script src="/js/antd.min.js"></script>
+  
 <meta name="generator" content="Hexo 5.3.0"></head>
+
 
 <body>
 
-    <div id="loading"
-        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
-        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
-        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
-        <div
-            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
-            <div id="loadcontent"
-                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
-                <div>
-                    <h2>LOADING...</h2>
-                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
-                    <div>
-                        <img src="/dancingkitty.gif" alt="loading">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="layout">
-        <transition name="into">
-            <div v-show="show_page" style="display: none;">
-                <div id="menu_show">
-                     
-<nav id="menu">
-    <div class="desktop-menu">
+<div class="menu-outer">
+    <div class="menu-inner">
+      <div class="menu-site-name  animate__animated  animate__fadeInUp">
         <a href="/">
-            <span class="title">云淡风轻</span>
+          云淡风轻
         </a>
         
-        <a href="/">
-            <span>
-                <a-icon type="home" theme="filled" />
-            </span>
-            <span>首页</span>
+      </div>
+      <div class="menu-group">
+        <ul class="menu-ul">
+        
+          <a href="/" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              HOME
+            </li>
+          </a>
+        
+          <a href="/archives" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              BLOG
+            </li>
+          </a>
+        
+        
+        
+        <a href="/search">
+          <li class="menu-li  animate__animated  animate__fadeInUp">
+            <i class="ri-search-line"></i>
+          </li>
         </a>
         
-        <a href="/about">
-            <span>
-                <a-icon type="user" theme="filled" />
-            </span>
-            <span>关于</span>
-        </a>
+          <li class="menu-li animate__animated  animate__fadeInUp" id="mobile-menu">
+            <i class="ri-menu-line"></i>
+          </li>
         
-        <a href="/archives">
-            <span>
-                <a-icon type="bars" theme="filled" />
-            </span>
-            <span>归档</span>
-        </a>
-        
-        <a href="/tags">
-            <span>
-                <a-icon type="tags" theme="filled" />
-            </span>
-            <span>标签</span>
-        </a>
-        
+        </ul>
+
+      </div>
+
+    </div>
+</div>
+<div id="mobile-main" class="animate__animated  animate__fadeIn">
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-site-name animate__animated  animate__fadeInUp">
+      <a href="/">
+        云淡风轻
+      </a>
+    </div>
+    <div class="mobile-menu-group" id="mobile-close">
+      <i class="ri-close-line"></i>
     </div>
 
-    <div :class="'phone-menu ' + menu_show" id="phone-menu">
-        <div :class="'title'" @click="menu_show=!menu_show">
-            <span style="margin-right: 10px;">
-                <a-icon type="appstore" theme="filled" />
-            </span>
-            <span>云淡风轻</span>
-        </div>
-        <div class="items" v-show="menu_show">
-            
-            <a href="/">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="home" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">首页</div>
-                </div>
-            </a>
-            
-            <a href="/about">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="user" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">关于</div>
-                </div>
-            </a>
-            
-            <a href="/archives">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="bars" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">归档</div>
-                </div>
-            </a>
-            
-            <a href="/tags">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="tags" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">标签</div>
-                </div>
-            </a>
-            
-        </div>
-        <div class="curtain" v-show="menu_show"></div>
+  </div>
+
+  <div class="mobile-menu-div">
+  
+    <a href="/" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>HOME</span>
+      </div>
+    </a>
+  
+    <a href="/archives" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>BLOG</span>
+      </div>
+    </a>
+  
+  
+    <a href="/search">  
+      <div class="mobile-menu-child  animate__animated  animate__fadeInUp">
+        <i class="ri-search-line"></i>
+      </div>
+    </a>
+    
+  </div>
+
+
+</div>
+
+<div class="body-outer">
+  <div class="body-inner">
+    
+<article class="post-inner">
+  <div class="post-content-outer">
+    <div class="post-intro">
+      <div class="post-title animate__animated  animate__fadeInUp">Python语音识别折腾记</div>
+      <div class="meta-intro animate__animated  animate__fadeInUp">4月 09 2020</div>
+      
     </div>
+    <div class="post-content-inner">
+      <div class="post-content-inner-space">
 
-</nav>
-                </div>
-
-                <div id="main">
-                     
-<link rel="stylesheet" href="/css/post-body.css">
-<div class="article">
-    <div>
-        <h1>Python语音识别折腾记 </h1>
-    </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2020/4/9
-        </span>
-
+      </div>
+      <div class="post-content-main animate__animated  animate__fadeInUp">
+        <!-- top型目录 -->
         
-
-        
-
-        <span class="tags">
-            <span class="icon">
-                <a-icon type="tags" theme="filled" />
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/python" style=color:#ffa2c4>
-                    python
-                </a>
-            </span>
-            
-        </span>
-        
-    </div>
-
-    <div class="content" v-pre>
         <blockquote>
 <p>今天好不容易休息半天，但是又被英语作业给折服了，就上一次<a href="https://gocos.cn/2020/03/29.html">U校园半自动化</a>造福大学生之后，就有这么一个想法，是什么呢？<br>就是能不能把听力的内容识别出来，变成文本。这样就可以看听力文本了，那答题岂不是很简单？<br>ok，废话不多说，下面就来介绍下自己的折腾日记和遇到的问题</p>
 </blockquote>
 <h1 id="抓包"><a href="#抓包" class="headerlink" title="抓包"></a>抓包</h1><p>我们第一步要做的就是拿到听力文件，怎么拿呢？——抓包<br>由于过于简单，我只说大概步骤，具体百度<br><code>登陆——进入听力测验——按F12打开开发者工具——点击音频播放按钮——看工具里的最后一个资源——双击该资源进入——下载音频</code></p>
 <h1 id="音频格式转换"><a href="#音频格式转换" class="headerlink" title="音频格式转换"></a>音频格式转换</h1><p>我们拿到的音频格式是MP3格式的，按照<a target="_blank" rel="noopener" href="https://ai.baidu.com/ai-doc/SPEECH/Vk38lxily">百度语音识别的文档</a>来说支持音频格式：pcm、wav、amr、m4a的音频，<br>当然我在这里卡住了，用格式工厂转码后进行识别会报错，由于格式工厂没有pcm格式，所以我在这里纠结怎么转换，当然百度也给出了<a target="_blank" rel="noopener" href="https://ai.baidu.com/ai-doc/SPEECH/7k38lxpwf">转换方法</a><br>我这里还没研究明白，恳请大佬指点，下面我们只能用百度提供的示例音频做演示了QAQ</p>
-<h1 id="在百度智能云开通服务"><a href="#在百度智能云开通服务" class="headerlink" title="在百度智能云开通服务"></a>在百度智能云开通服务</h1><p>1.登陆<a target="_blank" rel="noopener" href="https://login.bce.baidu.com/?account=&redirect=http://console.bce.baidu.com/">百度智能云</a><br>2.<img src="https://s1.ax1x.com/2020/04/09/G5RH6H.png" alt="2"><br>3.<img src="https://ae01.alicdn.com/kf/H2c23f18f5055486ab6756f3fb584498ei.png" alt="3"><br>4.<img src="https://ae01.alicdn.com/kf/Hba63e7bd6da14287a237bf5504f519eb2.png" alt="4"><br>5.<img src="https://ae01.alicdn.com/kf/H9b980f96caea4f60913b8cef7d2c4742i.png" alt="5"><br>6.<img src="https://ae01.alicdn.com/kf/H43e62f8f01f94c3e97bf74740a61cd08o.png" alt="6"><br>7.创建成功后，我们就会获得api-key,secret-key（后面会用到）<br><img src="https://ae01.alicdn.com/kf/H7bd399a826824546bbddf77b6ac324d6a.png" alt="7"></p>
+<h1 id="在百度智能云开通服务"><a href="#在百度智能云开通服务" class="headerlink" title="在百度智能云开通服务"></a>在百度智能云开通服务</h1><p>1.登陆<a target="_blank" rel="noopener" href="https://login.bce.baidu.com/?account=&redirect=http://console.bce.baidu.com/">百度智能云</a><br>2.
+        <span class="lazyload-img-span">
+        <img   
+           data-src="https://s1.ax1x.com/2020/04/09/G5RH6H.png" >
+        </sapn>
+      <br>3.
+        <span class="lazyload-img-span">
+        <img   
+           data-src="https://ae01.alicdn.com/kf/H2c23f18f5055486ab6756f3fb584498ei.png" >
+        </sapn>
+      <br>4.
+        <span class="lazyload-img-span">
+        <img   
+           data-src="https://ae01.alicdn.com/kf/Hba63e7bd6da14287a237bf5504f519eb2.png" >
+        </sapn>
+      <br>5.
+        <span class="lazyload-img-span">
+        <img   
+           data-src="https://ae01.alicdn.com/kf/H9b980f96caea4f60913b8cef7d2c4742i.png" >
+        </sapn>
+      <br>6.
+        <span class="lazyload-img-span">
+        <img   
+           data-src="https://ae01.alicdn.com/kf/H43e62f8f01f94c3e97bf74740a61cd08o.png" >
+        </sapn>
+      <br>7.创建成功后，我们就会获得api-key,secret-key（后面会用到）<br>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="https://ae01.alicdn.com/kf/H7bd399a826824546bbddf77b6ac324d6a.png" >
+        </sapn>
+      </p>
 <h1 id="开始在python构造请求"><a href="#开始在python构造请求" class="headerlink" title="开始在python构造请求"></a>开始在python构造请求</h1><p>这里我们直接使用百度提供的<a target="_blank" rel="noopener" href="https://github.com/Baidu-AIP/speech-demo/tree/master/rest-api-asr/python">DEMO</a>,然后自己做一些修改</p>
 <ul>
 <li><p>安装依赖库(利用pip,不懂请自行百度)</p>
@@ -259,104 +252,112 @@ with open(&quot;result.txt&quot;,&quot;w&quot;) as of:
 我们运行程序后或返回一下信息
 </code></pre>
 <p>{“access_token”:”24.0ed58d5f890b6388b8e1fbb4f595e64e.2592000.1589017415.282335-19345000”,”session_key”:”9mzdC33+ru+xjYD0Bs+vqaaCurlrknFs75w6pvM+ddSFc9hWFqSn0t8aW8gWU7qWGl21RSTcM4A1bevZRf5m2labdgfjvA==”,”scope”:”audio_voice_assistant_get brain_enhanced_asr audio_tts_post public brain_all_scope picchain_test_picchain_api_scope wise_adapt lebo_resource_base lightservice_public hetu_basic lightcms_map_poi kaidian_kaidian ApsMisTest_Test\u6743\u9650 vis-classify_flower lpq_\u5f00\u653e cop_helloScope ApsMis_fangdi_permission smartapp_snsapi_base iop_autocar oauth_tp_app smartapp_smart_game_openapi oauth_sessionkey smartapp_swanid_verify smartapp_opensource_openapi smartapp_opensource_recapi qatest_scope1 fake_face_detect_\u5f00\u653eScope vis-ocr_\u865a\u62df\u4eba\u7269\u52a9\u7406 idl-video_\u865a\u62df\u4eba\u7269\u52a9\u7406”,”refresh_token”:”25.ccc2be055d9e6273d3c0bad9b8bb2368.315360000.1901785415.282335-19345000”,”session_secret”:”a0a53e0d2183b7145217373b71784075”,”expires_in”:2592000}<br>{‘access_token’: ‘24.0ed58d5f890b6388b8e1fbb4f595e64e.2592000.1589017415.282335-19345000’, ‘session_key’: ‘9mzdC33+ru+xjYD0Bs+vqaaCurlrknFs75w6pvM+ddSFc9hWFqSn0t8aW8gWU7qWGl21RSTcM4A1bevZRf5m2labdgfjvA==’, ‘scope’: ‘audio_voice_assistant_get brain_enhanced_asr audio_tts_post public brain_all_scope picchain_test_picchain_api_scope wise_adapt lebo_resource_base lightservice_public hetu_basic lightcms_map_poi kaidian_kaidian ApsMisTest_Test权限 vis-classify_flower lpq_开放 cop_helloScope ApsMis_fangdi_permission smartapp_snsapi_base iop_autocar oauth_tp_app smartapp_smart_game_openapi oauth_sessionkey smartapp_swanid_verify smartapp_opensource_openapi smartapp_opensource_recapi qatest_scope1 fake_face_detect_开放Scope vis-ocr_虚拟人物助理 idl-video_虚拟人物助理’, ‘refresh_token’: ‘25.ccc2be055d9e6273d3c0bad9b8bb2368.315360000.1901785415.282335-19345000’, ‘session_secret’: ‘a0a53e0d2183b7145217373b71784075’, ‘expires_in’: 2592000}<br>audio_voice_assistant_get<br>SUCCESS WITH TOKEN: 24.0ed58d5f890b6388b8e1fbb4f595e64e.2592000.1589017415.282335-19345000  EXPIRES IN SECONDS: 2592000<br>Request time cost 1.736482<br>{“corpus_no”:”6813645276203395866”,”err_msg”:”success.”,”err_no”:0,”result”:[“Beijing Cody girl”],”sn”:”487908489041586425415”}</p>
-<p>```<br><img src="https://ae01.alicdn.com/kf/H119a0599495846b8aaf1762ffbe78a6aV.png" alt="8"><br>“result”:[“Beijing Cody girl”]中的内容就是识别的内容，在程序根目录也会生成result.txt文件也可以查看。</p>
+<p>```<br>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="https://ae01.alicdn.com/kf/H119a0599495846b8aaf1762ffbe78a6aV.png" >
+        </sapn>
+      <br>“result”:[“Beijing Cody girl”]中的内容就是识别的内容，在程序根目录也会生成result.txt文件也可以查看。</p>
 <p>ok，大概就是这个样子，我要去研究pcm这个鬼东西了。。。</p>
 
-    </div>
-
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <div id="comment">
-        <div id="gitalk-container">
-        </div>
-    </div>
-    
-</div>
-                     
-<footer id="footer">
-    <div class="footer-wrap">
-        <div>
-            © 2019 - 2021 云淡风轻
-            <span class="footer-icon">
-                <a-icon type="flag" theme="filled" /></span>
-            @Ne-21
-        </div>
-        <div></div>
-        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
-                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        <!-- 分类文章 -->
         
-        <div>
-            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
-                <a target="_blank" href="https://www.beian.miit.gov.cn" rel="nofollow noopener">冀ICP备19031443号</a><br><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://imgs.521daigua.cn/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" width="300px" height="20px"></a><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?46c8202ccbfe91fef8f7d5fddc0ce94a";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
-            </a>
-        </div>
+      </div>
+      <div class="post-content-inner-space">
         
-    </div>
-
-</footer>
-
-<script src="/js/highlight.min.js"></script>
-<script src="/js/particle.js"></script>
-                </div>
-            </div>
-        </transition>
-    </div>
-
-    <script>
-    new Vue({
-        el: "#layout",
-        data: {
-            show_page: false,
-            onload_menu: false,
-            menu_show: false,
-            card_top: 100
-        },
-        created: function () {
-            var that = this
-            window.onload = function () {
-                that.show_page = true
-                document.getElementById("loadcontent").style.opacity = 0
-                setTimeout(function () {
-                    document.getElementById("loadleft").style.width = 0
-                    document.getElementById("loadright").style.width = 0
-                }, 300)
-                setTimeout(function () {
-                    document.getElementById("loading").style = "display:none"
-                }, 600)
-            }
-        },
-        mounted: function () {
-            var that = this
-            window.addEventListener('scroll', function (e) {
-                that.menu_show = false
-            })
-        },
-        methods: {
-            home_click: function () {
-                window.scrollTo({
-                    top: window.innerHeight - 80,
-                    behavior: "smooth",
-                });
-            }
-        }
-    })
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-    const gitalk = new Gitalk({
+          <div class="space-toc-main animate__animated  animate__fadeInUp">
+            
+           </div>
+        
+      </div>
+   </div>
+    <!-- 评论 -->
+    
+    <div class="bottom-comments-outer">
+      <div class="bottom-comments-inner">
+        <!-- valine -->
+        
+        <!-- Gitalk -->
+        
+          <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<div id="gitalk-container" style="margin-top: 100px;"></div>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
         clientID: '75e341b0c2bb077bb6c6',
         clientSecret: '840aa249eea9ff87183e6fae3ed2114094e7d27c',
-        repo: 'aitmoo.github.io',      // The repository of store comments,
+        id: window.location.pathname,
+        repo: 'aitmoo.github.io',
         owner: 'aitmoo',
-        admin: ['aitmoo'],
-        language: 'zh-CN',
-        id: location.pathname,      // Ensure uniqueness and length less than 50
-        distractionFreeMode: true  // Facebook-like distraction free mode
+        admin: 'aitmoo'
     })
     gitalk.render('gitalk-container')
 </script>
+        
+        <!-- livere -->
+        
+        </div>
+      </div>
+    
+  </div>
+</article>
+  </div>
+</div>
+
+
+
+<!-- 如果是home模式的话，不在首页就显示footer，如果不是home模式的话 所有都显示footer -->
+
+  <div class="footer-outer animate__animated  animate__fadeInUp">
+    <div class="footer-inner">
+    <div class="footer-text">
+    <p>© 2021 云淡风轻|<a target="_blank" rel="noopener" href="https://www.beian.miit.gov.cn/">冀ICP备19031443号</a><br><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://imgs.521daigua.cn/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" width="300px" height="20px"></a></p>
+
+    </div>
+    <div class="footer-contact">
+    <ul class="footer-ul">
+        
+        <li class="footer-li">
+            <a href="https://github.com/ne-21" target="_blank">
+                <i class="ri-github-line"></i>
+            </a>
+        </li>
+        
+        <li class="footer-li">
+            <a href="mailto:nawlgzs@gmail.com" target="_blank">
+                <i class="ri-mail-line"></i>
+            </a>
+        </li>
+        
+    </ul>
+    </div>
+    </div>
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?46c8202ccbfe91fef8f7d5fddc0ce94a";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</div>
+
+
+
+
+
+
+<script src="/js/white.js"></script>
+
+
+
+    
+      
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
 
 </body>
-
 </html>

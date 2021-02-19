@@ -1,173 +1,136 @@
 
-<!DOCTYPE html>
-<html lang="zh-CN ">
 
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>云淡风轻 || 超星学习通自动答题脚本</title>
-    <meta name="author" content="Ne-21">
-    <meta name="description" content="放弃不难，但坚持一定很酷。 ">
-    <meta name="keywords" content="云淡风轻, hexo, various, python, html, 小刀娱乐网, 编程, 自学 ">
-    <link rel="icon" href="/https://imgs.521daigua.cn/blog/tx.jpeg">
-    <link rel="stylesheet" href="/css/antd.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>  超星学习通自动答题脚本 |    云淡风轻</title>
+  <meta name="description" content="The future is you, the future can be expected.">
+  <!-- 标签页图标 -->
+  
+
+  <!-- 图标库 -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+  <!-- 动画库 -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/css/animate.css"/>
+  
+  <!-- css文件 -->
+  
+<link rel="stylesheet" href="/css/white.css">
+
+  <!-- 代码高亮 -->
+  
     
-    <link rel="stylesheet" href="/css/maiden-theme.css">
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.1.1/styles/github.css">
+
     
-    <script src="/js/vue.js"></script>
-    <script src="/js/antd.min.js"></script>
+  
 <meta name="generator" content="Hexo 5.3.0"></head>
+
 
 <body>
 
-    <div id="loading"
-        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
-        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
-        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
-        <div
-            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
-            <div id="loadcontent"
-                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
-                <div>
-                    <h2>LOADING...</h2>
-                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
-                    <div>
-                        <img src="/dancingkitty.gif" alt="loading">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="layout">
-        <transition name="into">
-            <div v-show="show_page" style="display: none;">
-                <div id="menu_show">
-                     
-<nav id="menu">
-    <div class="desktop-menu">
+<div class="menu-outer">
+    <div class="menu-inner">
+      <div class="menu-site-name  animate__animated  animate__fadeInUp">
         <a href="/">
-            <span class="title">云淡风轻</span>
+          云淡风轻
         </a>
         
-        <a href="/">
-            <span>
-                <a-icon type="home" theme="filled" />
-            </span>
-            <span>首页</span>
+      </div>
+      <div class="menu-group">
+        <ul class="menu-ul">
+        
+          <a href="/" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              HOME
+            </li>
+          </a>
+        
+          <a href="/archives" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              BLOG
+            </li>
+          </a>
+        
+        
+        
+        <a href="/search">
+          <li class="menu-li  animate__animated  animate__fadeInUp">
+            <i class="ri-search-line"></i>
+          </li>
         </a>
         
-        <a href="/about">
-            <span>
-                <a-icon type="user" theme="filled" />
-            </span>
-            <span>关于</span>
-        </a>
+          <li class="menu-li animate__animated  animate__fadeInUp" id="mobile-menu">
+            <i class="ri-menu-line"></i>
+          </li>
         
-        <a href="/archives">
-            <span>
-                <a-icon type="bars" theme="filled" />
-            </span>
-            <span>归档</span>
-        </a>
-        
-        <a href="/tags">
-            <span>
-                <a-icon type="tags" theme="filled" />
-            </span>
-            <span>标签</span>
-        </a>
-        
+        </ul>
+
+      </div>
+
+    </div>
+</div>
+<div id="mobile-main" class="animate__animated  animate__fadeIn">
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-site-name animate__animated  animate__fadeInUp">
+      <a href="/">
+        云淡风轻
+      </a>
+    </div>
+    <div class="mobile-menu-group" id="mobile-close">
+      <i class="ri-close-line"></i>
     </div>
 
-    <div :class="'phone-menu ' + menu_show" id="phone-menu">
-        <div :class="'title'" @click="menu_show=!menu_show">
-            <span style="margin-right: 10px;">
-                <a-icon type="appstore" theme="filled" />
-            </span>
-            <span>云淡风轻</span>
-        </div>
-        <div class="items" v-show="menu_show">
-            
-            <a href="/">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="home" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">首页</div>
-                </div>
-            </a>
-            
-            <a href="/about">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="user" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">关于</div>
-                </div>
-            </a>
-            
-            <a href="/archives">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="bars" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">归档</div>
-                </div>
-            </a>
-            
-            <a href="/tags">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="tags" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">标签</div>
-                </div>
-            </a>
-            
-        </div>
-        <div class="curtain" v-show="menu_show"></div>
+  </div>
+
+  <div class="mobile-menu-div">
+  
+    <a href="/" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>HOME</span>
+      </div>
+    </a>
+  
+    <a href="/archives" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>BLOG</span>
+      </div>
+    </a>
+  
+  
+    <a href="/search">  
+      <div class="mobile-menu-child  animate__animated  animate__fadeInUp">
+        <i class="ri-search-line"></i>
+      </div>
+    </a>
+    
+  </div>
+
+
+</div>
+
+<div class="body-outer">
+  <div class="body-inner">
+    
+<article class="post-inner">
+  <div class="post-content-outer">
+    <div class="post-intro">
+      <div class="post-title animate__animated  animate__fadeInUp">超星学习通自动答题脚本</div>
+      <div class="meta-intro animate__animated  animate__fadeInUp">5月 10 2020</div>
+      
     </div>
+    <div class="post-content-inner">
+      <div class="post-content-inner-space">
 
-</nav>
-                </div>
-
-                <div id="main">
-                     
-<link rel="stylesheet" href="/css/post-body.css">
-<div class="article">
-    <div>
-        <h1>超星学习通自动答题脚本 </h1>
-    </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2020/5/10
-        </span>
-
+      </div>
+      <div class="post-content-main animate__animated  animate__fadeInUp">
+        <!-- top型目录 -->
         
-
-        
-
-        <span class="tags">
-            <span class="icon">
-                <a-icon type="tags" theme="filled" />
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/web" style=color:#ff7d73>
-                    web
-                </a>
-            </span>
-            
-        </span>
-        
-    </div>
-
-    <div class="content" v-pre>
         <blockquote>
 <p>超星学习通助手自作者宣布停止维护后，我就慌了，还有好多课没看呢。心情沉闷，内心焦急，不知道该怎么办，不过恰巧我的手中还有几台母鸡没用，那就不妨自己整个题库吧。经过了一个星期的搭建与维护，目前来说，可以满足自己的日常所需了。今天就分享出来，拯救下大家。</p>
 </blockquote>
@@ -240,8 +203,18 @@
 <p>function getIframe(tip, win, job) {<br>    if (!$) return Ext.get(frameElement || []).parent().child(‘.ans-job-icon’) || Ext.get([]);<br>    do {<br>        win = win ? win.parent : _self;<br>        job = $(win.frameElement).prevAll(‘.ans-job-icon’);<br>    } while (!job.length &amp;&amp; win.parent.frameElement);<br>    return tip ? win : job;<br>}</p>
 <p>function jobSort($) {<br>    var fn = $.fn ? [getIframe(1), ‘length’] : [self, ‘dom’],<br>    sel = setting.job.join(‘, :not(.ans-job-finished) &gt; .ans-job-icon’ + setting.normal + ‘ ~ ‘);<br>    if ($(sel, fn[0].parent.document)[0] == fn[0].frameElement) return true;<br>    if (!getIframe()[fn[1]] || getIframe().parent().is(‘.ans-job-finished’)) return null;<br>    setInterval(function() {<br>        $(sel, fn[0].parent.document)[0] == fn[0].frameElement &amp;&amp; fn[0].location.reload();<br>    }, setting.time);<br>}</p>
 <p>function checkPlayer(tip) {<br>    _self.videojs = hookVideo;<br>    hookVideo.xhr = vjs.xhr;<br>    Ext.isSogou = Ext.isIos = Ext.isAndroid = false;<br>    var data = Ext.decode(_self.config(‘data’)) || {};<br>    delete data.danmaku;<br>    data.doublespeed = 1;<br>    frameElement.setAttribute(‘data’, Ext.encode(data));<br>    if (tip) return;<br>    _self.supportH5Video = function() {return true;};<br>    alert(‘此浏览器不支持html5播放器，请更换浏览器’);<br>}</p>
-<p>function hookVideo() {<br>    <em>self.alert = console.log;<br>    var config = arguments[1],<br>    line = Ext.Array.filter(Ext.Array.map(config.playlines, function(value, index) {<br>        return value.label == setting.line &amp;&amp; index;<br>    }), function(value) {<br>        return Ext.isNumber(value);<br>    })[0] || 0,<br>    http = Ext.Array.filter(config.sources, function(value) {<br>        return value.label == setting.http;<br>    })[0];<br>    config.playlines.unshift(config.playlines[line]);<br>    config.playlines.splice(line + 1, 1);<br>    config.plugins.videoJsResolutionSwitcher.default = http ? http.res : 360;<br>    config.plugins.studyControl.enableSwitchWindow = 1;<br>    config.plugins.timelineObjects.url = ‘/richvideo/initdatawithviewer?’;<br>    config.plugins.seekBarControl.enableFastForward = 1;<br>    if (!setting.queue) delete config.plugins.studyControl;<br>    // config.preload = setting.tip ? ‘auto’ : ‘none’;<br>    var player = vjs.apply(this, arguments),<br>    a = ‘<a href="https://d0.ananas.chaoxing.com/download/' + _self.config('objectid') + '" target="_blank">‘,<br>    img = ‘<img src="https://d0.ananas.chaoxing.com/download/e363b256c0e9bc5bd8266bf99dd6d6bb" style="margin: 6px 0 0 6px;">‘;<br>    player.volume(Math.round(setting.vol) / 100 || 0);<br>    Ext.get(player.controlBar.addChild(‘Button’).el</em>).setHTML(a + img + ‘</a>‘).dom.title = ‘下载视频’;<br>    player.on(‘loadstart’, function() {<br>        setting.tip &amp;&amp; this.play().catch(Ext.emptyFn);<br>        this.playbackRate(setting.rate &gt; 16 || setting.rate &lt; 0.0625 ? 1 : setting.rate);<br>    });<br>    player.one([‘loadedmetadata’, ‘firstplay’], function() {<br>        setting.two = setting.rate === ‘0’ &amp;&amp; setting.two &lt; 1;<br>        setting.two &amp;&amp; config.plugins.seekBarControl.sendLog(this.children_[0], ‘ended’, Math.floor(this.cache_.duration));<br>    });<br>    player.on(‘ended’, function() {<br>        Ext.fly(frameElement).parent().addCls(‘ans-job-finished’);<br>    });<br>    return player;<br>}</p>
-<p>function hookAudio() {<br>    <em>self.alert = console.log;<br>    var config = arguments[1];<br>    config.plugins.studyControl.enableSwitchWindow = 1;<br>    config.plugins.seekBarControl.enableFastForward = 1;<br>    if (!setting.queue) delete config.plugins.studyControl;<br>    var player = vjs.apply(this, arguments),<br>    a = ‘<a href="https://d0.ananas.chaoxing.com/download/' + _self.config('objectid') + '" target="_blank">‘,<br>    img = ‘<img src="https://d0.ananas.chaoxing.com/download/e363b256c0e9bc5bd8266bf99dd6d6bb" style="margin: 6px 0 0 6px;">‘;<br>    player.volume(Math.round(setting.vol) / 100 || 0);<br>    player.playbackRate(setting.rate &gt; 16 || setting.rate &lt; 0.0625 ? 1 : setting.rate);<br>    Ext.get(player.controlBar.addChild(‘Button’).el_).setHTML(a + img + ‘</a>‘).dom.title = ‘下载音频’;<br>    player.on(‘loadeddata’, function() {<br>        setting.tip &amp;&amp; this.play().catch(Ext.emptyFn);<br>    });<br>    player.one(‘firstplay’, function() {<br>        setting.rate === ‘0’ &amp;&amp; config.plugins.seekBarControl.sendLog(this.children</em>[0], ‘ended’, Math.floor(this.cache_.duration));<br>    });<br>    player.on(‘ended’, function() {<br>        Ext.fly(frameElement).parent().addCls(‘ans-job-finished’);<br>    });<br>    return player;<br>}</p>
+<p>function hookVideo() {<br>    <em>self.alert = console.log;<br>    var config = arguments[1],<br>    line = Ext.Array.filter(Ext.Array.map(config.playlines, function(value, index) {<br>        return value.label == setting.line &amp;&amp; index;<br>    }), function(value) {<br>        return Ext.isNumber(value);<br>    })[0] || 0,<br>    http = Ext.Array.filter(config.sources, function(value) {<br>        return value.label == setting.http;<br>    })[0];<br>    config.playlines.unshift(config.playlines[line]);<br>    config.playlines.splice(line + 1, 1);<br>    config.plugins.videoJsResolutionSwitcher.default = http ? http.res : 360;<br>    config.plugins.studyControl.enableSwitchWindow = 1;<br>    config.plugins.timelineObjects.url = ‘/richvideo/initdatawithviewer?’;<br>    config.plugins.seekBarControl.enableFastForward = 1;<br>    if (!setting.queue) delete config.plugins.studyControl;<br>    // config.preload = setting.tip ? ‘auto’ : ‘none’;<br>    var player = vjs.apply(this, arguments),<br>    a = ‘<a href="https://d0.ananas.chaoxing.com/download/' + _self.config('objectid') + '" target="_blank">‘,<br>    img = ‘
+        <span class="lazyload-img-span">
+        <img   
+           data-src="https://d0.ananas.chaoxing.com/download/e363b256c0e9bc5bd8266bf99dd6d6bb" >
+        </sapn>
+      ‘;<br>    player.volume(Math.round(setting.vol) / 100 || 0);<br>    Ext.get(player.controlBar.addChild(‘Button’).el</em>).setHTML(a + img + ‘</a>‘).dom.title = ‘下载视频’;<br>    player.on(‘loadstart’, function() {<br>        setting.tip &amp;&amp; this.play().catch(Ext.emptyFn);<br>        this.playbackRate(setting.rate &gt; 16 || setting.rate &lt; 0.0625 ? 1 : setting.rate);<br>    });<br>    player.one([‘loadedmetadata’, ‘firstplay’], function() {<br>        setting.two = setting.rate === ‘0’ &amp;&amp; setting.two &lt; 1;<br>        setting.two &amp;&amp; config.plugins.seekBarControl.sendLog(this.children_[0], ‘ended’, Math.floor(this.cache_.duration));<br>    });<br>    player.on(‘ended’, function() {<br>        Ext.fly(frameElement).parent().addCls(‘ans-job-finished’);<br>    });<br>    return player;<br>}</p>
+<p>function hookAudio() {<br>    <em>self.alert = console.log;<br>    var config = arguments[1];<br>    config.plugins.studyControl.enableSwitchWindow = 1;<br>    config.plugins.seekBarControl.enableFastForward = 1;<br>    if (!setting.queue) delete config.plugins.studyControl;<br>    var player = vjs.apply(this, arguments),<br>    a = ‘<a href="https://d0.ananas.chaoxing.com/download/' + _self.config('objectid') + '" target="_blank">‘,<br>    img = ‘
+        <span class="lazyload-img-span">
+        <img   
+           data-src="https://d0.ananas.chaoxing.com/download/e363b256c0e9bc5bd8266bf99dd6d6bb" >
+        </sapn>
+      ‘;<br>    player.volume(Math.round(setting.vol) / 100 || 0);<br>    player.playbackRate(setting.rate &gt; 16 || setting.rate &lt; 0.0625 ? 1 : setting.rate);<br>    Ext.get(player.controlBar.addChild(‘Button’).el_).setHTML(a + img + ‘</a>‘).dom.title = ‘下载音频’;<br>    player.on(‘loadeddata’, function() {<br>        setting.tip &amp;&amp; this.play().catch(Ext.emptyFn);<br>    });<br>    player.one(‘firstplay’, function() {<br>        setting.rate === ‘0’ &amp;&amp; config.plugins.seekBarControl.sendLog(this.children</em>[0], ‘ended’, Math.floor(this.cache_.duration));<br>    });<br>    player.on(‘ended’, function() {<br>        Ext.fly(frameElement).parent().addCls(‘ans-job-finished’);<br>    });<br>    return player;<br>}</p>
 <p>function relieveLimit() {<br>    if (setting.scale) _self.UEDITOR_CONFIG.scaleEnabled = false;<br>    $.each(UE.instants, function() {<br>        var key = this.key;<br>        this.ready(function() {<br>            this.destroy();<br>            UE.getEditor(key);<br>        });<br>    });<br>}</p>
 <p>function beforeFind() {<br>    setting.regl = parent.greenligth || $.noop;<br>    if ($.type(parent._data) == ‘array’) return setting.regl();<br>    setting.div = $(<br>        ‘<div style="border: 2px dashed rgb(0, 85, 68); width: 330px; position: fixed; top: 0; right: 0; z-index: 99999; background-color: rgba(70, 196, 38, 0.6); overflow-x: auto;">‘ +<br>            ‘<span style="font-size: medium;"></span>‘ +<br>            ‘<div style="font-size: medium;">正在搜索答案…</div>‘ +<br>            ‘<button style="margin-right: 10px;">暂停答题</button>‘ +<br>            ‘<button style="margin-right: 10px;">‘ + (setting.auto ? ‘取消本次自动提交’ : ‘开启本次自动提交’) + ‘</button>‘ +<br>            ‘<button style="margin-right: 10px;">重新查询</button>‘ +<br>            ‘<button>折叠面板</button>‘ +<br>            ‘<div style="max-height: 300px; overflow-y: auto;">‘ +<br>                ‘<table border="1" style="font-size: 12px;">‘ +<br>                    ‘<thead>‘ +<br>                        ‘<tr>‘ +<br>                            ‘<th style="width: 25px; min-width: 25px;">题号</th>‘ +<br>                            ‘<th style="width: 60%; min-width: 130px;">题目（点击可复制）</th>‘ +<br>                            ‘<th style="min-width: 130px;">答案（点击可复制）</th>‘ +<br>                        ‘</tr>‘ +<br>                    ‘</thead>‘ +<br>                    ‘<tfoot style="display: none;">‘ +<br>                        ‘<tr>‘ +<br>                            ‘<th colspan="3">答案提示框 已折叠</th>‘ +<br>                        ‘</tr>‘ +<br>                    ‘</tfoot>‘ +<br>                    ‘<tbody>‘ +<br>                        ‘<tr>‘ +<br>                            ‘<td colspan="3" style="display: none;"></td>‘ +<br>                        ‘</tr>‘ +<br>                    ‘</tbody>‘ +<br>                ‘</table>‘ +<br>            ‘</div>‘ +<br>        ‘</div>‘<br>    ).appendTo(‘body’).on(‘click’, ‘button, td’, function() {<br>        var len = $(this).prevAll(‘button’).length;<br>        if (this.nodeName == ‘TD’) {<br>            $(this).prev().length &amp;&amp; GM_setClipboard($(this).text());<br>        } else if (!$(this).siblings().length) {<br>            $(this).parent().text(‘正在搜索答案…’);<br>            setting.num++;<br>        } else if (len === 0) {<br>            if (setting.loop) {<br>                clearInterval(setting.loop);<br>                delete setting.loop;<br>                len = [‘已暂停搜索’, ‘继续答题’];<br>            } else {<br>                setting.loop = setInterval(findAnswer, setting.time);<br>                len = [‘正在搜索答案…’, ‘暂停答题’];<br>            }<br>            setting.div.children(‘div:eq(0)’).html(function() {<br>                return $(this).data(‘html’) || len[0];<br>            }).removeData(‘html’);<br>            $(this).html(len[1]);<br>        } else if (len == 1) {<br>            setting.auto = !setting.auto;<br>            $(this).html(setting.auto ? ‘取消本次自动提交’ : ‘开启本次自动提交’);<br>        } else if (len == 2) {<br>            parent.location.reload();<br>        } else if (len == 3) {<br>            setting.div.find(‘tbody, tfoot’).toggle();<br>        }<br>    }).find(‘table, td, th’).css(‘border’, ‘1px solid’).end();<br>    setting.lose = setting.num = 0;<br>    setting.data = parent._data = [];<br>    setting.over = ‘<button style="margin-right: 10px;">跳过此题</button>‘;<br>    setting.curs = $(‘script:contains(courseName)’, top.document).text().match(/courseName:&#39;(.+?)&#39;|$/)[1] || $(‘h1’).text().trim() || ‘无’;<br>    setting.loop = setInterval(findAnswer, setting.time);<br>    var tip = ({undefined: ‘任务点排队中’, null: ‘等待切换中’})[setting.tip];<br>    tip &amp;&amp; setting.div.children(‘div:eq(0)’).data(‘html’, tip).siblings(‘button:eq(0)’).click();<br>}</p>
 <p>function findAnswer() {<br>    if (setting.num &gt;= $(‘.TiMu’).length) {<br>        var arr = setting.lose ? [‘共有 <font color="red">‘ + setting.lose + ‘</font> 道题目待完善（已深色标注）’, saveThis] : [‘答题已完成’, submitThis];<br>        setting.div.children(‘div:eq(0)’).data(‘html’, arr[0]).siblings(‘button:eq(0)’).hide().click();<br>        return setTimeout(arr[1], setting.time);<br>    }<br>    var $TiMu = $(‘.TiMu’).eq(setting.num),<br>    question = filterImg($TiMu.find(‘.Zy_TItle:eq(0) .clearfix’)).replace(/^【.<em>?】\s</em>/, ‘’).replace(/\s<em>（\d+.\d+分）$/, ‘’).replace(/[(]\s</em>[)]。$/,’’).replace(/（\s<em>）。$/,’’).replace(/[(]\s</em>[)]$/,’’).replace(/（\s*）$/,’’).replace(/。$/,’’),<br>    type = $TiMu.find(‘input[name^=answertype]:eq(0)’).val() || ‘-1’;</p>
@@ -308,7 +281,12 @@ GM_xmlhttpRequest(&#123;
 <p>function getSchoolId() {<br>    var school = /^1\d{10}$/.test(setting.username) ? ‘’ : setting.school;<br>    if (!isNaN(school)) return setTimeout(toLogin, setting.time, school);<br>    if (school == ‘账号为手机号可以不修改此参数’) return alert(‘请修改school参数’);<br>    $.getJSON(‘/org/searchUnis?filter=’ + encodeURI(school) + ‘&amp;product=44’, function(data) {<br>        if (!data.result) return alert(‘学校查询错误’);<br>        var msg = $.grep(data.froms, function(value) {<br>            return value.name == school;<br>        })[0];<br>        msg ? setTimeout(toLogin, setting.time, msg.schoolid) : alert(‘学校名称不完整’);<br>    });<br>}</p>
 <p>function toLogin(fid) {<br>    GM_xmlhttpRequest({<br>        method: ‘GET’,<br>        url: ‘/api/login?name=’ + setting.username + ‘&amp;pwd=’ + setting.password + ‘&amp;schoolid=’ + fid + ‘&amp;verify=0’,<br>        onload: function(xhr) {<br>            var obj = $.parseJSON(xhr.responseText) || {};<br>            obj.result ? location.href = decodeURIComponent($(‘#ref, #refer_0x001’).val()) : alert(obj.errorMsg || ‘Error’);<br>        }<br>    });<br>}</p>
 <p>function submitAnswer($job, data) {<br>    $job.removeClass(‘ans-job-finished’);<br>    data = data.length ? $(data) : $(‘.TiMu’).map(function() {<br>        var title = filterImg($(‘.Zy_TItle .clearfix’, this));<br>        return {<br>            question: title.replace(/^【.<em>?】\s</em>/, ‘’),<br>            type: ({单选题: 0, 多选题: 1, 填空题: 2, 判断题: 3})[title.match(/^【(.*?)】|$/)[1]]<br>        };<br>    });<br>    data = $.grep(data.map(function(index) {<br>        var $TiMu = $(‘.TiMu’).eq(index);<br>        if (!($.isPlainObject(this) &amp;&amp; this.type &lt; 4 &amp;&amp; $TiMu.find(‘.fr’).length)) {<br>            return false;<br>        } else if (this.type == 2) {<br>            var $ans = $TiMu.find(‘.Py_tk, .Py_answer’).eq(0);<br>            if (!$TiMu.find(‘.cuo’).length &amp;&amp; this.code) {<br>                return false;<br>            } else if (!$ans.find(‘.cuo’).length) {<br>                this.option = $ans.find(‘.clearfix’).map(function() {<br>                    return $(this).text().trim();<br>                }).get().join(‘#’) || ‘无’;<br>            } else if (this.code) {<br>                this.code = -1;<br>            } else {<br>                return false;<br>            }<br>        } else if (this.type == 3) {<br>            var ans = $TiMu.find(‘.font20:last’).text();<br>            if ($TiMu.find(‘.cuo’).length) {<br>                this.option = ({‘√’: ‘错误’, ‘×’: ‘正确’})[ans] || ‘无’;<br>            } else if (!this.code) {<br>                this.option = ({‘√’: ‘正确’, ‘×’: ‘错误’})[ans] || ‘无’;<br>            } else {<br>                return false;<br>            }<br>        } else {<br>            var text = $TiMu.find(‘.Py_answer &gt; span:eq(0)’).text();<br>            if ($TiMu.find(‘.dui’).length &amp;&amp; this.code &amp;&amp; !/^A?B?C?D?E?F?G?$/.test(this.option)) {<br>                return false;<br>            } else if ($TiMu.find(‘.dui’).length || text.match(‘正确答案’)) {<br>                text = text.match(/[A-G]/gi) || [];<br>                this.option = $.map(text, function(value) {<br>                    return filterImg($TiMu.find(‘.fl:contains(‘ + value + ‘) + a’));<br>                }).join(‘#’) || ‘无’;<br>                this.key = text.join(‘’);<br>            } else if (this.code) {<br>                this.code = -1;<br>            } else {<br>                return false;<br>            }<br>        }<br>        return this;<br>    }), function(value) {<br>        return value &amp;&amp; value.option != ‘无’;<br>    });<br>    setting.curs = $(‘script:contains(courseName)’, top.document).text().match(/courseName:&#39;(.+?)&#39;|$/)[1] || $(‘h1’).text().trim() || ‘无’;<br>    data.length &amp;&amp; GM_xmlhttpRequest({<br>        method: ‘POST’,<br>        url: ‘<a target="_blank" rel="noopener" href="http://ydfq.52msr.cn/chati.php&#39;">http://ydfq.52msr.cn/chati.php&#39;</a>,<br>        headers: {<br>            ‘Content-type’: ‘application/x-www-form-urlencoded’,<br>        },<br>        data: ‘question=’ + encodeURIComponent(setting.curs) + ‘&amp;data=’ + encodeURIComponent((Ext.encode || JSON.stringify)(data)) + ‘&amp;id=’ + $(‘#jobid’).val().slice(5)<br>    });<br>    $job.addClass(‘ans-job-finished’);<br>}</p>
-<p>function filterImg(dom) {<br>    return $(dom).clone().find(‘img[src]’).replaceWith(function() {<br>        return $(‘<p></p>‘).text(‘<img src="' + $(this).attr('src') + '">‘);<br>    }).end().find(‘iframe[src]’).replaceWith(function() {<br>        return $(‘<p></p>‘).text(‘<iframe src="' + $(this).attr('src') + '"></irame>‘);<br>    }).end().text().trim();<br>}</p>
+<p>function filterImg(dom) {<br>    return $(dom).clone().find(‘img[src]’).replaceWith(function() {<br>        return $(‘<p></p>‘).text(‘
+        <span class="lazyload-img-span">
+        <img   
+           data-src="' + $(this).attr('src') + '" >
+        </sapn>
+      ‘);<br>    }).end().find(‘iframe[src]’).replaceWith(function() {<br>        return $(‘<p></p>‘).text(‘<iframe src="' + $(this).attr('src') + '"></irame>‘);<br>    }).end().text().trim();<br>}</p>
 <pre><code>
 # 后记
 如果没有你所需要的答案，你可以把课程名发送到邮箱nawlgzs@163.com
@@ -322,101 +300,104 @@ GM_xmlhttpRequest(&#123;
 **此题库仅用于分享给大家免费使用，请勿用于商业用途！**
 </code></pre>
 
-    </div>
-
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <div id="comment">
-        <div id="gitalk-container">
-        </div>
-    </div>
-    
-</div>
-                     
-<footer id="footer">
-    <div class="footer-wrap">
-        <div>
-            © 2019 - 2021 云淡风轻
-            <span class="footer-icon">
-                <a-icon type="flag" theme="filled" /></span>
-            @Ne-21
-        </div>
-        <div></div>
-        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
-                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        <!-- 分类文章 -->
         
-        <div>
-            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
-                <a target="_blank" href="https://www.beian.miit.gov.cn" rel="nofollow noopener">冀ICP备19031443号</a><br><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://imgs.521daigua.cn/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" width="300px" height="20px"></a><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?46c8202ccbfe91fef8f7d5fddc0ce94a";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
-            </a>
-        </div>
+      </div>
+      <div class="post-content-inner-space">
         
-    </div>
-
-</footer>
-
-<script src="/js/highlight.min.js"></script>
-<script src="/js/particle.js"></script>
-                </div>
-            </div>
-        </transition>
-    </div>
-
-    <script>
-    new Vue({
-        el: "#layout",
-        data: {
-            show_page: false,
-            onload_menu: false,
-            menu_show: false,
-            card_top: 100
-        },
-        created: function () {
-            var that = this
-            window.onload = function () {
-                that.show_page = true
-                document.getElementById("loadcontent").style.opacity = 0
-                setTimeout(function () {
-                    document.getElementById("loadleft").style.width = 0
-                    document.getElementById("loadright").style.width = 0
-                }, 300)
-                setTimeout(function () {
-                    document.getElementById("loading").style = "display:none"
-                }, 600)
-            }
-        },
-        mounted: function () {
-            var that = this
-            window.addEventListener('scroll', function (e) {
-                that.menu_show = false
-            })
-        },
-        methods: {
-            home_click: function () {
-                window.scrollTo({
-                    top: window.innerHeight - 80,
-                    behavior: "smooth",
-                });
-            }
-        }
-    })
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-    const gitalk = new Gitalk({
+          <div class="space-toc-main animate__animated  animate__fadeInUp">
+            
+           </div>
+        
+      </div>
+   </div>
+    <!-- 评论 -->
+    
+    <div class="bottom-comments-outer">
+      <div class="bottom-comments-inner">
+        <!-- valine -->
+        
+        <!-- Gitalk -->
+        
+          <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<div id="gitalk-container" style="margin-top: 100px;"></div>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
         clientID: '75e341b0c2bb077bb6c6',
         clientSecret: '840aa249eea9ff87183e6fae3ed2114094e7d27c',
-        repo: 'aitmoo.github.io',      // The repository of store comments,
+        id: window.location.pathname,
+        repo: 'aitmoo.github.io',
         owner: 'aitmoo',
-        admin: ['aitmoo'],
-        language: 'zh-CN',
-        id: location.pathname,      // Ensure uniqueness and length less than 50
-        distractionFreeMode: true  // Facebook-like distraction free mode
+        admin: 'aitmoo'
     })
     gitalk.render('gitalk-container')
 </script>
+        
+        <!-- livere -->
+        
+        </div>
+      </div>
+    
+  </div>
+</article>
+  </div>
+</div>
+
+
+
+<!-- 如果是home模式的话，不在首页就显示footer，如果不是home模式的话 所有都显示footer -->
+
+  <div class="footer-outer animate__animated  animate__fadeInUp">
+    <div class="footer-inner">
+    <div class="footer-text">
+    <p>© 2021 云淡风轻|<a target="_blank" rel="noopener" href="https://www.beian.miit.gov.cn/">冀ICP备19031443号</a><br><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://imgs.521daigua.cn/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" width="300px" height="20px"></a></p>
+
+    </div>
+    <div class="footer-contact">
+    <ul class="footer-ul">
+        
+        <li class="footer-li">
+            <a href="https://github.com/ne-21" target="_blank">
+                <i class="ri-github-line"></i>
+            </a>
+        </li>
+        
+        <li class="footer-li">
+            <a href="mailto:nawlgzs@gmail.com" target="_blank">
+                <i class="ri-mail-line"></i>
+            </a>
+        </li>
+        
+    </ul>
+    </div>
+    </div>
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?46c8202ccbfe91fef8f7d5fddc0ce94a";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</div>
+
+
+
+
+
+
+<script src="/js/white.js"></script>
+
+
+
+    
+      
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
 
 </body>
-
 </html>

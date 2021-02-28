@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>基于Valine云引擎+Qmsg酱实现博客评论推送</title>
+      <link href="2021/02/68.html"/>
+      <url>2021/02/68.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>最近给blog加了Valine评论系统，发现不能实现评论的主动推送，所以今天就找到一篇利用Qmsg进行推送的文章，分享一下</p></blockquote><p><strong>原文链接：<a href="https://blog.csdn.net/u013817026/article/details/111167377">https://blog.csdn.net/u013817026/article/details/111167377</a></strong></p><h1 id="认领一只Qmsg酱"><a href="#认领一只Qmsg酱" class="headerlink" title="认领一只Qmsg酱"></a>认领一只Qmsg酱</h1><ul><li><p>打开Qmsg酱官网,可以选择QQ登陆</p><pre><code>点击这里➡ [Qmsg酱官网](https://qmsg.zendee.cn/)</code></pre></li><li><p>选择你中意的Qmsg酱并且添加她为QQ好友</p></li></ul><p>        <span class="lazyload-img-span">        <img              data-src="https://pic.521daigua.cn/2021/02/28/4abb1853c79e2.png" >        </sapn>      </p><ul><li><p>添加你要接收推送的QQ号码<br>在选择Qmsg酱的旁边菜单添加，描述随意。</p></li><li><p>拼接你的接口地址<br>点击最右边的KEY，可以看到一长串字符，复制下来备用：</p></li></ul><p>        <span class="lazyload-img-span">        <img              data-src="https://pic.521daigua.cn/2021/02/28/d348b93e81f68.png" >        </sapn>      </p><ul><li>测试你的Qmsg是否认领成功<br>点击文档，查看接口地址,复制下来，把你的KEY粘贴在最后：</li></ul><p>        <span class="lazyload-img-span">        <img              data-src="https://pic.521daigua.cn/2021/02/28/7a3dda4363871.png" >        </sapn>      </p><p>然后将接口地址粘贴到浏览器地址栏，在末尾加上?msg= ，在等于后面随便输入文字，回车，如果成功你会看到Qmsg酱给你发来的消息：</p><p>        <span class="lazyload-img-span">        <img              data-src="https://pic.521daigua.cn/2021/02/28/af24d52a2fa2d.png" >        </sapn>      </p><h1 id="在Leancloud创建应用"><a href="#在Leancloud创建应用" class="headerlink" title="在Leancloud创建应用"></a>在Leancloud创建应用</h1><p>相信你有一个应用服务于valine的应用了，如果没有请参考Valine的文档</p><p>Valine作者文档： <a href="https://valine.js.org/quickstart.html">Valine快速开始</a></p><p><strong>通过云引擎部署项目</strong></p><ul><li>在云引擎部署<br>在Git部署的地址栏里输入这个仓库地址，然后点击部署：</li></ul><p><code>https://github.com/W4J1e/Hexo-Valine-ASPush</code></p><p>        <span class="lazyload-img-span">        <img              data-src="https://pic.521daigua.cn/2021/02/28/bbd418d00b105.png" >        </sapn>      </p><ul><li>配置变量<br>最后记得保存（本文只谈Qmsg酱推送，其它如server酱、邮件推送和评论后台管理可以自行参考原作者的配置）：</li></ul><p>变量参数如下：</p><table><thead><tr><th align="center">变量名</th><th align="center">说明</th><th align="center">示例</th></tr></thead><tbody><tr><td align="center">SITE_NAME</td><td align="center">[必填]网站名称</td><td align="center">云淡风轻</td></tr><tr><td align="center">SITE_URL</td><td align="center">[必填] 博客地址，末尾不要加 /</td><td align="center"><a href="https://gocos.cn/">https://gocos.cn</a></td></tr><tr><td align="center">COMMENT</td><td align="center">[可选] 评论 div 的 ID 名，点击链接直接跳转到评论位置</td><td align="center">#post-comment</td></tr><tr><td align="center">QMSG_KEY</td><td align="center">[必填] Qmsg酱的KEY</td><td align="center">xxx</td></tr><tr><td align="center">QQ</td><td align="center">[必填] Qmsg酱发送的 qq，支持多个，用英文逗号分隔即可</td><td align="center">10001</td></tr></tbody></table><p>示例：</p><p>        <span class="lazyload-img-span">        <img              data-src="https://pic.521daigua.cn/2021/02/28/bda0dc849a10d.png" >        </sapn>      </p><ul><li><p>运行部署<br>点击左侧“部署”，在git部署下面再次点击部署。</p></li><li><p>测试推送<br>打开你的博客，用另一个身份发一条评论测试一下吧。</p><p>        <span class="lazyload-img-span">        <img              data-src="https://pic.521daigua.cn/2021/02/28/f10b6a6f3a045.png" >        </sapn>      </p></li></ul><p>注：前一条推送的评论使用了原版的推送模板，我已在源码中去除这些可能无法正确显示的表情，新版推送很简洁，以后修改与否视情况而定 。</p><h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>如果没有推送成功，请在leancloud中查看日志，并将报错内容反馈于我。</p><p>后续有时间了才能逐渐完善这份文档和代码仓库，毕竟打工人，不像蝶衣大佬一样可以休！产！假！<br>最后，感谢各位前辈们造的车轮！</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2020年我都经历了什么？</title>
       <link href="2021/02/67.html"/>
       <url>2021/02/67.html</url>
